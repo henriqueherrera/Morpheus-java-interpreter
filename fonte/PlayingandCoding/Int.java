@@ -12,6 +12,7 @@ public class Int extends Inteiros
 	//inicio do método verificacao
 	protected boolean verificacao(String str)
 	{
+		int negativo = 1;
 		Scanner input = new Scanner(System.in);
 			
 		String variavelId ="";
@@ -50,13 +51,17 @@ public class Int extends Inteiros
 				//laço de repetição que lê o inteiro a ser armazenado
 				for(int iii = pos; iii<str.length(); iii++)
 				{
+					if( (str.charAt(iii) == '-') && (variavelValue.length() == 0))
+					{
+						negativo = -1;
+					}
 					if ((48<= str.charAt(iii)) && (str.charAt(iii)  <=57))
 					{
 						variavelValue= variavelValue+""+str.charAt(iii);	
 					}
 				}
 				int value = this.ConvertStringParaInt(variavelValue);
-				this.setValue(value);
+				this.setValue(value*negativo);
 				this.setId(variavelId);
 				return true;
 			}
