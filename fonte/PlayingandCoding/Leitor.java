@@ -1,11 +1,15 @@
 import java.io.*;
 import java.util.Scanner;
 import java.lang.*;
+
 public class Leitor
 {
-	private String arquivo;
-	private Int inteiros = new Int();
 
+	private String arquivo; //Lê o arquivo para ser Interpretado
+
+	private Int inteiros = new Int(); 
+	
+	//Construtor
 	public Leitor(String arq)
 	{
 		this.setArquivo(arq);
@@ -24,6 +28,7 @@ public class Leitor
                         linha = buffRead.readLine();
                         if(linha !=  null)
                         {
+				//chama as funções aqui para armazenamento
 				if (linha.substring(0,3).equals("int"))
 				{
 					inteiros.verificador(linha);
