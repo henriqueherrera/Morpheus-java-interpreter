@@ -11,7 +11,7 @@ public class PlayingAndCoding
 		Leitor interpretador = new Leitor(args[0]);
 		
 		interpretador.reader();
-		
+			
 		System.out.println("Variaveis armazenadas "+Int.variaveisArmazenadas);
 	}
 	//fim do método main

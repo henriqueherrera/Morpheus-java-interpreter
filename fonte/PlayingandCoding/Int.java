@@ -55,15 +55,32 @@ public class Int extends Inteiros
 					{
 						negativo = -1;
 					}
+
+				
 					if ((48<= str.charAt(iii)) && (str.charAt(iii)  <=57))
 					{
 						variavelValue= variavelValue+""+str.charAt(iii);	
+					}
+
+					else if ( (str.charAt(iii)) != ';' && (str.charAt(iii) != ' '))
+					{
+						ErrosNaCompilacao.caractere = str.charAt(iii);
+
+						ErrosNaCompilacao.getLineError(2);
 					}
 				}
 				int value = this.ConvertStringParaInt(variavelValue);
 				this.setValue(value*negativo);
 				this.setId(variavelId);
-				return true;
+				if (variavelValue.length() == 0)
+				{
+					return false;
+				}
+				
+				else 
+				{
+					return true;
+				}
 			}
 		}
 		return false;
@@ -95,26 +112,18 @@ public class Int extends Inteiros
 	//inicio do método verificador
 	public void verificador(String lineText)
 	{
-		if( lineText.charAt(lineText.length()-1) == 59)
+		
+		if( verificacao(lineText))
 		{
-			if( verificacao(lineText))
-			{
-	 			this.armazenarValor();
-			}
+	 		this.armazenarValor();
 		}
+		
 		else
 		{
-			getLineError();
+			ErrosNaCompilacao.getLineError(1);
 		}
 	}
 	//fim do método verificador
 	
-	//inicio do método getLineError
-	public void getLineError()
-	{
-		int x = Int.leituraDaLinha;
-		System.out.println("Erro na linha "+x+1);
-	}
-	//fim do método getLineError
 }
 //fim da classe Int

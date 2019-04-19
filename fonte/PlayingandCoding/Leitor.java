@@ -28,11 +28,18 @@ public class Leitor
                         linha = buffRead.readLine();
                         if(linha !=  null)
                         {
-				//chama as funções aqui para armazenamento
-				if (linha.substring(0,3).equals("int"))
+				if (linha.charAt(linha.length()-1) == 59)
 				{
-					inteiros.verificador(linha);
-                                	//System.out.println(linha);
+					//chama as funções aqui para armazenamento
+					if (linha.substring(0,3).equals("int"))
+					{
+						inteiros.verificador(linha);
+                                		//System.out.println(linha);
+					}
+				}
+				else 
+				{
+					ErrosNaCompilacao.getLineError(0);
 				}
                         }
                         else
