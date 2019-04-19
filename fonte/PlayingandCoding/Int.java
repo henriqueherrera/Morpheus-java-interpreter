@@ -25,14 +25,22 @@ public class Int extends Inteiros
 		for( int i = 0; i< str.length()-1; i++)
 		{
 			
+			
 			if ( str.charAt(i)  == '=' )
 			{
 				pos = i+1; //marca onde vai começar a leitura dos números
 
 				for( int ii = 4; ii < i; ii++)
 				{
-					variavelId = variavelId+ ""+str.charAt(ii);
-					//System.out.println(variavelId);
+					if (str.charAt(ii) == ' ')
+					{
+						continue;
+					}
+					
+					else
+					{
+						variavelId = variavelId+ ""+str.charAt(ii);
+					}
 				}
 				verificacaoDoNomeVariavel =  true;
 
