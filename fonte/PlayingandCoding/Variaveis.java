@@ -10,8 +10,22 @@ public abstract class Variaveis extends Primitivos
 	public String variavelId ="";
 	public String variavelValue="";
 
+	//inicio do método TamanhoDaVariavelId
+	protected boolean tamanhoDaVariavelId()
+	{
+		if(this.getVariavelId().length() > 0)
+		{
+			return true;
+		}
+		else
+		{
+			ErrosNaCompilacao.getLineError(3);
+			return false;
+		}
+	}
+	//fim do método tamanhoDaVariavelId
+
 	//inicio do método setVariavelValue
-	
 	public void setVariavelValue(String vl)
 	{
 		this.variavelValue = vl;
@@ -72,6 +86,7 @@ public abstract class Variaveis extends Primitivos
 		
 		else
 		{
+			ErrosNaCompilacao.tipo = lineText.substring(0,4);
 			ErrosNaCompilacao.getLineError(1);
 		}
 	}

@@ -6,11 +6,14 @@ public class Leitor
 {
 
 	private String arquivo; //Lê o arquivo para ser Interpretado
-
+	
 	private Int inteiros = new Int();
-    	private Float floats = new Float(); // Instancia os floats? Comentário lixo
+    	
+	private Float floats = new Float(); // Instancia os floats? Comentário lixo
+	
 	private Char chars = new Char();
 
+	public static boolean laco = true;
 	//Construtor
 	public Leitor(String arq)
 	{
@@ -24,7 +27,7 @@ public class Leitor
 
                 String linha = "";
 
-                while(true)
+                while(laco)
                 {
 			
                         linha = buffRead.readLine();
@@ -54,12 +57,15 @@ public class Leitor
 				else 
 				{
 					ErrosNaCompilacao.getLineError(0);
+
 				}
+				ErrosNaCompilacao.numeroDaLinha+=1;
                         }
                         else
                         {
                                 break;
                         }
+
                 }
 
                 buffRead.close();

@@ -15,10 +15,6 @@ public class Int extends Variaveis
 	protected boolean verificacao(String str)
 	{
 		int negativo = 1;
-		Scanner input = new Scanner(System.in);
-			
-//		String variavelId ="";
-//		String variavelValue = "";
 		
 		boolean verificacaoDoNomeVariavel = false;
 		
@@ -45,7 +41,9 @@ public class Int extends Variaveis
 						setVariavelId(getVariavelId()+ ""+str.charAt(ii));
 					}
 				}
-				verificacaoDoNomeVariavel =  true;
+		
+				
+				verificacaoDoNomeVariavel =  tamanhoDaVariavelId();
 
 			}
 			else if( verificacaoDoNomeVariavel ) //quando a verificação do nome da váriavel é realizada ela passa por essa condicional

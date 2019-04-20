@@ -147,7 +147,8 @@ public class Float extends Floats
 		
 		else
 		{
-			ErrosNaCompilacao.getLineError(1);
+			
+			//ErrosNaCompilacao.getLineError(1);
 		}
 	}
 	//fim do método verificador

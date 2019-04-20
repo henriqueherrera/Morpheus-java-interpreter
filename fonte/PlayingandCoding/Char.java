@@ -1,9 +1,8 @@
-
 import java.util.HashMap;
 import java.lang.*;
 import java.util.Scanner;
 
-//inicio da classe Int
+//inicio da classe Char
 public class Char extends Variaveis
 {
 	//dicionario que armazena as váriaveis criadas
@@ -44,7 +43,7 @@ public class Char extends Variaveis
 					}
 				}
 				
-				verificacaoDoNomeVariavel =  true;
+				verificacaoDoNomeVariavel =  tamanhoDaVariavelId();
 
 			}
 			else if( verificacaoDoNomeVariavel ) //quando a verificação do nome da váriavel é realizada ela passa por essa condicional
