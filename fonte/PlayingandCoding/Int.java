@@ -3,20 +3,22 @@ import java.lang.*;
 import java.util.Scanner;
 
 //inicio da classe Int
-public class Int extends Inteiros
+public class Int extends Variaveis
 {
 	//dicionario que armazena as váriaveis criadas
 	public static int leituraDaLinha;
 	public static HashMap< String,Integer> variaveisArmazenadas = new HashMap<String, Integer>();
 	
 	//inicio do método verificacao
+	
+	@Override
 	protected boolean verificacao(String str)
 	{
 		int negativo = 1;
 		Scanner input = new Scanner(System.in);
 			
-		String variavelId ="";
-		String variavelValue = "";
+//		String variavelId ="";
+//		String variavelValue = "";
 		
 		boolean verificacaoDoNomeVariavel = false;
 		
@@ -40,7 +42,7 @@ public class Int extends Inteiros
 					
 					else
 					{
-						variavelId = variavelId+ ""+str.charAt(ii);
+						setVariavelId(getVariavelId()+ ""+str.charAt(ii));
 					}
 				}
 				verificacaoDoNomeVariavel =  true;
@@ -51,7 +53,7 @@ public class Int extends Inteiros
 				//laço de repetição que lê o inteiro a ser armazenado
 				for(int iii = pos; iii<str.length(); iii++)
 				{
-					if( (str.charAt(iii) == '-') && (variavelValue.length() == 0))
+					if( (str.charAt(iii) == '-') && (getVariavelValue().length() == 0))
 					{
 						negativo = -1;
 					}
@@ -59,7 +61,7 @@ public class Int extends Inteiros
 				
 					if ((48<= str.charAt(iii)) && (str.charAt(iii)  <=57))
 					{
-						variavelValue= variavelValue+""+str.charAt(iii);	
+						setVariavelValue(getVariavelValue()+""+str.charAt(iii));	
 					}
 
 					else if ( (str.charAt(iii)) != ';' && (str.charAt(iii) != ' '))
@@ -69,10 +71,10 @@ public class Int extends Inteiros
 						ErrosNaCompilacao.getLineError(2);
 					}
 				}
-				int value = this.ConvertStringParaInt(variavelValue);
-				this.setValue(value*negativo);
-				this.setId(variavelId);
-				if (variavelValue.length() == 0)
+				int value = this.ConvertStringParaInt(getVariavelValue());
+				setIntId(getVariavelId());
+				setIntValue(value);
+				if (getVariavelValue().length() == 0)
 				{
 					return false;
 				}
@@ -87,43 +89,12 @@ public class Int extends Inteiros
 	}
 	//fim do método verificador
 
-	//inicio do método ConvertStringParaInt
-	private int ConvertStringParaInt(String str)
-	{
-		int aux = 0, value = 0, count = 0;
-		
-		for( int i = str.length()-1; i>= 0; i--)
-		{
-			aux = Integer.parseInt(String.valueOf(str.charAt(i)));//converter para string
-                        value+= aux*Math.pow(10,count);
-                        count++;
-         	}
-		return value;
-	}
-	//fim do método ConvertStringParaInt
-
 	//inicio do método armazenarValor
+	@Override
 	protected void armazenarValor ()
 	{
-		this.variaveisArmazenadas.put(this.getId(), this.getValue());
+		variaveisArmazenadas.put(getIntId(), getIntValue());
 	}
 	//fim do método armazenarValor
-	
-	//inicio do método verificador
-	public void verificador(String lineText)
-	{
-		
-		if( verificacao(lineText))
-		{
-	 		this.armazenarValor();
-		}
-		
-		else
-		{
-			ErrosNaCompilacao.getLineError(1);
-		}
-	}
-	//fim do método verificador
-	
 }
 //fim da classe Int

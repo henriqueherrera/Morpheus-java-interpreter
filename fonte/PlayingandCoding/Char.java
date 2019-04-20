@@ -4,13 +4,14 @@ import java.lang.*;
 import java.util.Scanner;
 
 //inicio da classe Int
-public class Char extends Chars
+public class Char extends Variaveis
 {
 	//dicionario que armazena as váriaveis criadas
 	public static int leituraDaLinha;
 	public static HashMap< String,Character> variaveisArmazenadas = new HashMap<String, Character>();
 	
 	//inicio do método verificacao
+	@Override
 	protected boolean verificacao(String str)
 	{
 		
@@ -39,7 +40,7 @@ public class Char extends Chars
 					
 					else
 					{
-						variavelId = variavelId+ ""+str.charAt(ii);
+						setVariavelId(getVariavelId()+ ""+str.charAt(ii));
 					}
 				}
 				
@@ -58,15 +59,16 @@ public class Char extends Chars
 						{
 						
 							this.setCharValue(str.charAt(iii));
-							variavelValue = ""+this.getCharValue();
+							setVariavelValue(""+this.getCharValue());
 							break;
 						}
 					}
 
 				}
 				
-				this.setCharId(variavelId);
-				if (variavelValue.length() == 0)
+				this.setCharId(getVariavelId());
+				
+				if (getVariavelValue().length() == 0)
 				{
 					return false;
 				}
@@ -80,44 +82,14 @@ public class Char extends Chars
 		return false;
 	}
 	//fim do método verificador
-
-	//inicio do método ConvertStringParaInt
-	private int ConvertStringParaInt(String str)
-	{
-		int aux = 0, value = 0, count = 0;
-		
-		for( int i = str.length()-1; i>= 0; i--)
-		{
-			aux = Integer.parseInt(String.valueOf(str.charAt(i)));//converter para string
-                        value+= aux*Math.pow(10,count);
-                        count++;
-         	}
-		return value;
-	}
-	//fim do método ConvertStringParaInt
-
+	
 	//inicio do método armazenarValor
+	@Override
 	protected void armazenarValor ()
 	{
-		this.variaveisArmazenadas.put(this.getCharId(), this.getCharValue());
+		variaveisArmazenadas.put(this.getCharId(), this.getCharValue());
 	}
 	//fim do método armazenarValor
-	
-	//inicio do método verificador
-	public void verificador(String lineText)
-	{
-		
-		if( verificacao(lineText))
-		{
-	 		this.armazenarValor();
-		}
-		
-		else
-		{
-			ErrosNaCompilacao.getLineError(1);
-		}
-	}
-	//fim do método verificador
-	
 }
-//fim da classe Int
+
+//fim da classe Char
