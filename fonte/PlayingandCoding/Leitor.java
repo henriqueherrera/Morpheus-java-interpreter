@@ -7,7 +7,8 @@ public class Leitor
 
 	private String arquivo; //Lê o arquivo para ser Interpretado
 
-	private Int inteiros = new Int(); 
+	private Int inteiros = new Int();
+    private Float floats = new Float(); // Instancia os floats? Comentário lixo
 	
 	//Construtor
 	public Leitor(String arq)
@@ -34,6 +35,12 @@ public class Leitor
 					if (linha.substring(0,3).equals("int"))
 					{
 						inteiros.verificador(linha);
+                                		//System.out.println(linha);
+					}
+                    //se encontrar float no inicio da linha, chama o verificador de floats
+                    else if (linha.substring(0,5).equals("float"))
+					{
+						floats.verificador(linha);
                                 		//System.out.println(linha);
 					}
 				}

@@ -12,7 +12,8 @@ public class PlayingAndCoding
 		
 		interpretador.reader();
 			
-		System.out.println("Variaveis armazenadas "+Int.variaveisArmazenadas);
+		System.out.println("Ints armazenados "+Int.variaveisArmazenadas);
+        System.out.println("Floats armazenados "+Float.variaveisArmazenadas);
 	}
 	//fim do método main
 }
