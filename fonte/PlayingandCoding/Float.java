@@ -31,7 +31,7 @@ public class Float extends Floats
 			{
 				pos = i+1; //marca onde vai começar a leitura dos números
 
-				for( int ii = 4; ii < i; ii++)
+				for( int ii = 6; ii < i; ii++)
 				{
 					if (str.charAt(ii) == ' ')
 					{
