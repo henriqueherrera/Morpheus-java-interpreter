@@ -8,7 +8,7 @@ public class Bool extends Variaveis
 	public static int leituraDaLinha;
 	public static HashMap<String, Boolean> variaveisArmazenadas = new HashMap<String, Boolean>(); 
 
-	//inivio do método verificacao
+	//inicio do método verificacao
 	@Override
 	protected boolean verificacao(String str)
 	{
@@ -53,23 +53,33 @@ public class Bool extends Variaveis
 
 				setBoolId(getVariavelId());
 				setBoolValue(Boolean.valueOf(this.getVariavelValue()));
+
+				
 				if(this.getVariavelId().length() == 0)
 				{
 					return false;
 				}
-				else
+
+				else if ( (this.getVariavelValue().equals("true")) || (this.getVariavelValue().equals("false")))
 				{
 					return true;
+				}
+				else
+				{
+					return false;
 				}
 			}
 		}
 		return false;
 		
-	}	
+	}
+	//fim do método verificacao
+
+	//inicio do método armazenarValor
 	@Override
 	protected void armazenarValor()
-	{
-		System.out.println(this.getVariavelId());
+	{	
 		variaveisArmazenadas.put(this.getBoolId(), this.getBoolValue());
 	}
+	//fim do método armazenarValor
 }
