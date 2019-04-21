@@ -6,7 +6,8 @@ public class Leitor
 {
 
 	private String arquivo; //Lê o arquivo para ser Interpretado
-	
+
+	private Bool bool = new Bool();
 	private Int inteiros = new Int();
     	
 	private Float floats = new Float(); // Instancia os floats? Comentário lixo
@@ -52,6 +53,11 @@ public class Leitor
 					{
 
 						chars.verificador(linha);
+					}
+
+					else if (linha.substring(0,4).equals("bool"))
+					{
+						bool.verificador(linha);
 					}
 				}
 				else 

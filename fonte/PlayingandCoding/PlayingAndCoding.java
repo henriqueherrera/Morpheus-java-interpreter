@@ -15,6 +15,7 @@ public class PlayingAndCoding
 		System.out.println("Ints armazenados "+Int.variaveisArmazenadas);
         	System.out.println("Floats armazenados "+Float.variaveisArmazenadas);
         	System.out.println("Chars armazenados "+Char.variaveisArmazenadas);
+		System.out.println("Boolean"+Bool.variaveisArmazenadas);
 	}
 	//fim do método main
 }

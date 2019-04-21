@@ -10,6 +10,37 @@ public abstract class Primitivos
 	protected String floatId;
 	protected double floatValue;
 	
+	protected String boolId;
+	protected boolean boolValue;
+
+	//inicio do método setBoolValue
+	protected void setBoolValue(boolean v)
+	{
+		this.boolValue = v;
+	}
+	//fim do método setBoolValue
+	
+	//inicio do método getBoolValue
+	protected boolean getBoolValue()
+	{
+		return this.boolValue;
+	}
+	//fim do método getBoolValue
+
+	//inicio do método setBoolId
+	protected void setBoolId( String str)
+	{
+		this.boolId = str;
+	}
+	//fim do método setBoolId
+
+	//inicio do método getBoolId
+	protected String getBoolId()
+	{
+		return this.boolId;
+	}
+	//fim do método getBoolId
+
 	//inicio do método setCharValue
 	protected void setCharValue(char c)
 	{

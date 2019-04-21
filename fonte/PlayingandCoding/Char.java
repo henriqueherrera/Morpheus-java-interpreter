@@ -12,11 +12,7 @@ public class Char extends Variaveis
 	//inicio do método verificacao
 	@Override
 	protected boolean verificacao(String str)
-	{
-		
-		String variavelId ="";
-		String variavelValue = "";
-		
+	{		
 		boolean verificacaoDoNomeVariavel = false;
 		
 		int pos=0;
