@@ -24,7 +24,7 @@ public class Char extends Variaveis
 			
 			if ( str.charAt(i)  == '=' )
 			{
-				pos = i+1; //marca onde vai começar a leitura dos números
+				pos = i+1; //marca onde vai começar a leitura do char
 
 				for( int ii = 4; ii < i; ii++)
 				{
@@ -44,16 +44,16 @@ public class Char extends Variaveis
 			}
 			else if( verificacaoDoNomeVariavel ) //quando a verificação do nome da váriavel é realizada ela passa por essa condicional
 			{
-				//laço de repetição que lê o inteiro a ser armazenado
+				//laço de repetição que lê o char a ser armazenado
 				for(int iii = pos; iii<str.length(); iii++)
 				{
-					if ( (str.charAt(iii) == 34) && !(iii+2 == str.length()-1))
+					if ( (str.charAt(iii) == 39) && !(iii+2 == str.length()-1))
 					{
 
-						if(str.charAt(iii+2) == 34)
+						if(str.charAt(iii+2) == 39)
 						{
 						
-							this.setCharValue(str.charAt(iii));
+							this.setCharValue(str.charAt(iii+1));
 							setVariavelValue(""+this.getCharValue());
 							break;
 						}
