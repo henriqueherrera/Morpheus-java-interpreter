@@ -59,15 +59,15 @@ public abstract class Variaveis extends Primitivos
 	//inicio do método ConvertStringParaInt
 	protected int ConvertStringParaInt(String str)
 	{
-		int aux = 0, value = 0, count = 0;
+		int aux = 0,base10 = 1, value  = 0;
 		
 		for( int i = str.length()-1; i>= 0; i--)
 		{
 			aux = Integer.parseInt(String.valueOf(str.charAt(i)));//converter para string
-                        value+= aux*Math.pow(10,count);
-                        count++;
-         	}
-		return value;
+			value+= aux*base10;
+			base10*=10;
+                }
+		return (int)value;
 	}
 	//fim do método ConvertStringParaInt
 
