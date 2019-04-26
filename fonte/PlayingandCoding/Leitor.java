@@ -15,6 +15,7 @@ public class Leitor
 	
 	private Char chars;
 
+	private Comparadores troca = new Comparadores();
 	public static boolean laco = true;
 	//Construtor
 	public Leitor(String arq)
@@ -62,6 +63,10 @@ public class Leitor
 					{
 						bool = new Bool();
 						bool.verificador(linha);
+					}
+					else
+					{
+						troca.getVariaveis(linha);
 					}
 				}
 				else 

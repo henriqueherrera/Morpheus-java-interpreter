@@ -92,6 +92,7 @@ public class Int extends Variaveis
 	protected void armazenarValor ()
 	{
 		variaveisArmazenadas.put(getIntId(), getIntValue());
+		Comparadores.tipoVariaveis.put(getIntId(), "int");
 	}
 	//fim do método armazenarValor
 }
