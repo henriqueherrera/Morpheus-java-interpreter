@@ -1,5 +1,16 @@
 import java.util.HashMap;
 
+
+
+
+
+
+
+
+
+
+
+
 public class Comparadores
 {
 	public static HashMap<String,String> tipoVariaveis = new HashMap<String,String>(); //armazena os tipos das variaveis
@@ -7,23 +18,14 @@ public class Comparadores
 	//inicio do método getVariaveis
 	public void getVariaveis( String line )
 	{
-		String v1 = "", v2 = "", cleanLine = "";
+		String v1 = "", v2 = "", cleanLine = tiraEspacos(line);
 		
-		for(int i = 0; i < line.length(); i++)
-		{
-			if( line.charAt(i) != ' ')
-			{
-				cleanLine= cleanLine+""+line.charAt(i);
-			}
-		}//esse laço tira os espaços da linha
-
 		for(int i = 0; i < cleanLine.length(); i++)
 		{
 			if( cleanLine.charAt(i) == '=')
 			{
 				for(int ii = i+1; ii< cleanLine.length()-1; ii++)
-				{
-					System.out.println(cleanLine.charAt(ii));
+				{	
 					v2=v2+""+cleanLine.charAt(ii);
 				}//laço que pega o nome da variavel dps do =
 				break;
@@ -46,4 +48,18 @@ public class Comparadores
 		}
 	}
 	//fim do método trocaDeVariaveis
+	
+	public String tiraEspacos(String line)
+	{
+		String cleanLine= "";
+		for(int i = 0; i < line.length(); i++)
+		{
+			if( line.charAt(i) != ' ')
+			{
+				cleanLine= cleanLine+""+line.charAt(i);
+			}
+		}//esse laço tira os espaços da linha
+		return cleanLine;
+		
+	}
 }

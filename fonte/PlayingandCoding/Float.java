@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.lang.*;
 import java.util.Scanner;
 
-//inicio da classe Int
+//inicio da classe Float
 public class Float extends Floats
 {
 	//dicionario que armazena as váriaveis criadas
@@ -154,4 +154,6 @@ public class Float extends Floats
 	//fim do método verificador
 	
 }
-//fim da classe Int
+
+
+//fim da classe float

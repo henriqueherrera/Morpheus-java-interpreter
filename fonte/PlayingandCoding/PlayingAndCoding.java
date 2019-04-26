@@ -16,7 +16,6 @@ public class PlayingAndCoding
         	System.out.println("Floats armazenados "+Float.variaveisArmazenadas);
         	System.out.println("Chars armazenados "+Char.variaveisArmazenadas);
 		System.out.println("Boolean"+Bool.variaveisArmazenadas);
-		System.out.println("test"+Comparadores.tipoVariaveis);
 	}
 	//fim do método main
 }
