@@ -83,6 +83,7 @@ public class Char extends Variaveis
 	protected void armazenarValor ()
 	{
 		variaveisArmazenadas.put(this.getCharId(), this.getCharValue());
+		Comparadores.tipoVariaveis.put(this.getCharId(), "char");
 	}
 	//fim do método armazenarValor
 }

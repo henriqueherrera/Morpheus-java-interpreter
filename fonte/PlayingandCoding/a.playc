@@ -3,4 +3,5 @@ int y = 234;
 float p = 2311.412;
 bool t = true;
 char o = 'p';
-y = x;
+char i = 'u';
+o = i;

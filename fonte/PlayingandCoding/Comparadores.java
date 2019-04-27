@@ -1,16 +1,5 @@
 import java.util.HashMap;
 
-
-
-
-
-
-
-
-
-
-
-
 public class Comparadores
 {
 	public static HashMap<String,String> tipoVariaveis = new HashMap<String,String>(); //armazena os tipos das variaveis
@@ -45,6 +34,16 @@ public class Comparadores
 		if( tipoVariaveis.get(v1).equals("int") && tipoVariaveis.get(v2).equals("int"))
 		{
 			Int.variaveisArmazenadas.put(v1,Int.variaveisArmazenadas.get(v2));
+		}
+
+		else if( tipoVariaveis.get(v1).equals("float") && tipoVariaveis.get(v2).equals("float"))
+		{
+			Float.variaveisArmazenadas.put(v1,Float.variaveisArmazenadas.get(v2));
+		
+		}
+		else if( tipoVariaveis.get(v1).equals("char") && tipoVariaveis.get(v2).equals("char"))
+		{
+			Char.variaveisArmazenadas.put(v1,Char.variaveisArmazenadas.get(v2));
 		}
 	}
 	//fim do método trocaDeVariaveis
