@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.lang.*;
-import java.util.Scanner;
 
 //inicio da classe Bool 
 public class Bool extends Variaveis
@@ -80,7 +79,7 @@ public class Bool extends Variaveis
 	protected void armazenarValor()
 	{	
 		variaveisArmazenadas.put(this.getBoolId(), this.getBoolValue());
-		Comparadores.tipoVariaveis.put(this.getBoolId(),"bool");
+		Comparadores.tipoVariaveis.put(this.getBoolId(),"bool");//quando é necessario trocar o valor
 	}
 	//fim do método armazenarValor
 }
