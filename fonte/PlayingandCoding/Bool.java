@@ -80,6 +80,7 @@ public class Bool extends Variaveis
 	protected void armazenarValor()
 	{	
 		variaveisArmazenadas.put(this.getBoolId(), this.getBoolValue());
+		Comparadores.tipoVariaveis.put(this.getBoolId(),"bool");
 	}
 	//fim do método armazenarValor
 }

@@ -10,11 +10,9 @@ public class Int extends Variaveis
 	public static HashMap< String,Integer> variaveisArmazenadas = new HashMap<String, Integer>();
 	
 	//inicio do método verificacao
-	
 	@Override
 	protected boolean verificacao(String str)
 	{
-		int negativo = 1;
 		
 		boolean verificacaoDoNomeVariavel = false;
 		
@@ -49,31 +47,14 @@ public class Int extends Variaveis
 			else if( verificacaoDoNomeVariavel ) //quando a verificação do nome da váriavel é realizada ela passa por essa condicional
 			{
 				//laço de repetição que lê o inteiro a ser armazenado
-				for(int iii = pos; iii<str.length(); iii++)
-				{
-					if( (str.charAt(iii) == '-') && (getVariavelValue().length() == 0))
-					{
-						negativo = -1;
-					}
-
 				
-					if ((48<= str.charAt(iii)) && (str.charAt(iii)  <=57))
-					{
-						setVariavelValue(getVariavelValue()+""+str.charAt(iii));	
-					}
-
-					else if ( (str.charAt(iii)) != ';' && (str.charAt(iii) != ' '))
-					{
-						ErrosNaCompilacao.caractere = str.charAt(iii);
-
-						ErrosNaCompilacao.getLineError(2);
-					}
-				}
-				int value = this.ConvertStringParaInt(getVariavelValue());
+		
+				int value =  indetificadorDeNumerosInt(str,pos);
 				setIntId(getVariavelId());
 				setIntValue(value);
 				if (getVariavelValue().length() == 0)
 				{
+
 					return false;
 				}
 				
@@ -95,5 +76,34 @@ public class Int extends Variaveis
 		Comparadores.tipoVariaveis.put(getIntId(), "int");
 	}
 	//fim do método armazenarValor
+	public int indetificadorDeNumerosInt(String str,int pos)
+	{
+
+		int negativo = 1;
+		
+		for(int iii = pos; iii<str.length(); iii++)
+		{
+			if( (str.charAt(iii) == '-') && (getVariavelValue().length() == 0))
+			{
+				negativo = -1;
+			}
+
+				
+			if ((48<= str.charAt(iii)) && (str.charAt(iii)  <=57))
+			{
+				setVariavelValue(getVariavelValue()+""+str.charAt(iii));	
+			}
+
+			else if ( (str.charAt(iii)) != ';' && (str.charAt(iii) != ' '))
+			{
+				ErrosNaCompilacao.caractere = str.charAt(iii);
+
+				ErrosNaCompilacao.getLineError(2);
+			}
+		}
+
+		return this.ConvertStringParaInt(this.getVariavelValue());
+	}
+
 }
 //fim da classe Int
