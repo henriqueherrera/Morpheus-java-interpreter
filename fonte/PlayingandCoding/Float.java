@@ -133,6 +133,8 @@ public class Float extends Floats
 	protected void armazenarValor ()
 	{
 		this.variaveisArmazenadas.put(this.getId(), this.getValue());
+
+		Comparadores.tipoVariaveis.put(this.getId(), "float");
 	}
 	//fim do método armazenarValor
 	

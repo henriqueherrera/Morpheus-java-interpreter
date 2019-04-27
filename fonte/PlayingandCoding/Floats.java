@@ -1,5 +1,5 @@
 //inicio da classe Floats
-public abstract class Floats
+public abstract class Floats extends Variaveis
 {
 	//pega o nome da variável
 	protected String indentificador;

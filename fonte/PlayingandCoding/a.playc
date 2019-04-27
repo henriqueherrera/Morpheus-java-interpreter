@@ -1,7 +1,9 @@
 int x = 2147483647;
 int y = 234;
 float p = 2311.412;
+float x = 7.9;
 bool t = true;
 char o = 'p';
 char i = 'u';
 o = i;
+x = p;
