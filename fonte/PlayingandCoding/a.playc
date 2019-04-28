@@ -7,3 +7,4 @@ char o = 'p';
 char i = 'u';
 o = i;
 x = 432;
+input(x);

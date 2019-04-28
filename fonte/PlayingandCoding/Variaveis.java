@@ -91,6 +91,5 @@ public abstract class Variaveis extends Primitivos
 		}
 	}
 	//fim do método verificador
-	
 }
-//fim da classe Inti
+//fim da classe Variaveis

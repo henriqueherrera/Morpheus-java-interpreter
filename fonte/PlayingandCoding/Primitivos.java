@@ -23,7 +23,7 @@ public abstract class Primitivos
 	//inicio do método getBoolValue
 	protected boolean getBoolValue()
 	{
-		return this.boolValue;
+ 		return this.boolValue;
 	}
 	//fim do método getBoolValue
 

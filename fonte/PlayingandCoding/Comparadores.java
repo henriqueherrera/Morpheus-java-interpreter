@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 
-public class Comparadores
+public class Comparadores extends Tools
 {
 	public static HashMap<String,String> tipoVariaveis = new HashMap<String,String>(); //armazena os tipos das variaveis
 	public Int ints = new Int();
@@ -69,16 +69,4 @@ public class Comparadores
 	}
 	//fim do método trocaDeVariaveis
 	
-	public String tiraEspacos(String line)
-	{
-		String cleanLine= "";
-		for(int i = 0; i < line.length(); i++)
-		{
-			if( line.charAt(i) != ' ')
-			{
-				cleanLine= cleanLine+""+line.charAt(i);
-			}
-		}//esse laço tira os espaços da linha
-		return cleanLine;
-	}
 }
