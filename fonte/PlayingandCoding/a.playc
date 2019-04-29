@@ -7,4 +7,7 @@ char o = 'p';
 char i = 'u';
 o = i;
 x = 432;
+int a = 9421;
+int b = 9421;
+if a == b;
 input(x);
