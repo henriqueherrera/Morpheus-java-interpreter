@@ -1,14 +1,2 @@
-int x = 2147483647;
-int y = 234;
-float p = 2311.412;
-bool t = true;
-bool c = false;
-char o = 'p';
-char i = 'u';
-o = i;
-x = 432;
-int a = 9421;
-int b = 9421;
-if a == b;
-input(x);
-string c = "Compilou !!!";
+char c = 'a';
+c = 'p';

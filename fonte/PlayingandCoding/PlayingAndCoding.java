@@ -25,7 +25,7 @@ public class PlayingAndCoding
 		System.out.println("Boolean "+Bool.variaveisArmazenadas);
 		
 		//imprime as strings armazenados
-		System.out.println("Strings "+Strings.variaveisArmazenadas); 
+		System.out.println("Strings "+Strings.variaveisArmazenadas+ Comparadores.tipoVariaveis); 
 		
 	}
 	//fim do método main
