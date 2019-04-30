@@ -1,6 +1,10 @@
 int p = 5;
 float o = 777.041;
 char cha = 'o';
+bool bo = false;
+bool xt = true;
+xt = bo;
 string carai = "porra";
 string x = "eu sou mt bom";
 carai = x;
+bo = true;

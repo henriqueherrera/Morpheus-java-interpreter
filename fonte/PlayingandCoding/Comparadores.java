@@ -179,9 +179,7 @@ public class Comparadores extends Tools
 
 	//inicio do método trocaDeVariaveis
 	public void trocaDeVariaveis( String v1, String v2,String line, int pos )
-	{
-
-		
+	{		
 		if( tipoVariaveis.get(v1).equals("int"))
 		{
 				if (48<= v2.charAt(0) && v2.charAt(0) <= 57)
@@ -203,9 +201,17 @@ public class Comparadores extends Tools
 
 		}
 
-		else if( tipoVariaveis.get(v1).equals("bool") && tipoVariaveis.get(v2).equals("bool"))
+		else if( tipoVariaveis.get(v1).equals("bool"))
 		{
-			Bool.variaveisArmazenadas.put(v1,Bool.variaveisArmazenadas.get(v2));
+			if(v2.equals("false") || v2.equals("true"))
+			{
+				Bool.variaveisArmazenadas.put(v1,Boolean.valueOf(v2));
+			}
+			else if(tipoVariaveis.get(v2).equals("bool"))
+			{
+				Bool.variaveisArmazenadas.put(v1,Bool.variaveisArmazenadas.get(v2));
+		
+			}
 		}
 
 		else if( tipoVariaveis.get(v1).equals("char"))
