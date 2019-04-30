@@ -21,6 +21,7 @@ class Strings extends Variaveis
 	//inicio do método valueString	
 	public void valueString(String str, int pos)
 	{
+		boolean fimDaString = false;
 		//laco para ver o que vai ser armazenado dentro da variavel
 		for(int i = pos; i<str.length();i++)
 		{
@@ -33,14 +34,21 @@ class Strings extends Variaveis
 					//verifica as aspas finais e para a verificação
 					if(str.charAt(ii) == '"')
 					{
+						
+						fimDaString = true;
 						break;
 					}
 					else
 					{
+
 						//seta a string que vai estar relacionada com a variavel 
 						setVariavelValue(getVariavelValue()+""+str.charAt(ii));  
 					}
 				}
+			}
+			else if(fimDaString)
+			{
+				break;
 			}
 		}
 	}
