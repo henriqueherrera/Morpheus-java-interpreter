@@ -11,3 +11,4 @@ int a = 9421;
 int b = 9421;
 if a == b;
 input(x);
+string c = "Compilou !!!";

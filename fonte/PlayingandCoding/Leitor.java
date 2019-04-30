@@ -9,10 +9,12 @@ class Leitor extends Tools
 	private Bool bool;
 
 	private Int inteiros;
-    	
+    
 	private Float floats; 
 	
 	private Char chars;
+	
+	private Strings string;
 
 	private Comparadores troca = new Comparadores();
 	
@@ -69,7 +71,15 @@ class Leitor extends Tools
 							bool = new Bool();
 							bool.verificador(linha);
 						}
-
+						
+						//verifica se foi escrito algo com 6 letras se e igual a string
+						else if (linha.substring(0,6).equals("string")) 
+						{
+							
+							string = new Strings();
+							string.verificador(linha);
+						}
+						
 						else if (linha.substring(0,5).equals("input"))
 						{
 							this.input(this.tiraEspacos(linha));

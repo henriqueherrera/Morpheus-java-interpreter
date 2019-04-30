@@ -13,6 +13,9 @@ public abstract class Primitivos
 	protected String boolId;
 	protected boolean boolValue;
 
+	protected String StrId;
+	protected String StrValue;
+	
 	//inicio do método setBoolValue
 	protected void setBoolValue(boolean v)
 	{
@@ -124,7 +127,36 @@ public abstract class Primitivos
 	}
 	//fim do método getFloatId
 
+	//inicio do método setStrValue
+	protected void setStrValue(String str)
+	{
+		this.StrValue = str;
+	}
+	//fim do método setStrValue
 
+
+//METODOS GETTERS E SETTERS DA STRING
+	
+	//inicio do método getStrValue
+	protected String getStrValue()
+	{
+		return this.StrValue;
+	}
+	//fim do método getStrValue
+	
+	//inicio do método setStrId
+	protected void setStrId(String str)
+	{
+		this.StrId = str;
+	}
+	//fim do método serStrId
+	
+	//inicio do método getStrId
+	protected String getStrId()
+	{
+		return this.StrId;
+	}
+	//fim do método getStrId
 
 
 }
