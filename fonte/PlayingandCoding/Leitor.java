@@ -41,14 +41,17 @@ class Leitor extends Tools
 			
                         	linha = buffRead.readLine();
                         
-				if(linha !=  null)
+				if(linha != null)
                         	{
 				
-					if (linha.charAt(linha.length()-1) == 59) //verifica se tem um ponto e virgula no final
-					{
+					if ( ( linha.length() != 0 ) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
+					{ 
 						//chama as funções aqui para armazenamento
-					
-						if (linha.substring(0,3).equals("int"))
+						if (linha.substring(0,2).equals("if"))
+						{
+							System.out.println(troca.comparaInt(linha));
+						}
+						else if (linha.substring(0,3).equals("int"))
 						{		
 							inteiros = new Int();
 							inteiros.verificador(linha);
@@ -89,10 +92,7 @@ class Leitor extends Tools
 						{
 							this.print(this.tiraEspacos(linha));
 						}
-						else if (linha.substring(0,2).equals("if"))
-						{
-							System.out.println(troca.comparaInt(linha));
-						}
+						
 						
 						else
 						{
@@ -100,8 +100,9 @@ class Leitor extends Tools
 						}
 					}	
 
-					else 
+					else if (tiraEspacos(linha).length() != 0) 
 					{
+						
 						ErrosNaCompilacao.getLineError(0);
 						laco = false;
 					}
