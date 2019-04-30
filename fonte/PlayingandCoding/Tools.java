@@ -21,7 +21,8 @@ public class Tools
 	//inicio do método input
 	public void input(String line)
 	{
-		Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);	
+		
 		String id = "";
 		if( line.charAt(5) == '(' )
 		{
@@ -45,6 +46,12 @@ public class Tools
 				int value = 0;
 				value = scan.nextInt();
 				Int.variaveisArmazenadas.put(id,value);
+			}
+			else if((Comparadores.tipoVariaveis.get(id)).equals("string"))
+			{
+				String value = "";
+				value = scan.nextLine();
+				Strings.variaveisArmazenadas.put(id,value);
 			}
 		}
 	}
