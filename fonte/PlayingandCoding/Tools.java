@@ -53,6 +53,23 @@ public class Tools
 				value = scan.nextLine();
 				Strings.variaveisArmazenadas.put(id,value);
 			}
+			else if((Comparadores.tipoVariaveis.get(id)).equals("char"))
+			{
+				char value;
+				value = scan.next().charAt(0);
+				Char.variaveisArmazenadas.put(id,value);
+			}
+			
+			else if((Comparadores.tipoVariaveis.get(id)).equals("bool"))
+			{
+				boolean value;
+				value = scan.nextBoolean();
+				Bool.variaveisArmazenadas.put(id,value);
+			}
+
+
+
+
 		}
 	}
 	//fim do método input

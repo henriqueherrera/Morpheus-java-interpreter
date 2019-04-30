@@ -9,3 +9,5 @@ string x = "eu sou mt bom";
 s = x;
 bo = true;
 input(x);
+input(bo);
+input(cha);
