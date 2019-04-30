@@ -59,8 +59,30 @@ public abstract class Variaveis extends Primitivos
         
                 boolean verificacaoDoNomeVariavel = false;
                 
-                int pos=0;
+                int pos=0, inicializaLeitura = 0;
        
+		if( str.substring(0,3).equals("int"))
+		{
+			inicializaLeitura = 4;
+		}
+		else if( str.substring(0,5).equals("float"))
+		{
+			inicializaLeitura = 6;
+		}
+		else if(str.substring(0,4).equals("char"))
+		{
+			inicializaLeitura = 5;
+		}
+	
+		else if(str.substring(0,4).equals("bool"))
+		{
+			inicializaLeitura = 5;
+		}
+		
+		else if(str.substring(0,6).equals("string"))
+		{
+			inicializaLeitura = 7;
+		}
                 //laco de repetição que lê a linha
                 for( int i = 0; i< str.length()-1; i++)
                 {
@@ -70,7 +92,7 @@ public abstract class Variaveis extends Primitivos
                         {                       
                                 pos = i+1; //marca onde vai começar a leitura do char
 
-                                for( int ii = 4; ii < i; ii++)
+                                for( int ii = inicializaLeitura; ii < i; ii++)
                                 {
                                         if (str.charAt(ii) == ' ')
                                         {

@@ -27,6 +27,7 @@ public class Comparadores extends Tools
 			else
 			{
 				v1=v1+""+cleanLine.charAt(i);
+				
 			}//nome antes do igual
 		}
 		this.trocaDeVariaveis(v1,v2,cleanLine,pos); //troca o valor da variavel
@@ -180,7 +181,7 @@ public class Comparadores extends Tools
 	public void trocaDeVariaveis( String v1, String v2,String line, int pos )
 	{
 
-		System.out.println(tipoVariaveis.get(v1));
+		
 		if( tipoVariaveis.get(v1).equals("int"))
 		{
 				if (48<= v2.charAt(0) && v2.charAt(0) <= 57)
@@ -218,8 +219,16 @@ public class Comparadores extends Tools
 				Char.variaveisArmazenadas.put(v1,Char.variaveisArmazenadas.get(v2));
 			}
 		}
-		else if( tipoVariaveis.get(v1).equals("string") && tipoVariaveis.get(v2).equals("string"))
+		else if( tipoVariaveis.get(v1).equals("string"))
 		{
+			if(v2.charAt(0) == '"')
+			{
+				Strings.variaveisArmazenadas.put(v1, v2.substring(1, v2.length()-1));
+			}
+			else if (tipoVariaveis.get(v2).equals("string"))
+			{
+				Strings.variaveisArmazenadas.put(v1, Strings.variaveisArmazenadas.get(v2));
+			}
 		}
 
 
