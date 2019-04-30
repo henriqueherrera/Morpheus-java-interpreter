@@ -85,6 +85,10 @@ class Leitor extends Tools
 							this.input(this.tiraEspacos(linha));
 						}
 						
+						else if (linha.substring(0,5).equals("print"))
+						{
+							this.print(this.tiraEspacos(linha));
+						}
 						else if (linha.substring(0,2).equals("if"))
 						{
 							System.out.println(troca.comparaInt(linha));

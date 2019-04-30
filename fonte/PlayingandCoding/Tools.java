@@ -41,6 +41,68 @@ public class Tools
         }
 	//fim do método tiraEspacos
 	
+	//inicio do método print
+	public void print(String line)
+	{
+		int inicioStr = 6;
+		
+		int fimStr= 0;
+
+		if( line.charAt(5) == '(')
+		{
+			for(int i = inicioStr; i< line.length(); i++)
+			{
+				if( line.charAt(i) == ')')
+				{
+					fimStr = i;
+					break;
+				}
+			}
+		}
+		
+		String[] prints = line.substring(inicioStr,fimStr).split("=>");
+		
+		Strings strings = new Strings();
+		for( String str:prints)
+		{
+			if(str.charAt(0) == '"')
+			{
+				str = str+" "; //esse " " é para passar na funcao valueString sem excluir o ultimo caractere
+				strings.valueString(str,0);
+				System.out.print(strings.getVariavelValue()+" ");
+				strings.setVariavelValue("");
+			}
+
+			else if(Comparadores.tipoVariaveis.get(str).equals("int"))
+			{
+				System.out.print(Int.variaveisArmazenadas.get(str)+" ");
+			}
+			
+			else if(Comparadores.tipoVariaveis.get(str).equals("char"))
+			{
+				System.out.print(Char.variaveisArmazenadas.get(str)+" ");
+			}
+			
+			else if(Comparadores.tipoVariaveis.get(str).equals("string"))
+			{
+				System.out.print(Strings.variaveisArmazenadas.get(str)+" ");
+			
+			}
+			
+			else if(Comparadores.tipoVariaveis.get(str).equals("bool"))
+			{
+				System.out.print(Bool.variaveisArmazenadas.get(str)+" ");
+			}
+
+			else if(Comparadores.tipoVariaveis.get(str).equals("float"))
+			{
+				System.out.print(Float.variaveisArmazenadas.get(str)+" ");
+			}
+		}
+		System.out.println();
+	}
+	//fim do método print
+	
 	//inicio do método input
 	public void input(String line)
 	{
@@ -100,6 +162,12 @@ public class Tools
 				boolean value;
 				value = scan.nextBoolean();
 				Bool.variaveisArmazenadas.put(id,value);
+			}
+			else if((Comparadores.tipoVariaveis.get(id)).equals("float"))
+			{
+				double value;
+				value = scan.nextDouble();
+				Float.variaveisArmazenadas.put(id,value);
 			}
 		}
 	}
