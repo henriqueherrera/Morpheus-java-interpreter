@@ -34,24 +34,39 @@ public class Comparadores extends Tools
 	}
 	//fim do método getVariaveis
 	
-	//inicio do método getDuasVar
+		//inicio do método getDuasVar
 	public String[] getDuasVar( String line )
 	{
 		String cleanLine = tiraEspacos(line);
 		String[] v = {"",""};
 		
-		int pos=0;
-
 		for(int i = 2; i < cleanLine.length(); i++)
 		{
-			if( ( cleanLine.charAt(i) == '=' ) && ( cleanLine.charAt(i+1) == '=' ) )
+			if( ( cleanLine.charAt(i) == '=' ) && ( cleanLine.charAt(i+1) == '=' )  
+			|| ( ( cleanLine.charAt(i) == '!' ) && ( cleanLine.charAt(i+1) == '=' ) 
+			|| ( ( cleanLine.charAt(i) == '>' ) && ( cleanLine.charAt(i+1) == '=' ) 
+			|| ( ( cleanLine.charAt(i) == '<' ) && ( cleanLine.charAt(i+1) == '=' ) ) ) ) )
 			{
-				pos = (i+1);
-				
 				for(int ii = i+2; ii< cleanLine.length()-1; ii++)
 				{
 					v[1]=v[1]+""+cleanLine.charAt(ii);
-				}//laço que pega o nome da variavel dps do =
+				}//laço que pega o nome da variavel dps de ==, !=, >= e <=
+				
+				break;
+			}
+			else if( ( cleanLine.charAt(i) == '>' ) )  {
+				for(int ii = i+1; ii< cleanLine.length()-1; ii++)
+				{
+					v[1]=v[1]+""+cleanLine.charAt(ii);
+				}//laço que pega o nome da variavel dps de >
+				
+				break;
+			}
+			else if( ( cleanLine.charAt(i) == '<' ) )  {
+				for(int ii = i+1; ii< cleanLine.length()-1; ii++)
+				{
+					v[1]=v[1]+""+cleanLine.charAt(ii);
+				}//laço que pega o nome da variavel dps de <
 				
 				break;
 			}
