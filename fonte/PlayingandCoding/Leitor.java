@@ -54,11 +54,11 @@ class Leitor extends Tools
 							inteiros.verificador(linha);
 						}
                    	
-                        else if (linha.substring(0,5).equals("float"))
+                        			else if (linha.substring(0,5).equals("float"))
 						{
 							floats = new Float();
 							floats.verificador(linha);
-                        }
+                       	 			}
 					
 						else if (linha.substring(0,4).equals("char"))
 						{
@@ -84,10 +84,12 @@ class Leitor extends Tools
 						{
 							this.input(this.tiraEspacos(linha));
 						}
+						
 						else if (linha.substring(0,2).equals("if"))
 						{
 							System.out.println(troca.comparaInt(linha));
 						}
+						
 						else
 						{
 							troca.getVariaveis(linha);

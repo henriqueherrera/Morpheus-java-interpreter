@@ -6,57 +6,10 @@ class Strings extends Variaveis
 {
 	public static HashMap<String,String> variaveisArmazenadas = new HashMap<String, String>();
 
-	protected boolean verificacao(String str)
+	protected void indentificaValor(String str, int pos)
 	{
-		boolean verificacaoDoNomeVariavel = false;
-		int pos = 0;
-		
-		//laco de repetição que lê a linha
-		for( int i = 0; i< str.length()-1; i++)
-		{
-				
-			if(str.charAt(i) == '=') 
-			{
-				pos = i+1;
-				
-				//laco pra ler o nome da variavel
-				for(int ii = 6; ii < i; ii++)//ii=6 por causa do "string"
-				{
-					//se toiver espaço ele ignora e continua
-					if(str.charAt(ii) == ' ')
-					{
-						continue;
-					}
-
-					else
-					{
-						//adiciona o nome da variavel no setVariavelId
-						setVariavelId(this.getVariavelId()+""+str.charAt(ii));
-					}
-				}
-				//verifica se o nome da variavel ta ok na classe variavel e retorna true pu um erro 
-				verificacaoDoNomeVariavel = tamanhoDaVariavelId();
-
-			}
-		
-			//entra nesse elseif se o verificacaoDoNomeVariavel for = true
-			else if( verificacaoDoNomeVariavel)
-			{
-				this.valueString(str,pos);
-				
-				if(getVariavelId().length() == 0)
-				{
-					return false;
-				}
-				else
-				{
-					return true;
-				}
-			}
-		}
-		return false;
+		this.valueString(str,pos);
 	}
-
 	@Override
 	//armazena o nome e o valor das variaveis no hasmap
 	protected void armazenarValor()
@@ -65,7 +18,7 @@ class Strings extends Variaveis
 		Comparadores.tipoVariaveis.put(this.getVariavelId(),"string");
 	}
 	
-	
+	//inicio do método valueString	
 	public void valueString(String str, int pos)
 	{
 		//laco para ver o que vai ser armazenado dentro da variavel
@@ -91,6 +44,7 @@ class Strings extends Variaveis
 			}
 		}
 	}
+	//fim do método valueString
 }
  
 

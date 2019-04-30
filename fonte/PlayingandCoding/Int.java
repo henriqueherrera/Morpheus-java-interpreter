@@ -6,67 +6,15 @@ import java.util.Scanner;
 public class Int extends Variaveis
 {
 	//dicionario que armazena as váriaveis criadas
-	public static int leituraDaLinha;
 	public static HashMap< String,Integer> variaveisArmazenadas = new HashMap<String, Integer>();
 	
-	//inicio do método verificacao
 	@Override
-	protected boolean verificacao(String str)
+	protected void indentificaValor(String str,int pos)
 	{
+		setIntId(getVariavelId());
 		
-		boolean verificacaoDoNomeVariavel = false;
-		
-		int pos=0;
-		
-		//laco de repetição que lê a linha
-		for( int i = 0; i< str.length()-1; i++)
-		{
-			
-			
-			if ( str.charAt(i)  == '=' )
-			{
-				pos = i+1; //marca onde vai começar a leitura dos números
-
-				for( int ii = 4; ii < i; ii++)
-				{
-					if (str.charAt(ii) == ' ')
-					{
-						continue;
-					}
-					
-					else
-					{
-						setVariavelId(getVariavelId()+ ""+str.charAt(ii));
-					}
-				}
-		
-				
-				verificacaoDoNomeVariavel =  tamanhoDaVariavelId();
-
-			}
-			else if( verificacaoDoNomeVariavel ) //quando a verificação do nome da váriavel é realizada ela passa por essa condicional
-			{
-				//laço de repetição que lê o inteiro a ser armazenado
-				
-		
-				int value =  indetificadorDeNumerosInt(str,pos);
-				setIntId(getVariavelId());
-				setIntValue(value);
-				if (getVariavelValue().length() == 0)
-				{
-
-					return false;
-				}
-				
-				else 
-				{
-					return true;
-				}
-			}
-		}
-		return false;
+		setIntValue( indetificadorDeNumerosInt(str,pos));
 	}
-	//fim do método verificador
 
 	//inicio do método armazenarValor
 	@Override
@@ -76,6 +24,8 @@ public class Int extends Variaveis
 		Comparadores.tipoVariaveis.put(getIntId(), "int");
 	}
 	//fim do método armazenarValor
+	
+	//inicio do método indenrificadorDeNumerosInt
 	public int indetificadorDeNumerosInt(String str,int pos)
 	{
 
@@ -104,6 +54,7 @@ public class Int extends Variaveis
 
 		return this.ConvertStringParaInt(this.getVariavelValue());
 	}
+	//fim do método indentificadorDeNumerosInt
 
 }
 //fim da classe Int

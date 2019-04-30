@@ -51,9 +51,59 @@ public abstract class Variaveis extends Primitivos
 	{
 		return this.variavelId;
 	}
-	//inicio do método verificacao
+	//fim do método getVariavelId
 	
-	protected abstract boolean verificacao(String str);
+	//inicio do método verificacao
+        protected boolean verificacao(String str)
+        {               
+        
+                boolean verificacaoDoNomeVariavel = false;
+                
+                int pos=0;
+       
+                //laco de repetição que lê a linha
+                for( int i = 0; i< str.length()-1; i++)
+                {
+
+
+                        if ( str.charAt(i)  == '=' )
+                        {                       
+                                pos = i+1; //marca onde vai começar a leitura do char
+
+                                for( int ii = 4; ii < i; ii++)
+                                {
+                                        if (str.charAt(ii) == ' ')
+                                        {
+                                                continue;
+                                        }
+                                        
+                                        else
+                                        {
+                                                setVariavelId(getVariavelId()+ ""+str.charAt(ii));
+                                        }
+                                }
+                                
+                                verificacaoDoNomeVariavel =  tamanhoDaVariavelId();
+
+                        }
+                        else if( verificacaoDoNomeVariavel ) //quando a verificação do nome da váriavel é realizada ela passa por essa condicional
+                        {
+                                //laço de repetição que lê o char a ser armazenado
+
+                                indentificaValor(str,pos);
+				 if (getVariavelValue().length() == 0)
+                                {
+                                        return false;
+                                }
+
+                                else
+                                {
+                                        return true;
+                                }
+                        }
+                }
+                return false;
+        }
 	//fim do método verificacao
 
 	//inicio do método ConvertStringParaInt
@@ -74,6 +124,12 @@ public abstract class Variaveis extends Primitivos
 	//inicio do método armazenarValor
 	protected abstract void armazenarValor ();
 	//fim do método armazenarValor
+	
+	//inicio do método indentificaValor
+	protected void indentificaValor(String str, int pos)
+	{
+	}
+	//fim do método indentificaValor
 	
 	//inicio do método verificador
 	public void verificador(String lineText)
