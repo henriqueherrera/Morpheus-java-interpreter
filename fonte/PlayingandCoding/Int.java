@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.lang.*;
-import java.util.Scanner;
 
 //inicio da classe Int
 public class Int extends Variaveis
