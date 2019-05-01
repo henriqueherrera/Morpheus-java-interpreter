@@ -140,7 +140,7 @@ public class Comparadores extends Tools
 		// 1 = igual, 2 = maior, 3 = menor
 		int condicao = checaComparador(s);
 
-		if (v[0].chars().allMatch(Character::isLetterOrDigit)) 
+		if (v[0].chars().allMatch(Character::isLetter)) 
 		{
 			t1 = Int.variaveisArmazenadas.get(v[0]);
 		}
@@ -149,8 +149,7 @@ public class Comparadores extends Tools
 		{
 			t1 = Integer.parseInt(v[0]);
 		}
-		
-		if (v[1].chars().allMatch(Character::isLetterOrDigit)) 
+		if (v[1].chars().allMatch(Character::isLetter)) 
 		{
 			t2 = Int.variaveisArmazenadas.get(v[1]);
 		} 
