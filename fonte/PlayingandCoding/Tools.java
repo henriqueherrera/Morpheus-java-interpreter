@@ -3,6 +3,7 @@ import java.util.Scanner;
 //inicio da classe Tools
 public class Tools 
 {
+
 	//inicio do método tiraEspacos
 	public String tiraEspacos(String line)
         {

@@ -3,9 +3,10 @@ import java.util.HashMap;
 //inicio da classe Comparadores
 public class Comparadores extends Tools
 {
+        public static int vl =2; //se for if o valor tem que ser trocado para 2 se d
 	public static HashMap<String,String> tipoVariaveis = new HashMap<String,String>(); //armazena os tipos das variaveis
 	public Int ints = new Int();
-
+	
 	//inicio do método getVariaveis
 	public void getVariaveis( String line )
 	{
@@ -40,7 +41,7 @@ public class Comparadores extends Tools
 		String cleanLine = tiraEspacos(line);
 		String[] v = {"",""};
 		
-		for(int i = 2; i < cleanLine.length(); i++)
+		for(int i = vl; i < cleanLine.length(); i++)
 		{
 			if( ( cleanLine.charAt(i) == '=' ) && ( cleanLine.charAt(i+1) == '=' )  
 			|| ( ( cleanLine.charAt(i) == '!' ) && ( cleanLine.charAt(i+1) == '=' ) 

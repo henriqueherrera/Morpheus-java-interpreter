@@ -6,15 +6,33 @@ public class While
 	
         public  static void lacoDeRepeticao(int numeroDeLinhas, String value)
         {
+		String tipo = "";
+		Comparadores troca = new Comparadores();
+		for(int i = 0; i<value.length(); i++)
+		{
+			if(value.charAt(i) == '|')
+			{
+				value = value.substring(i+1,value.length()); //le a expressao ou variavel
+				break;
+			}
+			else
+			{
+				tipo = tipo+""+value.charAt(i);
+			}
+		}
+		System.out.println(tipo);
 		LePrimitivos le = new LePrimitivos();
-                while(Bool.variaveisArmazenadas.get(value))
-                {
-                        for(int i = 0; i<numeroDeLinhas;i++)
-                        {
-                                le.idLinha(txtLines.get(i));
-                        }
+		if(tipo.equals("bool"))
+		{
+                	while(Bool.variaveisArmazenadas.get(value))
+                	{
+                        	for(int i = 0; i<numeroDeLinhas;i++)
+                        	{
+                                	le.idLinha(txtLines.get(i));
+                        	}
 
 
-                }
-        }
+         	       }
+        	}
+	}
 }

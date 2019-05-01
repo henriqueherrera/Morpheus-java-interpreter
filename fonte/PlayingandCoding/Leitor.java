@@ -60,6 +60,7 @@ class Leitor extends Tools
 						}
 						else if (linha.substring(0,2).equals("if"))
 						{
+							Comparadores.vl =2;
 							if (!troca.comparaInt(linha)) 
 							{
 								while (!tiraEspacos(linha).contains("}"))

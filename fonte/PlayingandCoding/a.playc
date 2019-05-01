@@ -1,7 +1,7 @@
 int a = 9421;
 int b = 9421;
 bool f = true;
-while f;
+while bool|f;
 {
 input("digite um bool para f: ",f);
 }
