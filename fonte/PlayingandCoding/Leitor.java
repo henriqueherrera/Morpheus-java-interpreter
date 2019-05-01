@@ -6,18 +6,9 @@ class Leitor extends Tools
 {
 	private String arquivo; //Lê o arquivo para ser Interpretado
 
-	private Bool bool;
-
-	private Int inteiros;
-    
-	private Float floats; 
-	
-	private Char chars;
-	
-	private Strings string;
-
 	private Comparadores troca = new Comparadores();
 	
+	private LePrimitivos lePrimitivos = new LePrimitivos();	
 	public static boolean laco = true; //enquanto tudo estiver ocorrendo de maneira prevista
 					//o laco de repeticao continua trocando de linha
 	
@@ -25,6 +16,10 @@ class Leitor extends Tools
 	public Leitor(String arq)
 	{
 		this.setArquivo(arq);
+	}
+
+	public Leitor()
+	{
 	}
 
 	//inicio do método reader
@@ -48,7 +43,7 @@ class Leitor extends Tools
 					{ 
 						linha = linha.trim();
 						//chama as funções aqui para armazenamento
-						if (linha.substring(0,2).equals("wh")) {
+						if (linha.substring(0,2).equals("wi")) {
 							while (troca.comparaInt(tiraEspacos(linha))) 
 							{
 									linha = buffRead.readLine();
@@ -73,9 +68,38 @@ class Leitor extends Tools
 								}
 							}
 						}
+
+				   		else if (linha.substring(0,5).equals("while"))
+                                                {
+                                                        
+                                                        String idValue = tiraEspacos(linha.substring(5,linha.length()-1)); //pega a expressão do while
+							linha = buffRead.readLine(); //pula o }
+							int count = 0; //conta o numero de linhas dentro do while
+                                                        
+							if(linha.contains("{"))
+                                                        {
+                                                                linha = buffRead.readLine();
+                                                                while(true)
+                                                                {
+                                                                        if(linha.contains("}"))
+                                                                        {
+                                                                                break;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                While.txtLines.put(count,linha);
+                                                                                count++;
+                                                                        }
+                                                                        linha = buffRead.readLine();
+                                                                }
+                                                        }
+                                                        
+							While.lacoDeRepeticao(count,idValue);//chama o laco de repeticao while
+                                                       
+                                                }
 						else
 						{
-							idLinha(linha); //chama o metodo para ler as variaveis primitivas
+							lePrimitivos.idLinha(linha); //chama o metodo para ler as variaveis primitivas
 						}
 							
 					}	
@@ -121,57 +145,6 @@ class Leitor extends Tools
 	}
 	//fim do método setArquivo
 	
-	public void idLinha(String linha)
-	{
-		if (linha.substring(0,3).equals("int"))
-		{		
-			inteiros = new Int();
-			inteiros.verificador(linha);
-		}
-                   	
-                else if (linha.substring(0,5).equals("float"))
-		
-		{
-			floats = new Float();
-			floats.verificador(linha);
-                }
-				
-		else if (linha.substring(0,4).equals("char"))
-		{
-			chars = new Char();
-			chars.verificador(linha);
-		}
 
-		else if (linha.substring(0,4).equals("bool"))
-		{
-			bool = new Bool();
-			bool.verificador(linha);
-		}
-						
-		//verifica se foi escrito algo com 6 letras se e igual a string
-		else if (linha.substring(0,6).equals("string")) 
-		{
-							
-			string = new Strings();
-			string.verificador(linha);
-		}
-					
-		else if (linha.substring(0,5).equals("input"))
-		{
-			this.input(this.tiraEspacos(linha));
-		}
-						
-		else if (linha.substring(0,5).equals("print"))
-		{
-			this.print(this.tiraEspacos(linha));
-		}
-						
-				
-		else
-		{
-			troca.getVariaveis(linha);
-		}
-	}
 }
-//fim da classe Leitor
 //fim da classe Leitor

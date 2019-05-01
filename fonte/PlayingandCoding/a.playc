@@ -1,6 +1,10 @@
 int a = 9421;
 int b = 9421;
-
+bool f = true;
+while f;
+{
+input("digite um bool para f: ",f);
+}
 if a == b;
 {
     int b = 9422;
@@ -39,7 +43,6 @@ if i == 0;
     input("ditite um char para t: ",t);
     input("digite um float para x: ",x);
     input("digite uma string para y: ",y);
-    input("digite um bool para f: ",f);
 }
 
 print("valores de i,x,t,y,f, respectivamente"=>i=>x=>t=>y=>f);
