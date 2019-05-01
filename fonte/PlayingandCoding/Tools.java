@@ -1,5 +1,8 @@
 /* na classe tools será coloca ferramentas básicas para linguagem, sendo elas, respectivamente, o print e o input*/
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.text.DecimalFormat;
 //inicio da classe Tools
 public class Tools 
 {
@@ -97,7 +100,16 @@ public class Tools
 
 			else if(Comparadores.tipoVariaveis.get(str).equals("float"))
 			{
-				System.out.print(Float.variaveisArmazenadas.get(str)+" ");
+				List<Double> d = Float.variaveisArmazenadas.get(str);
+				double n1st = d.get(0);
+				double n2nd = d.get(1);
+				String s2nd = String.valueOf(n2nd);
+				String s = "#.";
+				for (int x = 0; x < s2nd.length()-2; x++) {
+					s=s+s2nd.charAt(x);
+				}
+				DecimalFormat f = new DecimalFormat(s);
+				System.out.print(f.format(n1st)+" ");	
 			}
 		}
 		System.out.println();
@@ -168,7 +180,9 @@ public class Tools
 			{
 				double value;
 				value = scan.nextDouble();
-				Float.variaveisArmazenadas.put(id,value);
+				List<Double> value2 = new ArrayList<Double>();
+				value2.add(value);
+				Float.variaveisArmazenadas.put(id,value2);
 			}
 		}
 	}

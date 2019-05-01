@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.lang.*;
 import java.util.Scanner;
 
@@ -7,7 +9,7 @@ public class Float extends Floats
 {
 	//dicionario que armazena as váriaveis criadas
 	public static int leituraDaLinha;
-	public static HashMap< String,Double> variaveisArmazenadas = new HashMap<String, Double>();
+	public static HashMap< String,List<Double>> variaveisArmazenadas = new HashMap<String, List<Double>>();
 	
 	//inicio do método verificacao
 	protected boolean verificacao(String str)
@@ -70,8 +72,10 @@ public class Float extends Floats
 					}
 				}
                 // converte a string variavelValue para double
-				double value = this.ConvertStringParaDouble(variavelValue);
-				this.setValue(value*negativo);
+				double[] valueArray = this.ConvertStringParaDouble(variavelValue);
+				double value = valueArray[0];
+				this.setValue1(valueArray[0]*negativo);
+				this.setValue2(valueArray[1]);
 				this.setId(variavelId);
                 //System.out.println(variavelId);
 				if (variavelValue.length() == 0)
@@ -90,14 +94,13 @@ public class Float extends Floats
 	//fim do método verificador
 
 	//inicio do método ConvertStringParaDouble
-	public static double ConvertStringParaDouble(String str)
+	public static double[] ConvertStringParaDouble(String str)
     {
         int aux = 0;
-        double value = 0.0;
+        double[] value = {0.0,0.0};
         boolean flag = true; // flag a ser modificado ao encontrar ponto 
         // duas variaveis: uma para antes da virgula, outra para depois
-        String antes = "";
-        String depois = "";
+				String ad[] = {"",""};
 
         for(int i = 0; i < str.length(); i++) {
           //System.out.println("Convertendo "+str.charAt(i));
@@ -107,16 +110,16 @@ public class Float extends Floats
             //System.out.println("Passou o .");            
             flag = false;
             i+=1;
-            depois = str.substring(i);
+            ad[1] = str.substring(i);
           }
-          // isso provavelmente é desnecessário
-          else if(str.charAt(i) == ';') {
-                break;            
-            }
+          // // isso provavelmente é desnecessário
+          // else if(str.charAt(i) == ';') {
+          //       break;            
+          //   }
           // se não encontrar ponto, adiciona o caractere na variavel
           else if(flag) {
             //System.out.println("Ta aqui");
-            antes += str.charAt(i);
+            ad[0] += str.charAt(i);
           }
         }
         //System.out.println(antes);
@@ -124,15 +127,22 @@ public class Float extends Floats
 
         // retorna o valor antes da virgula somado com o valor depois da virgula
         // o depois sofre divisão para ter os decimais após a virgula
-        value = ((Double.parseDouble(depois) / Math.pow(10,depois.length())) + Double.parseDouble(antes));
-        return value; // retorna o valor
+				//value = ((Double.parseDouble(ad[1]) / Math.pow(10,ad[1].length())) + Double.parseDouble(ad[0]));
+				//System.out.println(value);
+				value[0] = Double.parseDouble(ad[0]);
+				value[1] = Double.parseDouble(ad[1]);
+				return value; // retorna o valor
 	}
 	//fim do método ConvertStringParaDouble
 
 	//inicio do método armazenarValor
 	protected void armazenarValor ()
 	{
-		this.variaveisArmazenadas.put(this.getId(), this.getValue());
+		List<Double> lista = new ArrayList<Double>();
+		lista.add(this.getValue1());
+		lista.add(this.getValue2());
+
+		this.variaveisArmazenadas.put(this.getId(), lista);
 
 		Comparadores.tipoVariaveis.put(this.getId(), "float");
 	}

@@ -1,6 +1,6 @@
-//int a = 9421;
-// int b = 9421;
-// bool f = true;
+int a = 9421;
+int b = 9421;
+bool f = true;
 
 // if a == b;
 // {
@@ -37,17 +37,17 @@ input("digite um char para a: ",a);
 }
 
 int i = 0;
-float x = 0.0;
+float x = 100000000.2222;
 char t = 'p';
 string y = " ";
 bool f = false;
 
-// if i == 0;
-// {
-//     input("digite um inteiro para i: ",i);
-//     input("ditite um char para t: ",t);
+if i == 0;
+{
+     input("digite um inteiro para i: ",i);
+     input("ditite um char para t: ",t);
 //     input("digite um float para x: ",x);
-//     input("digite uma string para y: ",y);
-// }
+     input("digite uma string para y: ",y);
+}
 
 print("valores de i,x,t,y,f, respectivamente"=>i=>x=>t=>y=>f);
