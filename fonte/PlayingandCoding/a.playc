@@ -1,9 +1,12 @@
 int a = 9421;
 int b = 9421;
 bool f = true;
-while bool|f;
+char a = 'b';
+char c = 'b';
+
+while char|a==c;
 {
-input("digite um bool para f: ",f);
+input("digite um char para a: ",a);
 }
 if a == b;
 {

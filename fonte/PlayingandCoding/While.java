@@ -20,7 +20,7 @@ public class While
 				tipo = tipo+""+value.charAt(i);
 			}
 		}
-		System.out.println(tipo);
+		System.out.println();
 		LePrimitivos le = new LePrimitivos();
 		if(tipo.equals("bool"))
 		{
@@ -34,5 +34,17 @@ public class While
 
          	       }
         	}
+		else if(tipo.equals("char"))
+		{
+			while(troca.comparaChar(value))
+                	{
+                        	for(int i = 0; i<numeroDeLinhas;i++)
+                        	{
+                                	le.idLinha(txtLines.get(i));
+                        	}
+
+
+         	       }	
+		}
 	}
 }

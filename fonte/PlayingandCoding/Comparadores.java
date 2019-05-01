@@ -4,7 +4,9 @@ import java.util.HashMap;
 public class Comparadores extends Tools
 {
         public static int vl =2; //se for if o valor tem que ser trocado para 2 se d
+	
 	public static HashMap<String,String> tipoVariaveis = new HashMap<String,String>(); //armazena os tipos das variaveis
+	
 	public Int ints = new Int();
 	
 	//inicio do método getVariaveis
@@ -191,6 +193,37 @@ public class Comparadores extends Tools
 			}
 	}
 	//fim do método comparaInt
+	
+	//inicio do método comparaChar
+	public boolean comparaChar(String expressao)
+	{
+		char v1='-',v2='+';//so para inicializar
+		for(int i = 0; i< expressao.length(); i++)
+		{
+			if(expressao.charAt(i) == '=' && expressao.charAt(i+1) == '=')
+			{
+				
+				if(tipoVariaveis.get(expressao.substring(0,i)).equals("char"))
+				{
+					v1 = Char.variaveisArmazenadas.get(expressao.substring(0,i));
+				}
+
+				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("char"))
+				{
+					v2 = Char.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
+				}
+			}
+		}
+		if( v1 == v2)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	//fim do método comparaChar;
 
 	//inicio do método trocaDeVariaveis
 	public void trocaDeVariaveis( String v1, String v2,String line, int pos )
