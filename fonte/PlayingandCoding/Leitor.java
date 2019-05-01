@@ -44,10 +44,25 @@ class Leitor extends Tools
 				if(linha != null)
                         	{
 				
-					if ( ( linha.length() != 0 ) && (!linha.contains("}")) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
+					if ( ( linha.length() != 0 ) && (!linha.contains("}")) && (!linha.contains("{")) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
 					{ 
 						//chama as funções aqui para armazenamento
-						if (linha.substring(0,2).equals("if"))
+						if (linha.substring(0,2).equals("wh")) {
+							while (troca.comparaInt(tiraEspacos(linha))) 
+							{
+									linha = buffRead.readLine();
+									while (!tiraEspacos(linha).contains("}"))
+									{
+										linha = buffRead.readLine();
+									}
+									buffRead = new BufferedReader(new FileReader (this.getArquivo()));
+									for(int x = 0; x < ErrosNaCompilacao.numeroDaLinha; x++){
+										buffRead.readLine();
+									}
+									linha = buffRead.readLine();
+							}
+						}
+						else if (linha.substring(0,2).equals("if"))
 						{
 							if (!troca.comparaInt(linha)) 
 							{
@@ -106,7 +121,7 @@ class Leitor extends Tools
 						}
 					}	
 
-					else if ( !tiraEspacos(linha).contains("}") && tiraEspacos(linha).length() != 0 ) 
+					else if ( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && tiraEspacos(linha).length() != 0 ) 
 					{
 						
 						ErrosNaCompilacao.getLineError(0);
@@ -114,15 +129,15 @@ class Leitor extends Tools
 					}
 					
 					ErrosNaCompilacao.numeroDaLinha+=1;
-                        	}
+                }
 				else 
 				{
 					break;
 				}
 
-                	}
+			}
 
-                	buffRead.close();
+			buffRead.close();
 		}
 		catch(IOException e)
 		{

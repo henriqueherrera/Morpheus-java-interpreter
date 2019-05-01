@@ -2,6 +2,7 @@ int a = 9421;
 int b = 9421;
 
 if a == b;
+{
 int b = 9422;
 if a == b;
 
@@ -24,31 +25,22 @@ if a > b;
 if a < b;
 int a = 9423;
 if a < b;
-
 }
-
-int c = 9421;
-int d = 9421;
-
-if c == d;
-print("devo estar imprimindo");
-if c != d;
-print("não vou imprimir nada");
-print("não vou imprimir nada");
-print("não vou imprimir nada");
-}
-print("vou dar uma imprimida");
 
 int i = 0;
+int y = 0;
 float x = 0.0;
 char t = 'p';
 string y = " ";
 bool f = false;
 
+if i == y;
+{
 input("digite um inteiro para i: ",i);
 input("ditite um char para t: ",t);
 input("digite um float para x: ",x);
 input("digite uma string para y: ",y);
 input("digite um bool para f: ",f);
+}
 
 print("valores de i,x,t,y,f, respectivamente"=>i=>x=>t=>y=>f);
