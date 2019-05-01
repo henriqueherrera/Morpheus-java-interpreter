@@ -39,17 +39,23 @@ class Leitor extends Tools
                 	while(laco)
                 	{
 			
-                        	linha = buffRead.readLine();
+							linha = buffRead.readLine();
                         
 				if(linha != null)
                         	{
 				
-					if ( ( linha.length() != 0 ) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
+					if ( ( linha.length() != 0 ) && (!linha.contains("}")) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
 					{ 
 						//chama as funções aqui para armazenamento
 						if (linha.substring(0,2).equals("if"))
 						{
-							System.out.println(troca.comparaInt(linha));
+							if (!troca.comparaInt(linha)) 
+							{
+								while (!tiraEspacos(linha).contains("}"))
+								{
+									linha = buffRead.readLine();
+								}
+							}
 						}
 						else if (linha.substring(0,3).equals("int"))
 						{		
@@ -100,7 +106,7 @@ class Leitor extends Tools
 						}
 					}	
 
-					else if (tiraEspacos(linha).length() != 0) 
+					else if ( !tiraEspacos(linha).contains("}") && tiraEspacos(linha).length() != 0 ) 
 					{
 						
 						ErrosNaCompilacao.getLineError(0);

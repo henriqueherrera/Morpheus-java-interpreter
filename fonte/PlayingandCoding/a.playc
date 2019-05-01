@@ -1,5 +1,6 @@
 int a = 9421;
 int b = 9421;
+
 if a == b;
 int b = 9422;
 if a == b;
@@ -23,6 +24,20 @@ if a > b;
 if a < b;
 int a = 9423;
 if a < b;
+
+}
+
+int c = 9421;
+int d = 9421;
+
+if c == d;
+print("devo estar imprimindo");
+if c != d;
+print("não vou imprimir nada");
+print("não vou imprimir nada");
+print("não vou imprimir nada");
+}
+print("vou dar uma imprimida");
 
 int i = 0;
 float x = 0.0;
