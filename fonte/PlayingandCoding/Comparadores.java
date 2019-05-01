@@ -3,7 +3,8 @@ import java.util.HashMap;
 //inicio da classe Comparadores
 public class Comparadores extends Tools
 {
-        public static int vl =2; //se for if o valor tem que ser trocado para 2 se d
+		public static int vl = 2; //se for if o valor tem que ser trocado para 2 se d
+		// a limpeza de linha agora é feita antes de chamar comparaInt
 	
 	public static HashMap<String,String> tipoVariaveis = new HashMap<String,String>(); //armazena os tipos das variaveis
 	
@@ -43,7 +44,7 @@ public class Comparadores extends Tools
 		String cleanLine = tiraEspacos(line);
 		String[] v = {"",""};
 		
-		for(int i = vl; i < cleanLine.length(); i++)
+		for(int i = 0; i < cleanLine.length(); i++)
 		{
 			if( ( cleanLine.charAt(i) == '=' ) && ( cleanLine.charAt(i+1) == '=' )  
 			|| ( ( cleanLine.charAt(i) == '!' ) && ( cleanLine.charAt(i+1) == '=' ) 
@@ -128,21 +129,12 @@ public class Comparadores extends Tools
 	//fim do método checaComparador
 	
 	//inicio do método comparaInt
-	// comparação de igual --- EX: if a == b
 	public boolean comparaInt( String s ) 
 	{
-		// 1 - ==
-		// 2 - !=
-		// 3 - >=
-		// 4 - <=
-		// 5 - >
-		// 6 - <
-		String cleanLine = tiraEspacos(s);
 		String[] v = getDuasVar(s);
 		int t1 = 0, t2 = 0;
-		// 1 = igual, 2 = maior, 3 = menor
-		int condicao = checaComparador(s);
-
+		int c = checaComparador(s);
+		
 		if (v[0].chars().allMatch(Character::isLetter)) 
 		{
 			t1 = Int.variaveisArmazenadas.get(v[0]);
@@ -162,10 +154,14 @@ public class Comparadores extends Tools
 			t2 = Integer.parseInt(v[1]);
 		}
 
-		int c = checaComparador(s);
-
 		switch(c) 
 		{
+			// 1 - ==
+			// 2 - !=
+			// 3 - >=
+			// 4 - <=
+			// 5 - >
+			// 6 - <
 			case 1:
 				if (t1 == t2) return true;
 				else return false;

@@ -43,25 +43,11 @@ class Leitor extends Tools
 					{ 
 						linha = linha.trim();
 						//chama as funções aqui para armazenamento
-						if (linha.substring(0,2).equals("wi")) {
-							while (troca.comparaInt(tiraEspacos(linha))) 
-							{
-									linha = buffRead.readLine();
-									while (!tiraEspacos(linha).contains("}"))
-									{
-										linha = buffRead.readLine();
-									}
-									buffRead = new BufferedReader(new FileReader (this.getArquivo()));
-									for(int x = 0; x < ErrosNaCompilacao.numeroDaLinha; x++){
-										buffRead.readLine();
-									}
-									linha = buffRead.readLine();
-							}
-						}
-						else if (linha.substring(0,2).equals("if"))
+						if (linha.substring(0,2).equals("if"))
 						{
 							Comparadores.vl =2;
-							if (!troca.comparaInt(linha)) 
+							String cleanLine = tiraEspacos(linha);
+							if (!troca.comparaInt(cleanLine.substring(2,cleanLine.length()))) 
 							{
 								while (!tiraEspacos(linha).contains("}"))
 								{
@@ -71,33 +57,32 @@ class Leitor extends Tools
 						}
 
 				   		else if (linha.substring(0,5).equals("while"))
-                                                {
-                                                        
-                                                        String idValue = tiraEspacos(linha.substring(5,linha.length()-1)); //pega a expressão do while
+                    	{                        
+                            String idValue = tiraEspacos(linha.substring(5,linha.length()-1)); //pega a expressão do while
 							linha = buffRead.readLine(); //pula o }
 							int count = 0; //conta o numero de linhas dentro do while
                                                         
 							if(linha.contains("{"))
-                                                        {
-                                                                linha = buffRead.readLine();
-                                                                while(true)
-                                                                {
-                                                                        if(linha.contains("}"))
-                                                                        {
-                                                                                break;
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                                While.txtLines.put(count,linha);
-                                                                                count++;
-                                                                        }
-                                                                        linha = buffRead.readLine();
-                                                                }
-                                                        }
+							{
+									linha = buffRead.readLine();
+									while(true)
+									{
+											if(linha.contains("}"))
+											{
+													break;
+											}
+											else
+											{
+													While.txtLines.put(count,linha);
+													count++;
+											}
+											linha = buffRead.readLine();
+									}
+							}
                                                         
 							While.lacoDeRepeticao(count,idValue);//chama o laco de repeticao while
                                                        
-                                                }
+                        }
 						else
 						{
 							lePrimitivos.idLinha(linha); //chama o metodo para ler as variaveis primitivas
