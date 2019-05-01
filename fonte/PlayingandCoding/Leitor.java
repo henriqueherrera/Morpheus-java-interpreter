@@ -39,7 +39,7 @@ class Leitor extends Tools
                 	while(laco)
                 	{
 			
-							linha = buffRead.readLine();
+				linha = buffRead.readLine();
                         
 				if(linha != null)
                         	{
@@ -73,53 +73,11 @@ class Leitor extends Tools
 								}
 							}
 						}
-						else if (linha.substring(0,3).equals("int"))
-						{		
-							inteiros = new Int();
-							inteiros.verificador(linha);
-						}
-                   	
-                        			else if (linha.substring(0,5).equals("float"))
-						{
-							floats = new Float();
-							floats.verificador(linha);
-                       	 			}
-					
-						else if (linha.substring(0,4).equals("char"))
-						{
-							chars = new Char();
-							chars.verificador(linha);
-						}
-
-						else if (linha.substring(0,4).equals("bool"))
-						{
-							bool = new Bool();
-							bool.verificador(linha);
-						}
-						
-						//verifica se foi escrito algo com 6 letras se e igual a string
-						else if (linha.substring(0,6).equals("string")) 
-						{
-							
-							string = new Strings();
-							string.verificador(linha);
-						}
-						
-						else if (linha.substring(0,5).equals("input"))
-						{
-							this.input(this.tiraEspacos(linha));
-						}
-						
-						else if (linha.substring(0,5).equals("print"))
-						{
-							this.print(this.tiraEspacos(linha));
-						}
-						
-						
 						else
 						{
-							troca.getVariaveis(linha);
+							idLinha(linha); //chama o metodo para ler as variaveis primitivas
 						}
+							
 					}	
 
 					else if ( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && tiraEspacos(linha).length() != 0 ) 
@@ -130,7 +88,8 @@ class Leitor extends Tools
 					}
 					
 					ErrosNaCompilacao.numeroDaLinha+=1;
-                }
+                		
+				}	
 				else 
 				{
 					break;
@@ -140,6 +99,7 @@ class Leitor extends Tools
 
 			buffRead.close();
 		}
+		
 		catch(IOException e)
 		{
 			e.printStackTrace();
@@ -160,6 +120,58 @@ class Leitor extends Tools
 		this.arquivo = a;	
 	}
 	//fim do método setArquivo
+	
+	public void idLinha(String linha)
+	{
+		if (linha.substring(0,3).equals("int"))
+		{		
+			inteiros = new Int();
+			inteiros.verificador(linha);
+		}
+                   	
+                else if (linha.substring(0,5).equals("float"))
+		
+		{
+			floats = new Float();
+			floats.verificador(linha);
+                }
+				
+		else if (linha.substring(0,4).equals("char"))
+		{
+			chars = new Char();
+			chars.verificador(linha);
+		}
+
+		else if (linha.substring(0,4).equals("bool"))
+		{
+			bool = new Bool();
+			bool.verificador(linha);
+		}
+						
+		//verifica se foi escrito algo com 6 letras se e igual a string
+		else if (linha.substring(0,6).equals("string")) 
+		{
+							
+			string = new Strings();
+			string.verificador(linha);
+		}
+					
+		else if (linha.substring(0,5).equals("input"))
+		{
+			this.input(this.tiraEspacos(linha));
+		}
+						
+		else if (linha.substring(0,5).equals("print"))
+		{
+			this.print(this.tiraEspacos(linha));
+		}
+						
+				
+		else
+		{
+			troca.getVariaveis(linha);
+		}
+	}
 }
 //fim da classe Leitor
 //fim da classe Leitor
