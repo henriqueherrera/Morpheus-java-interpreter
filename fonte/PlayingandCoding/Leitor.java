@@ -46,6 +46,7 @@ class Leitor extends Tools
 				
 					if ( ( linha.length() != 0 ) && (!linha.contains("}")) && (!linha.contains("{")) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
 					{ 
+						linha = linha.trim();
 						//chama as funções aqui para armazenamento
 						if (linha.substring(0,2).equals("wh")) {
 							while (troca.comparaInt(tiraEspacos(linha))) 
