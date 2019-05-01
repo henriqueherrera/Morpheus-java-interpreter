@@ -28,13 +28,12 @@ if a < b;
 }
 
 int i = 0;
-int y = 0;
 float x = 0.0;
 char t = 'p';
 string y = " ";
 bool f = false;
 
-if i == y;
+if i == 0;
 {
 input("digite um inteiro para i: ",i);
 input("ditite um char para t: ",t);
