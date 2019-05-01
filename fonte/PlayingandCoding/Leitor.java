@@ -39,7 +39,7 @@ class Leitor extends Tools
 				if(linha != null)
                         	{
 				
-					if ( ( linha.length() != 0 ) && (!linha.contains("}")) && (!linha.contains("{")) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
+					if ( ( linha.length() != 0 ) && (!linha.contains("}")) && (!linha.contains("{")) && (!linha.contains("//")) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
 					{ 
 						linha = linha.trim();
 						//chama as funções aqui para armazenamento
@@ -90,7 +90,7 @@ class Leitor extends Tools
 							
 					}	
 
-					else if ( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && tiraEspacos(linha).length() != 0 ) 
+					else if ( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && (!linha.contains("//")) && tiraEspacos(linha).length() != 0 ) 
 					{
 						
 						ErrosNaCompilacao.getLineError(0);
