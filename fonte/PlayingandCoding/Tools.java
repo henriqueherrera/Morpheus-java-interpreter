@@ -101,6 +101,9 @@ public class Tools
 			else if(Comparadores.tipoVariaveis.get(str).equals("float"))
 			{
 				List<Double> d = Float.variaveisArmazenadas.get(str);
+				// System.out.println(d);
+				// System.out.println(d.get(0));
+				// System.out.println(d.get(1));
 				double n1st = d.get(0);
 				double n2nd = d.get(1);
 				String s2nd = String.valueOf(n2nd);
@@ -180,8 +183,13 @@ public class Tools
 			{
 				double value;
 				value = scan.nextDouble();
+				Float f = new Float();
+				double[] da = f.ConvertStringParaDouble(Double.toString(value));
 				List<Double> value2 = new ArrayList<Double>();
+
 				value2.add(value);
+				value2.add(0.0);
+
 				Float.variaveisArmazenadas.put(id,value2);
 			}
 		}

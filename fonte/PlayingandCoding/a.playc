@@ -37,17 +37,18 @@ input("digite um char para a: ",a);
 }
 
 int i = 0;
-float x = 100000000.2222;
+float x = 100 000 000.2222;
+float xx = 100 000 000.2222;
 char t = 'p';
 string y = " ";
 bool f = false;
 
 if i == 0;
 {
-     input("digite um inteiro para i: ",i);
-     input("ditite um char para t: ",t);
-//     input("digite um float para x: ",x);
-     input("digite uma string para y: ",y);
+//     input("digite um inteiro para i: ",i);
+//     input("ditite um char para t: ",t);
+     input("digite um float para x: ",x);
+//     input("digite uma string para y: ",y);
 }
 
-print("valores de i,x,t,y,f, respectivamente"=>i=>x=>t=>y=>f);
+print("valores de i,x,xx,t,y,f, respectivamente"=>i=>x=>xx=>t=>y=>f);
