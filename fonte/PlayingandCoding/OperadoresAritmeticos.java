@@ -22,21 +22,21 @@ public class OperadoresAritmeticos
 	//inicio do método left
 	private int left(int i)
 	{
-		return 2*i+1;
+		return 2*i;
 	}
 	//fim do método left
 	
 	//inicio do método right
 	private int right(int i)
 	{
-		return 2*i+2;
+		return 2*i+1;
 	}
 	//fim do método right
 	
 	//inicio do método dad
 	private int dad(int i)
 	{
-		return (i-1)/2;
+		return i/2;
 	}
 	//fim do método dad
 	
@@ -68,21 +68,26 @@ public class OperadoresAritmeticos
 	}
 
 	//inicio do método operacao
-	public void LeituraDaOperacao(String linha)
+	public void leituraDaOperacao(String linha)
 	{
 		ArrayList<String> heap = new ArrayList<String>(linha.length());
 		
 		Int inteiro = new Int();
 
-		int indice = 0; //indice
+		int indice = 1; //indice
 
 		String value = "";
-
+		
+		for(int i = 0; i< linha.length(); i++)
+		{
+			heap.add("");
+		}
 		for(int i = 0; i < linha.length() ; i++)
 		{
+			
 			if(linha.charAt(i) == '(')
 			{
-				heap.add(indice,"#");
+				heap.set(indice,"#");
 				indice = this.left(indice);
 			}
 			
@@ -92,9 +97,12 @@ public class OperadoresAritmeticos
 			}
 			
 			else if((linha.charAt(i) == '*') || (linha.charAt(i) == '-') || (linha.charAt(i) == '+') || (linha.charAt(i) == '/'))
-			{
-				heap.add(this.dad(indice),linha.substring(i,i+1));
+			{	
+			
 				indice = this.dad(indice);
+
+				heap.set(indice,linha.substring(i,i+1));
+				indice = this.right(indice);
 			}
 			else
 			{
@@ -104,7 +112,9 @@ public class OperadoresAritmeticos
 					{
 						if(!((48<= linha.charAt(x)) && (linha.charAt(x)  <=57)))
 						{
-							i = x;
+						//	System.out.println(linha.charAt(x)+" aqui");
+							i = x-1;
+							
 							break;
 						}
 
@@ -120,7 +130,7 @@ public class OperadoresAritmeticos
 					{
 						if((linha.charAt(x) == '*') || (linha.charAt(x) == '-') || (linha.charAt(x) == '+') || (linha.charAt(x) == '/') || (linha.charAt(x) == '(') || (linha.charAt(x) == ')'))
 						{
-							i = x;
+							i = x-1;
 							break;
 						}
 						else
@@ -129,10 +139,15 @@ public class OperadoresAritmeticos
 						}
 					}
 				}
-				heap.add(indice,value);
-				indice = this.right(this.dad(i));
+				System.out.println(linha.charAt(i)+"aqui carai");
+				heap.set(indice,value);
+				value = "";
 			}
 	
+		}
+		for(int i = 0; i<linha.length();i++)
+		{
+			System.out.println(heap.get(i));
 		}
 	}
 	//fim do método operacao
