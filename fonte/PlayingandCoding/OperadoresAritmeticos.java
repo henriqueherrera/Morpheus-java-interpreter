@@ -4,7 +4,10 @@ import java.util.ArrayList;
 public class OperadoresAritmeticos
 {
 	public int value;
-
+	
+	private int count = 0;
+	private ArrayList<String> heap = new ArrayList<String>();
+	
 	//inicio do método setValue
 	public void setValue(int value)
 	{
@@ -66,11 +69,23 @@ public class OperadoresAritmeticos
 	{
 		return x+y;
 	}
+	
+	public void inOrder(int i)
+	{
 
+		if( heap.get(i).equals("empty"))
+		{
+			return;		
+		}
+		
+		inOrder(this.right(i));
+		System.out.println(heap.get(i));
+		inOrder(this.left(i));
+	}
 	//inicio do método operacao
 	public void leituraDaOperacao(String linha)
 	{
-		ArrayList<String> heap = new ArrayList<String>(linha.length());
+	
 		
 		Int inteiro = new Int();
 
@@ -78,9 +93,9 @@ public class OperadoresAritmeticos
 
 		String value = "";
 		
-		for(int i = 0; i< linha.length(); i++)
+		for(int i = 0; i< linha.length()*2; i++)
 		{
-			heap.add("");
+			heap.add("empty");
 		}
 		for(int i = 0; i < linha.length() ; i++)
 		{
@@ -139,7 +154,6 @@ public class OperadoresAritmeticos
 						}
 					}
 				}
-				System.out.println(linha.charAt(i)+"aqui carai");
 				heap.set(indice,value);
 				value = "";
 			}
@@ -149,6 +163,7 @@ public class OperadoresAritmeticos
 		{
 			System.out.println(heap.get(i));
 		}
+		this.inOrder(1);
 	}
 	//fim do método operacao
 }
