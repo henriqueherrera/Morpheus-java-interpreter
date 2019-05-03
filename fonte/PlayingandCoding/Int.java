@@ -54,6 +54,5 @@ public class Int extends Variaveis
 		return this.ConvertStringParaInt(this.getVariavelValue());
 	}
 	//fim do método indentificadorDeNumerosInt
-
 }
 //fim da classe Int

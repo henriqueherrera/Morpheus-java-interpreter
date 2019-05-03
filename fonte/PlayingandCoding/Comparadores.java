@@ -222,8 +222,8 @@ public class Comparadores extends Tools
 	//fim do método comparaChar;
 
 
-// inicio do método comparaStr 
-public boolean comparaStr(String line) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals 
+	// inicio do método comparaStr 
+	public boolean comparaStr(String line) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals 
 	{
 		String cleanLine = tiraEspacos(line);
 		String str1 = "", str2 = "";

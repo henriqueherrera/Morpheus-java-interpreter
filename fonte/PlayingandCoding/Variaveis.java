@@ -63,7 +63,33 @@ public abstract class Variaveis extends Primitivos
        
 		if( str.substring(0,3).equals("int"))
 		{
+			char igual = '?';
 			inicializaLeitura = 4;
+
+			for(int i = inicializaLeitura ; i < str.length(); i++)//verifica se tem algum valor a ser armazenado
+			{
+				if(str.charAt(i) == ';' && igual != '=')
+				{
+					for(int ii = inicializaLeitura; ii< str.length()-1; ii++)
+					{
+						if( str.charAt(ii) != ' ')
+						{
+							setVariavelId(getVariavelId()+""+str.charAt(ii));
+						}
+						
+					}
+
+					setVariavelValue("0");
+					indentificaValor(getVariavelValue(),0);
+					return true;
+
+				}
+				if(str.charAt(i) == '=')
+				{
+					igual = '=';
+				}
+			
+			}
 		}
 		else if( str.substring(0,5).equals("float"))
 		{
@@ -84,13 +110,15 @@ public abstract class Variaveis extends Primitivos
 			inicializaLeitura = 7;
 		}
                 //laco de repetição que lê a linha
+		
+		
                 for( int i = 0; i< str.length()-1; i++)
                 {
 
 
                         if ( str.charAt(i)  == '=' )
                         {                       
-                                pos = i+1; //marca onde vai começar a leitura do char
+                                pos = i+1; //marca onde vai começar a leitura da variavel
 
                                 for( int ii = inicializaLeitura; ii < i; ii++)
                                 {
@@ -148,7 +176,7 @@ public abstract class Variaveis extends Primitivos
 	//fim do método armazenarValor
 	
 	//inicio do método indentificaValor
-	protected void indentificaValor(String str, int pos)
+	protected void indentificaValor(String str, int pos) //seta as variaveis id e value
 	{
 	}
 	//fim do método indentificaValor

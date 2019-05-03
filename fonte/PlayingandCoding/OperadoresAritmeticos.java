@@ -6,6 +6,7 @@ public class OperadoresAritmeticos
 	public int value;
 	
 	private int count = 0;
+	
 	private ArrayList<String> heap = new ArrayList<String>();
 	
 	//inicio do método setValue
@@ -82,6 +83,7 @@ public class OperadoresAritmeticos
 		System.out.println(heap.get(i));
 		inOrder(this.left(i));
 	}
+
 	//inicio do método operacao
 	public void leituraDaOperacao(String linha)
 	{
