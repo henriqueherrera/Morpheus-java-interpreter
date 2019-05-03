@@ -42,18 +42,36 @@ class Leitor extends Tools
 					if ( ( linha.length() != 0 ) && (!linha.contains("}")) && (!linha.contains("{")) && (!linha.contains("//")) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
 					{ 
 						linha = linha.trim();
+
 						//chama as funções aqui para armazenamento
 						if (linha.substring(0,2).equals("if"))
 						{
 							Comparadores.vl =2;
 							String cleanLine = tiraEspacos(linha);
-							if (!troca.comparaInt(cleanLine.substring(2,cleanLine.length()))) 
+						/*	if (!troca.comparaInt(cleanLine.substring(2,cleanLine.length()))) 
 							{
 								while (!tiraEspacos(linha).contains("}"))
 								{
 									linha = buffRead.readLine();
 								}
 							}
+						*/
+						
+						//falta terminar o diferençiador para chamar as respectivas funçoes
+							
+							
+							if (!troca.comparaStr(linha))  //chama a função que vai comprar as strings 
+														   //e retornar um valor boleano  
+							{	
+								
+								while (!tiraEspacos(linha).contains("}"))
+								{
+									linha = buffRead.readLine();
+								}
+			
+							}
+						
+						
 						}
 
 				   		else if (linha.substring(0,5).equals("while"))

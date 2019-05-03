@@ -1,6 +1,9 @@
+
 int a = 9421;
 int b = 9421;
 bool f = true;
+String y = "";
+String x = "";
 
 // if a == b;
 // {
@@ -52,3 +55,24 @@ if i == 0;
 }
 
 print("valores de i,x,xx,t,y,f, respectivamente"=>i=>x=>xx=>t=>y=>f);
+
+string yy = " ";
+string xoo = " ";
+
+
+input("digite uma string para yy: ",yy);
+input("digite uma string para xoo: ",xoo);
+
+
+if yy==xoo;
+{
+print ("foi AEEEE");
+}
+
+
+
+
+
+
+
+

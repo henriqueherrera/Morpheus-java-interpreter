@@ -221,6 +221,72 @@ public class Comparadores extends Tools
 	}
 	//fim do método comparaChar;
 
+
+// inicio do método comparaStr 
+public boolean comparaStr(String line) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals 
+	{
+		String cleanLine = tiraEspacos(line);
+		String str1 = "", str2 = "";
+		
+		for(int i = 2; i < cleanLine.length()-1; i++) //le a linha toda ignorando o if 
+		{
+			
+			if(cleanLine.charAt(i) == '=' && cleanLine.charAt(i+1) == '=') //ve se é == e começa a ler a variavel depois dele 
+			{
+				
+				for(int ii = i+2; ii< cleanLine.length(); ii++)//laço que le toda a variavel depois do == até o ;
+				{
+					
+					
+					if (cleanLine.charAt(ii) == '=') //se o caractere for = ele continua e não adiciona no str
+					{
+						continue;
+					}
+					
+					else if (cleanLine.charAt(ii) == ';' ) //se o caractere for = ele para o for e não adiciona mais nada 
+					{
+						break;
+					}		
+					
+					else  //se não for = ou ; ele adiciona os caracteres na variavel
+					{
+						str2=str2+""+cleanLine.charAt(ii);//adiciona todos os caracteres da variavel na str2
+						
+					}
+					
+				}
+				break;
+			}
+			
+			else//le toda variavel depois do if e antes do ==
+			{
+				
+				str1=str1+""+cleanLine.charAt(i);//adiciona todos os caracteres da variavel antes do == na str1
+				
+			}
+			
+		}
+		
+		//busca o valor referente ao nome da variavel
+		str1 = Strings.variaveisArmazenadas.get(str1);
+		str2 = Strings.variaveisArmazenadas.get(str2);
+	
+		if (str1.equals(str2)) //compara se são iguais e retorna true 
+		{
+			return true;
+		}
+		
+		else  //se forem diferentes retorna false
+		{
+			return false;
+		}
+		
+
+	
+	}
+	//fim do método comparaStr;
+
+
 	//inicio do método trocaDeVariaveis
 	public void trocaDeVariaveis( String v1, String v2,String line, int pos )
 	{		
