@@ -7,8 +7,16 @@ public class OperadoresAritmeticos
 	
 	private int count = 0;
 	
+	private int conta = 0;
+	
+	private char simbolo = '#';
+	
+	private boolean passa = false;
+	
 	private ArrayList<String> heap = new ArrayList<String>();
 	
+	private Int inteiro = new Int();
+
 	//inicio do método setValue
 	public void setValue(int value)
 	{
@@ -74,14 +82,52 @@ public class OperadoresAritmeticos
 	public void inOrder(int i)
 	{
 
+		
 		if( heap.get(i).equals("empty"))
 		{
-			return;		
-		}
+			inteiro = new Int();
+			if (conta ==0)
+			{
+				conta = inteiro.indetificadorDeNumerosInt(heap.get(dad(i)),0);
+			}
 		
+			
+			
+			return;		
+		}	
+		
+			
+		inOrder(this.left(i));	
+		if((48<=heap.get(i).charAt(0) && heap.get(i).charAt(0) <= 57 )) 
+		{
+			inteiro = new Int();
+			System.out.println(conta+""+'-'+""+inteiro.indetificadorDeNumerosInt(heap.get(i),0));
+
+			inteiro = new Int();
+			
+		
+	
+			if(simbolo == '+')
+			{
+				conta+= inteiro.indetificadorDeNumerosInt(heap.get(i),0)+conta;
+			
+			}
+			else if(simbolo == '-')
+			{
+				conta= inteiro.indetificadorDeNumerosInt(heap.get(i),0)-conta;
+			}
+			else if(simbolo == '*')
+			{
+				conta= inteiro.indetificadorDeNumerosInt(heap.get(i),0) *conta;
+			}
+		}
+	 	if( heap.get(i).charAt(0) == '-' ||  heap.get(i).charAt(0) == '+' ||  heap.get(i).charAt(0) == '*')
+		{
+			simbolo = heap.get(i).charAt(0);
+		}
+	
+			
 		inOrder(this.right(i));
-		System.out.println(heap.get(i));
-		inOrder(this.left(i));
 	}
 
 	//inicio do método operacao
@@ -95,7 +141,9 @@ public class OperadoresAritmeticos
 
 		String value = "";
 		
-		for(int i = 0; i< linha.length()*2; i++)
+		heap.add("x");
+
+		for(int i = 1; i< linha.length()*2; i++)
 		{
 			heap.add("empty");
 		}
@@ -141,6 +189,7 @@ public class OperadoresAritmeticos
 						}
 					}
 				}
+
 				else //se for variavel
 				{
 					for(int x = i; x<linha.length();x++)
@@ -161,11 +210,8 @@ public class OperadoresAritmeticos
 			}
 	
 		}
-		for(int i = 0; i<linha.length();i++)
-		{
-			System.out.println(heap.get(i));
-		}
 		this.inOrder(1);
+		System.out.println(conta);
 	}
 	//fim do método operacao
 }
