@@ -1,4 +1,5 @@
 bool blean;
+vetor [10] vetorzin;
 int test;
 int x =40;
 string o;

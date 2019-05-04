@@ -6,7 +6,7 @@ public class Int extends Variaveis
 {
 	//dicionario que armazena as váriaveis criadas
 	public static HashMap< String,Integer> variaveisArmazenadas = new HashMap<String, Integer>();
-	
+	public static HashMap< String, HashMap<Integer,Integer>> vetoresArmazenados = new HashMap<String, HashMap<Integer,Integer>>();
 	@Override
 	protected void indentificaValor(String str,int pos)
 	{
@@ -24,6 +24,44 @@ public class Int extends Variaveis
 	}
 	//fim do método armazenarValor
 	
+	//inicio do método armazenaVetor
+	public void armazenaVetor(String linha)
+	{
+		String value = "";
+		String id = "";
+		int pos = 0;
+		for(int i = 0; i< linha.length(); i++)
+		{
+			if( linha.charAt(i) == '[')
+			{
+				for(int ii = i+1; ii<= linha.length(); ii++)
+				{
+					if(linha.charAt(ii) == ']') //tamanho do vetor
+					{
+						pos = ii+1;//onde começa leitura da variavel
+						break;
+					}
+					else
+					{
+						value = value+""+linha.charAt(ii);
+					}
+				}
+			}
+			break;
+		}
+
+		for(int i = pos; i< linha.length();i++)
+		{
+			id = id+""+linha.charAt(i);
+		}
+
+		vetoresArmazenados.put(id, new HashMap<Integer,Integer>());
+		for(int i = 0; i<this.indetificadorDeNumerosInt(value,0);i++)
+		{
+			vetoresArmazenados.get(id).put(i,0);
+		}
+	}
+	//fim do método armazenaVetor
 	//inicio do método indenrificadorDeNumerosInt
 	public int indetificadorDeNumerosInt(String str,int pos)
 	{

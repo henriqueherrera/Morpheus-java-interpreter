@@ -1,6 +1,9 @@
 public class LePrimitivos extends Tools
 {
 	private OperadoresAritmeticos operacoes  = new OperadoresAritmeticos();
+	
+	private Int vetores = new Int();
+
 	public void idLinha(String linha)
 	{
 		
@@ -18,7 +21,7 @@ public class LePrimitivos extends Tools
 			Float floats = new Float();
 			floats.verificador(linha);
                 }
-				
+			
 		else if (linha.substring(0,4).equals("char"))
 		{
 			Char chars = new Char();
@@ -49,6 +52,10 @@ public class LePrimitivos extends Tools
 			this.print(this.tiraEspacos(linha));
 		}
 						
+		else if (linha.substring(0,5).equals("vetor"))
+		{
+			vetores.armazenaVetor(this.tiraEspacos(linha.substring(5,linha.length()-1)));
+		}
 		else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
 		
 		{
