@@ -63,41 +63,31 @@ public abstract class Variaveis extends Primitivos
        
 		if( str.substring(0,3).equals("int"))
 		{
-			char igual = '?';
 			inicializaLeitura = 4;
-
-			for(int i = inicializaLeitura ; i < str.length(); i++)//verifica se tem algum valor a ser armazenado
+			if (analisadorLexicoDeVariaveis(str,inicializaLeitura))
 			{
-				if(str.charAt(i) == ';' && igual != '=')
-				{
-					for(int ii = inicializaLeitura; ii< str.length()-1; ii++)
-					{
-						if( str.charAt(ii) != ' ')
-						{
-							setVariavelId(getVariavelId()+""+str.charAt(ii));
-						}
-						
-					}
 
-					setVariavelValue("0");
-					indentificaValor(getVariavelValue(),0);
-					return true;
-
-				}
-				if(str.charAt(i) == '=')
-				{
-					igual = '=';
-				}
-			
+				setVariavelValue("0");
+				indentificaValor(getVariavelValue(),0);
+				return true;
 			}
+
 		}
 		else if( str.substring(0,5).equals("float"))
 		{
 			inicializaLeitura = 6;
+		
 		}
 		else if(str.substring(0,4).equals("char"))
 		{
 			inicializaLeitura = 5;
+			if (analisadorLexicoDeVariaveis(str,inicializaLeitura))
+			{
+
+				setVariavelValue("'o' ");
+				indentificaValor(getVariavelValue(),0);
+				return true;
+			}
 		}
 	
 		else if(str.substring(0,4).equals("bool"))
@@ -197,5 +187,31 @@ public abstract class Variaveis extends Primitivos
 		}
 	}
 	//fim do método verificador
+	public boolean analisadorLexicoDeVariaveis(String str, int inicializaLeitura)
+	{
+		
+		char igual = '?';
+		for(int i = inicializaLeitura ; i < str.length(); i++)//verifica se tem algum valor a ser armazenado
+		{
+			if(str.charAt(i) == ';' && igual != '=')
+			{
+				for(int ii = inicializaLeitura; ii< str.length()-1; ii++)
+				{
+					if( str.charAt(ii) != ' ')
+					{
+						setVariavelId(getVariavelId()+""+str.charAt(ii));
+					}
+					
+				}
+				return true;
+			}
+			if(str.charAt(i) == '=')
+			{
+				igual = '=';
+			}
+		
+		}
+		return false;
+	}
 }
 //fim da classe Variaveis

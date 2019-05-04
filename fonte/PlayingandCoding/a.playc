@@ -1,3 +1,7 @@
-int test = 1;
-test =((80/test)-(2*3));
+int test;
+int x =40;
+char p;
+test = 10;
+test =((x/test)-(x-test));
+print(p);
 print(test);
