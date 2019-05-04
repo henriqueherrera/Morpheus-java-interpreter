@@ -38,7 +38,7 @@ public class Int extends Variaveis
 			}
 
 				
-			if ((48<= str.charAt(iii)) && (str.charAt(iii)  <=57))
+			else if ((48<= str.charAt(iii)) && (str.charAt(iii)  <=57))
 			{
 				setVariavelValue(getVariavelValue()+""+str.charAt(iii));	
 			}
@@ -51,7 +51,7 @@ public class Int extends Variaveis
 			}
 		}
 
-		return this.ConvertStringParaInt(this.getVariavelValue());
+		return this.ConvertStringParaInt(this.getVariavelValue())*negativo;
 	}
 	//fim do método indentificadorDeNumerosInt
 }

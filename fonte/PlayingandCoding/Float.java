@@ -95,12 +95,12 @@ public class Float extends Floats
 
 	//inicio do método ConvertStringParaDouble
 	public static double[] ConvertStringParaDouble(String str)
-    {
+  	{
         int aux = 0;
         double[] value = {0.0,0.0};
         boolean flag = true; // flag a ser modificado ao encontrar ponto 
         // duas variaveis: uma para antes da virgula, outra para depois
-				String ad[] = {"",""};
+	String ad[] = {"",""};
 
         for(int i = 0; i < str.length(); i++) {
           //System.out.println("Convertendo "+str.charAt(i));
