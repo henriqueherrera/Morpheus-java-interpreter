@@ -1,3 +1,4 @@
+bool blean;
 int test;
 int x =40;
 string o;
@@ -10,4 +11,4 @@ print(p);
 print(test);
 print(o);
 print(ls);
-print(y);
+print(blean);

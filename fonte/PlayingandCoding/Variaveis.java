@@ -83,7 +83,6 @@ public abstract class Variaveis extends Primitivos
 			inicializaLeitura = 5;
 			if (analisadorLexicoDeVariaveis(str,inicializaLeitura))
 			{
-
 				setVariavelValue("' ' ");
 				indentificaValor(getVariavelValue(),0);
 				return true;
@@ -93,6 +92,12 @@ public abstract class Variaveis extends Primitivos
 		else if(str.substring(0,4).equals("bool"))
 		{
 			inicializaLeitura = 5;
+			if (analisadorLexicoDeVariaveis(str,inicializaLeitura))
+			{
+				setVariavelValue("true ");
+				indentificaValor(getVariavelValue(),0);
+				return true;
+			}
 		}
 		
 		else if(str.substring(0,6).equals("string"))
@@ -100,7 +105,6 @@ public abstract class Variaveis extends Primitivos
 			inicializaLeitura = 7;
 			if (analisadorLexicoDeVariaveis(str,inicializaLeitura))
 			{
-
 				setVariavelValue("null");
 				indentificaValor(getVariavelValue(),0);
 				return true;
@@ -108,12 +112,10 @@ public abstract class Variaveis extends Primitivos
 		}
                 //laco de repetição que lê a linha
 		
-		
-                for( int i = 0; i< str.length()-1; i++)
+		for( int i = 0; i< str.length()-1; i++)
                 {
 
-
-                        if ( str.charAt(i)  == '=' )
+			if ( str.charAt(i)  == '=' )
                         {                       
                                 pos = i+1; //marca onde vai começar a leitura da variavel
 
