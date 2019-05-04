@@ -1,3 +1,3 @@
 int test = 1;
-test =((80/2)-(2*3));
+test =((80/test)-(2*3));
 print(test);
