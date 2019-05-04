@@ -79,6 +79,47 @@ public class OperadoresAritmeticos
 		return x+y;
 	}
 	
+	public boolean isLeaf(int i)
+	{
+		if(heap.get(left(i)).equals("empty") && heap.get(right(i)).equals("empty"))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public int val(int i)
+	{
+	
+		if(isLeaf(i))
+		{
+			
+			inteiro = new Int();
+			return inteiro.indetificadorDeNumerosInt(heap.get(i),0);
+		}
+		if( heap.get(i).equals("+"))
+		{	
+			return val(left(i)) + val( right(i));
+		}
+		else if (heap.get(i).equals("-"))
+		{
+			return val(left(i))-  val(right(i));
+		}
+		else if(heap.get(i).equals("*"))
+		{
+			return val(left(i)) * val(right(i));
+		}
+		else if(heap.get(i).equals("/"))
+		{
+			return val(left(i)) / val(right(i));
+		}
+		else
+		{
+			return 0;
+		}
+	}
 	public void inOrder(int i)
 	{
 
@@ -86,47 +127,13 @@ public class OperadoresAritmeticos
 		if( heap.get(i).equals("empty"))
 		{
 			inteiro = new Int();
-			if (conta ==0)
-			{
-				conta = inteiro.indetificadorDeNumerosInt(heap.get(dad(i)),0);
-			}
-		
-			
-			
 			return;		
 		}	
 		
 			
+		System.out.println(val(i));
 		inOrder(this.left(i));	
-		if((48<=heap.get(i).charAt(0) && heap.get(i).charAt(0) <= 57 )) 
-		{
-			inteiro = new Int();
-			System.out.println(conta+""+'-'+""+inteiro.indetificadorDeNumerosInt(heap.get(i),0));
-
-			inteiro = new Int();
-			
-		
-	
-			if(simbolo == '+')
-			{
-				conta+= inteiro.indetificadorDeNumerosInt(heap.get(i),0)+conta;
-			
-			}
-			else if(simbolo == '-')
-			{
-				conta= inteiro.indetificadorDeNumerosInt(heap.get(i),0)-conta;
-			}
-			else if(simbolo == '*')
-			{
-				conta= inteiro.indetificadorDeNumerosInt(heap.get(i),0) *conta;
-			}
-		}
-	 	if( heap.get(i).charAt(0) == '-' ||  heap.get(i).charAt(0) == '+' ||  heap.get(i).charAt(0) == '*')
-		{
-			simbolo = heap.get(i).charAt(0);
-		}
-	
-			
+		System.out.println(val(i));
 		inOrder(this.right(i));
 	}
 
@@ -210,8 +217,7 @@ public class OperadoresAritmeticos
 			}
 	
 		}
-		this.inOrder(1);
-		System.out.println(conta);
+		System.out.println(val(1));
 	}
 	//fim do método operacao
 }
