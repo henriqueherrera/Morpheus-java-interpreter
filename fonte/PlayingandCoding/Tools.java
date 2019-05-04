@@ -100,8 +100,7 @@ public class Tools
 
 			else if(Comparadores.tipoVariaveis.get(str).equals("float"))
 			{
-				System.out.print(Float.variaveisArmazenadas.get(str)+" ");
-
+				System.out.printf("%f",Float.variaveisArmazenadas.get(str));
 			}
 		}
 		System.out.println();
