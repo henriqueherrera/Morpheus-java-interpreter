@@ -1,6 +1,3 @@
-int c;
-int d = 10;
-string b = "oi";
-
-input("b: ",b);
-print(b);
+int test = 1;
+test =((80/2)-(2*3));
+print(test);

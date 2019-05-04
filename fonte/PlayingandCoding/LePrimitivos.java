@@ -1,5 +1,6 @@
 public class LePrimitivos extends Tools
 {
+	private OperadoresAritmeticos operacoes  = new OperadoresAritmeticos();
 	public void idLinha(String linha)
 	{
 		
@@ -48,7 +49,13 @@ public class LePrimitivos extends Tools
 			this.print(this.tiraEspacos(linha));
 		}
 						
-				
+		else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
+		
+		{
+
+			String str = this.tiraEspacos(linha);
+			Int.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
+		}
 		else
 		{
 			troca.getVariaveis(linha);

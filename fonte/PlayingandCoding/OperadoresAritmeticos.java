@@ -3,34 +3,39 @@ import java.util.ArrayList;
 //inicio da classe OperadoresAritmeticos
 public class OperadoresAritmeticos
 {
-	public int value;
-	
-	private int count = 0;
-	
-	private int conta = 0;
-	
-	private char simbolo = '#';
-	
-	private boolean passa = false;
-	
 	private ArrayList<String> heap = new ArrayList<String>();
 	
 	private Int inteiro = new Int();
 
-	//inicio do método setValue
-	public void setValue(int value)
-	{
-		this.value = value;
-	}
-	//fim do método setValue
+	private int inicioDaExpressao;
+
+	private int fimDaExpressao;
 	
-	//inicio do método getValue
-	public int getValue()
+	private String  variavelParaArmazenar;
+	public void setVariavelParaArmazenar(String str)
 	{
-		return this.value;
+		this.variavelParaArmazenar = str;
 	}
-	//fim do método getValue
-	
+	public String getVariavelParaArmazenar()
+	{
+		return this.variavelParaArmazenar;
+	}
+	public void setInicioDaExpressao(int i)
+	{
+		this.inicioDaExpressao = i;
+	}
+	public int getInicioDaExpressao()
+	{
+		return this.inicioDaExpressao;
+	}
+	public void setFimDaExpressao(int i)
+	{
+		this.fimDaExpressao = i;
+	}
+	public int getFimDaExpressao()
+	{
+		return this.fimDaExpressao;
+	}
 	//inicio do método left
 	private int left(int i)
 	{
@@ -52,33 +57,6 @@ public class OperadoresAritmeticos
 	}
 	//fim do método dad
 	
-	//inicio do método multiplicao
-	private int multiplicacao(int x, int y)
-	{
-		return x*y;
-	}
-	//fim do método multiplicacao
-	
-	//inicio do método divisao
-	private int divisao(int x, int y)
-	{
-		return x*y;
-	}
-	//fim do método divisao
-	
-	//inicio do método subtracao
-	private int subtracao(int x, int y)
-	{
-		return x-y;
-	}
-	//fim do método subtracao
-	
-	//inicio do método soma
-	private int soma(int x, int y)
-	{
-		return x+y;
-	}
-	
 	public boolean isLeaf(int i)
 	{
 		if(heap.get(left(i)).equals("empty") && heap.get(right(i)).equals("empty"))
@@ -92,12 +70,22 @@ public class OperadoresAritmeticos
 	}
 	public int val(int i)
 	{
-	
 		if(isLeaf(i))
 		{
-			
+			int x = 0;
 			inteiro = new Int();
-			return inteiro.indetificadorDeNumerosInt(heap.get(i),0);
+			if(!((48<= heap.get(i).charAt(0)) && ( heap.get(i).charAt(0) <=57)))
+			{
+				if((Comparadores.tipoVariaveis.get(heap.get(i))).equals("int"))
+				{
+					x = Int.variaveisArmazenadas.get(heap.get(i));
+				}
+			}
+			else
+			{
+				x = inteiro.indetificadorDeNumerosInt(heap.get(i),0);
+			}
+			return x;
 		}
 		if( heap.get(i).equals("+"))
 		{	
@@ -120,25 +108,34 @@ public class OperadoresAritmeticos
 			return 0;
 		}
 	}
-	public void inOrder(int i)
+	//inicio do método operacao
+	public boolean analisadorLexicoDeOperacoes(String linha) //verifica se tem alguma expressao aritmetica
 	{
-
+		int total1 = linha.replaceAll("[^(]", "").length();
+		int total2 = linha.replaceAll("[^)]", "").length();
 		
-		if( heap.get(i).equals("empty"))
+		if(( linha.contains("+") || linha.contains("-") || linha.contains("*") || linha.contains("/")) && (total1 == total2))
 		{
-			inteiro = new Int();
-			return;		
-		}	
-		
+			for(int i = 0; i<linha.length(); i++)
+			{
+				if (linha.charAt(i) == '(')
+				{
+					setInicioDaExpressao(i);
+					break;
+				}
+			}
+			setFimDaExpressao(linha.indexOf(";"));
+			setVariavelParaArmazenar(linha.substring(0,linha.indexOf("=")));
 			
-		System.out.println(val(i));
-		inOrder(this.left(i));	
-		System.out.println(val(i));
-		inOrder(this.right(i));
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
-	//inicio do método operacao
-	public void leituraDaOperacao(String linha)
+	public int leituraDaOperacao(String linha) // faz o cálculo da expressao
 	{
 	
 		
@@ -170,9 +167,7 @@ public class OperadoresAritmeticos
 			
 			else if((linha.charAt(i) == '*') || (linha.charAt(i) == '-') || (linha.charAt(i) == '+') || (linha.charAt(i) == '/'))
 			{	
-			
 				indice = this.dad(indice);
-
 				heap.set(indice,linha.substring(i,i+1));
 				indice = this.right(indice);
 			}
@@ -186,7 +181,6 @@ public class OperadoresAritmeticos
 						{
 						//	System.out.println(linha.charAt(x)+" aqui");
 							i = x-1;
-							
 							break;
 						}
 
@@ -196,7 +190,7 @@ public class OperadoresAritmeticos
 						}
 					}
 				}
-
+				
 				else //se for variavel
 				{
 					for(int x = i; x<linha.length();x++)
@@ -215,9 +209,10 @@ public class OperadoresAritmeticos
 				heap.set(indice,value);
 				value = "";
 			}
-	
 		}
-		System.out.println(val(1));
+		
+		return val(1);
+		
 	}
 	//fim do método operacao
 }

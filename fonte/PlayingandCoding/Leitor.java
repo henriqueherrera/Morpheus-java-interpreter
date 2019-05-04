@@ -8,7 +8,9 @@ class Leitor extends Tools
 
 	private Comparadores troca = new Comparadores();
 	
+	OperadoresAritmeticos operadores = new OperadoresAritmeticos();
 	private LePrimitivos lePrimitivos = new LePrimitivos();	
+	
 	public static boolean laco = true; //enquanto tudo estiver ocorrendo de maneira prevista
 					//o laco de repeticao continua trocando de linha
 	
@@ -73,10 +75,10 @@ class Leitor extends Tools
 						
 						
 						}
-
+						
 				   		else if (linha.substring(0,5).equals("while"))
-                    	{                        
-                            String idValue = tiraEspacos(linha.substring(5,linha.length()-1)); //pega a expressão do while
+                    				{                        
+                            				String idValue = tiraEspacos(linha.substring(5,linha.length()-1)); //pega a expressão do while
 							linha = buffRead.readLine(); //pula o }
 							int count = 0; //conta o numero de linhas dentro do while
                                                         
