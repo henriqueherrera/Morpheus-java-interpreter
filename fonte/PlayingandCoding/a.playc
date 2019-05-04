@@ -1,7 +1,9 @@
 int test;
 int x =40;
+string o;
 char p;
 test = 10;
 test =((x/test)-(x-test));
 print(p);
 print(test);
+print(o);

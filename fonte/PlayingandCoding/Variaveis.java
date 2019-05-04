@@ -84,7 +84,7 @@ public abstract class Variaveis extends Primitivos
 			if (analisadorLexicoDeVariaveis(str,inicializaLeitura))
 			{
 
-				setVariavelValue("'o' ");
+				setVariavelValue("' ' ");
 				indentificaValor(getVariavelValue(),0);
 				return true;
 			}
@@ -98,6 +98,13 @@ public abstract class Variaveis extends Primitivos
 		else if(str.substring(0,6).equals("string"))
 		{
 			inicializaLeitura = 7;
+			if (analisadorLexicoDeVariaveis(str,inicializaLeitura))
+			{
+
+				setVariavelValue("null");
+				indentificaValor(getVariavelValue(),0);
+				return true;
+			}
 		}
                 //laco de repetição que lê a linha
 		
@@ -187,6 +194,8 @@ public abstract class Variaveis extends Primitivos
 		}
 	}
 	//fim do método verificador
+	
+	//inicio do método analisadorLexicoDeVariaveis
 	public boolean analisadorLexicoDeVariaveis(String str, int inicializaLeitura)
 	{
 		
@@ -213,5 +222,6 @@ public abstract class Variaveis extends Primitivos
 		}
 		return false;
 	}
+	//fim do método analisadorLexicoDeVariaveis
 }
 //fim da classe Variaveis
