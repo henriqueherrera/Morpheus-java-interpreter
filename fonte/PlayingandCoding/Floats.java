@@ -5,33 +5,19 @@ public abstract class Floats extends Variaveis
 	protected String indentificador;
 
 	//pega o valor da variável
-	protected double value1;
-	protected double value2;
-	
+	protected double value;
+
 	//inicio do método setValue
-	protected void setValue1( double value )
+	protected void setValue( double value )
 	{
-		this. value1 = value;
+		this.value = value;
 	}
 	//fim do método setValue
 
-	//inicio do método setValue
-	protected void setValue2( double value )
-	{
-		this. value2 = value;
-	}
-	//fim do método setValue
-	
 	//inicio do método getValue
-	protected double getValue1()
+	protected double getValue()
 	{
-		return this.value1;
-	}
-	//fim do método getValur
-	//inicio do método getValue
-	protected double getValue2()
-	{
-		return this.value2;
+		return this.value;
 	}
 	//fim do método getValur
 
@@ -45,9 +31,8 @@ public abstract class Floats extends Variaveis
 	//inicio do método getId
 	protected String getId()
 	{
-		return this.indentificador; 
+		return this.indentificador;
 	}
 	//fim do método getId
 }
 //fim da classe Floats
-

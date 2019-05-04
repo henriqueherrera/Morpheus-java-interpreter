@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.text.DecimalFormat;
 //inicio da classe Tools
-public class Tools 
+public class Tools
 {
 
 	//inicio do método tiraEspacos
 	public String tiraEspacos(String line)
         {
                 String cleanLine= "";
-		
+
 		boolean achoString = true;
 		for(int i = 0; i < line.length(); i++)
                 {
@@ -22,8 +22,8 @@ public class Tools
 				for(int ii = i+1; ii< line.length(); ii++)
 				{
 					if(line.charAt(ii) == '"')
-					{	
-						
+					{
+
 						cleanLine= cleanLine+""+line.charAt(ii);
 						achoString = false;
 						i = ii+1;
@@ -33,7 +33,7 @@ public class Tools
 					{
 						cleanLine= cleanLine+""+line.charAt(ii);
 					}
-				}	
+				}
 			}
 
                         if( line.charAt(i) != ' ')
@@ -44,12 +44,12 @@ public class Tools
                 return cleanLine;
         }
 	//fim do método tiraEspacos
-	
+
 	//inicio do método print
 	public void print(String line)
 	{
 		int inicioStr = 6;
-		
+
 		int fimStr= 0;
 
 		if( line.charAt(5) == '(')
@@ -63,9 +63,9 @@ public class Tools
 				}
 			}
 		}
-		
+
 		String[] prints = line.substring(inicioStr,fimStr).split("=>");
-		
+
 		Strings strings = new Strings();
 		for( String str:prints)
 		{
@@ -81,18 +81,18 @@ public class Tools
 			{
 				System.out.print(Int.variaveisArmazenadas.get(str)+" ");
 			}
-			
+
 			else if(Comparadores.tipoVariaveis.get(str).equals("char"))
 			{
 				System.out.print(Char.variaveisArmazenadas.get(str)+" ");
 			}
-			
+
 			else if(Comparadores.tipoVariaveis.get(str).equals("string"))
 			{
 				System.out.print(Strings.variaveisArmazenadas.get(str)+" ");
-			
+
 			}
-			
+
 			else if(Comparadores.tipoVariaveis.get(str).equals("bool"))
 			{
 				System.out.print(Bool.variaveisArmazenadas.get(str)+" ");
@@ -100,41 +100,30 @@ public class Tools
 
 			else if(Comparadores.tipoVariaveis.get(str).equals("float"))
 			{
-				List<Double> d = Float.variaveisArmazenadas.get(str);
-				// System.out.println(d);
-				// System.out.println(d.get(0));
-				// System.out.println(d.get(1));
-				double n1st = d.get(0);
-				double n2nd = d.get(1);
-				String s2nd = String.valueOf(n2nd);
-				String s = "#.";
-				for (int x = 0; x < s2nd.length()-2; x++) {
-					s=s+s2nd.charAt(x);
-				}
-				DecimalFormat f = new DecimalFormat(s);
-				System.out.print(f.format(n1st)+" ");	
+				System.out.print(Float.variaveisArmazenadas.get(str)+" ");
+
 			}
 		}
 		System.out.println();
 	}
 	//fim do método print
-	
+
 	//inicio do método input
 	public void input(String line)
 	{
-		Scanner scan = new Scanner(System.in);	
-		
+		Scanner scan = new Scanner(System.in);
+
 		Strings str = new Strings();
 
 		String id = "";
-		
+
 		int leValue = 6;
 		if( line.charAt(5) == '(' )
 		{
 			if(line.charAt(leValue) == '"')//se tiver um " ele pega a frase que tem dentro da string para mostrar na tela para o usuario
 			{
 				str.valueString(line,leValue);
-				leValue+=str.getVariavelValue().length()+3;// o +3 é para considerar os dois " e , 
+				leValue+=str.getVariavelValue().length()+3;// o +3 é para considerar os dois " e ,
 			}
 			for(int i = leValue; i< line.length(); i++)
 			{
@@ -148,7 +137,7 @@ public class Tools
 					id = id+""+line.charAt(i);
 				}
 			}
-			
+
 			if(str.getVariavelValue().length() > 0)
 			{
 				System.out.print(str.getVariavelValue());
@@ -183,14 +172,7 @@ public class Tools
 			{
 				double value;
 				value = scan.nextDouble();
-				Float f = new Float();
-				double[] da = f.ConvertStringParaDouble(Double.toString(value));
-				List<Double> value2 = new ArrayList<Double>();
-
-				value2.add(value);
-				value2.add(0.0);
-
-				Float.variaveisArmazenadas.put(id,value2);
+				Float.variaveisArmazenadas.put(id,value);
 			}
 		}
 	}
