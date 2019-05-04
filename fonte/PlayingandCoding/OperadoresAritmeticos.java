@@ -12,30 +12,49 @@ public class OperadoresAritmeticos
 	private int fimDaExpressao;
 	
 	private String  variavelParaArmazenar;
+
+	//inicio do método setVariavelParaArmazenar
 	public void setVariavelParaArmazenar(String str)
 	{
 		this.variavelParaArmazenar = str;
 	}
+	//fim do método setVariavelParaArmazenar
+	
+	//inicio do método getVariavelParaArmazenar
 	public String getVariavelParaArmazenar()
 	{
 		return this.variavelParaArmazenar;
 	}
+	//fim do método getVariavelParaArmazenar
+	
+	//inicio do método setInicioDaExpressao
 	public void setInicioDaExpressao(int i)
 	{
 		this.inicioDaExpressao = i;
 	}
+	//fim do método setInicioDaExpressao
+	
+	//inicio do método getInicioDaExpressao
 	public int getInicioDaExpressao()
 	{
 		return this.inicioDaExpressao;
 	}
+	//fim do método getInicioDaExpressao
+	
+	//inicio do método setFimDaExpressao
 	public void setFimDaExpressao(int i)
 	{
 		this.fimDaExpressao = i;
 	}
+	//fim do método setFimDaExpressao
+	
+	//inicio do método getFimDaExpressao
 	public int getFimDaExpressao()
 	{
 		return this.fimDaExpressao;
 	}
+	//fim do método getFimDaExpressao
+	
 	//inicio do método left
 	private int left(int i)
 	{
@@ -57,6 +76,7 @@ public class OperadoresAritmeticos
 	}
 	//fim do método dad
 	
+	//inicio do método isLeaf
 	public boolean isLeaf(int i)
 	{
 		if(heap.get(left(i)).equals("empty") && heap.get(right(i)).equals("empty"))
@@ -68,6 +88,9 @@ public class OperadoresAritmeticos
 			return false;
 		}
 	}
+	//fim do método isLeaf
+	
+	//inicio do método val
 	public int val(int i)
 	{
 		if(isLeaf(i))
@@ -108,7 +131,9 @@ public class OperadoresAritmeticos
 			return 0;
 		}
 	}
-	//inicio do método operacao
+	//fim do método val
+	
+	//inicio do analisadorLexicoDeOperacoes
 	public boolean analisadorLexicoDeOperacoes(String linha) //verifica se tem alguma expressao aritmetica
 	{
 		int total1 = linha.replaceAll("[^(]", "").length();
@@ -134,7 +159,9 @@ public class OperadoresAritmeticos
 			return false;
 		}
 	}
-
+	//fim do método analisadorLexicoDeOperacoes
+	
+	//inicio do método leituraDaOperacao
 	public int leituraDaOperacao(String linha) // faz o cálculo da expressao
 	{
 	
@@ -179,11 +206,9 @@ public class OperadoresAritmeticos
 					{
 						if(!((48<= linha.charAt(x)) && (linha.charAt(x)  <=57)))
 						{
-						//	System.out.println(linha.charAt(x)+" aqui");
 							i = x-1;
 							break;
 						}
-
 						else
 						{
 							value = value+""+linha.charAt(x);
@@ -210,10 +235,8 @@ public class OperadoresAritmeticos
 				value = "";
 			}
 		}
-		
 		return val(1);
-		
 	}
-	//fim do método operacao
+	//fim do método leituraDaOperacao
 }
 //fim da classe OperadoresAritmeticos

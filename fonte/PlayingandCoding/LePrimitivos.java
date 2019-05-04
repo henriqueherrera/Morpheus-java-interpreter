@@ -56,6 +56,7 @@ public class LePrimitivos extends Tools
 			String str = this.tiraEspacos(linha);
 			Int.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
 		}
+
 		else
 		{
 			troca.getVariaveis(linha);

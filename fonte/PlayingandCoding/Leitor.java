@@ -8,12 +8,10 @@ class Leitor extends Tools
 
 	private Comparadores troca = new Comparadores();
 	
-	OperadoresAritmeticos operadores = new OperadoresAritmeticos();
 	private LePrimitivos lePrimitivos = new LePrimitivos();	
 	
 	public static boolean laco = true; //enquanto tudo estiver ocorrendo de maneira prevista
 					//o laco de repeticao continua trocando de linha
-	
 	//Construtor
 	public Leitor(String arq)
 	{
@@ -150,7 +148,5 @@ class Leitor extends Tools
 		this.arquivo = a;	
 	}
 	//fim do método setArquivo
-	
-
 }
 //fim da classe Leitor
