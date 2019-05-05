@@ -62,6 +62,46 @@ public class Int extends Variaveis
 		}
 	}
 	//fim do método armazenaVetor
+	
+	//inicio do método inseriValorNoVetor
+	public void inseriValorNoVetor(String linha)
+	{
+		
+		String value = "",id="",index = "";
+		int pos=0;
+		for(int i = 1; i < linha.length(); i++) // o 0 vai ser [
+		{
+			if(linha.charAt(i) == ']')
+			{
+				pos = i+1;
+				break;
+			}
+			else
+			{
+				index = index+""+linha.charAt(i);
+			}
+		}
+		for(int i = pos; i < linha.length(); i++)
+		{
+			if(linha.charAt(i) == '=')
+			{
+				pos = i+1;
+				break;
+			}
+			else
+			{
+				id = id+""+linha.charAt(i);
+			}
+		}
+		for(int i = pos; i < linha.length(); i++)
+		{
+			value= value+""+linha.charAt(i);
+		}	
+		vetoresArmazenados.get(id).put(indetificadorDeNumerosInt(index,0),indetificadorDeNumerosInt(value,0));
+
+	}
+	//fim do método inseriValorNoVetor
+	
 	//inicio do método indenrificadorDeNumerosInt
 	public int indetificadorDeNumerosInt(String str,int pos)
 	{

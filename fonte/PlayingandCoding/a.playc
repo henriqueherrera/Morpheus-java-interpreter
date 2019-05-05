@@ -2,6 +2,7 @@ bool blean;
 vetor [10] vetorzin;
 int test;
 int x =40;
+[0]vetorzin = 54654;
 string o;
 char p;
 float ls = 6.6;

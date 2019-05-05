@@ -2,7 +2,7 @@ public class LePrimitivos extends Tools
 {
 	private OperadoresAritmeticos operacoes  = new OperadoresAritmeticos();
 	
-	private Int vetores = new Int();
+	private Int vetores;
 
 	public void idLinha(String linha)
 	{
@@ -54,7 +54,13 @@ public class LePrimitivos extends Tools
 						
 		else if (linha.substring(0,5).equals("vetor"))
 		{
+			vetores = new Int();
 			vetores.armazenaVetor(this.tiraEspacos(linha.substring(5,linha.length()-1)));
+		}
+		else if ((this.tiraEspacos(linha).charAt(0) == '[') && linha.contains("]"))
+		{
+			vetores = new Int();
+			vetores.inseriValorNoVetor( this.tiraEspacos(linha).substring(0,this.tiraEspacos(linha).length()-1)); // o -1 é para ignorar o ; 
 		}
 		else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
 		
