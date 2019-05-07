@@ -1,13 +1,16 @@
 import java.util.HashMap;
 public class While 
 {
-        public static HashMap<Integer, String> txtLines = new HashMap<Integer, String>(); //vai ler cada linha dentro do whil
-	
-	
-        public  static void lacoDeRepeticao(int numeroDeLinhas, String value)
+        public HashMap<Integer, String> txtLines = new HashMap<Integer, String>(); //vai ler cada linha dentro do while
+
+	public LePrimitivos le; 
+	public void lacoDeRepeticao(int numeroDeLinhas, String value,int comecoDaLeitura)
         {
+		le = new LePrimitivos();
+		System.out.println(txtLines);
 		String tipo = "";
 		Comparadores troca = new Comparadores();
+		
 		for(int i = 0; i<value.length(); i++)
 		{
 			if(value.charAt(i) == '|')
@@ -20,15 +23,20 @@ public class While
 				tipo = tipo+""+value.charAt(i);
 			}
 		}
-		System.out.println();
-		LePrimitivos le = new LePrimitivos();
+		;
 		if(tipo.equals("bool"))
 		{
+
+			LePrimitivos le = new LePrimitivos();
                 	while(Bool.variaveisArmazenadas.get(value))
                 	{
-                        	for(int i = 0; i<numeroDeLinhas;i++)
-                        	{
-                                	le.idLinha(txtLines.get(i));
+			
+                        	
+				for(int i = comecoDaLeitura; i<numeroDeLinhas;i++)
+				{
+						
+					System.out.println(txtLines.get(i));
+                                	le.idLinha(txtLines.get(i),i);
                         	}
 
 
@@ -36,11 +44,14 @@ public class While
         	}
 		else if(tipo.equals("char"))
 		{
+		
+			LePrimitivos le = new LePrimitivos();
 			while(troca.comparaChar(value))
                 	{
-                        	for(int i = 0; i<numeroDeLinhas;i++)
+				
+                        	for(int i = comecoDaLeitura; i<numeroDeLinhas;i++)
                         	{
-                                	le.idLinha(txtLines.get(i));
+                                	le.idLinha(txtLines.get(i),i);
                         	}
 
 
