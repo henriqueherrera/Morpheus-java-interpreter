@@ -74,7 +74,9 @@ public class Int extends Variaveis
 	{
 		
 		String value = "",id="",index = "";
+		
 		int pos=0;
+		
 		for(int i = 1; i < linha.length(); i++) // o 0 vai ser [
 		{
 			if(linha.charAt(i) == ']')
@@ -86,7 +88,8 @@ public class Int extends Variaveis
 			{
 				index = index+""+linha.charAt(i);
 			}
-		}
+		} //indice do vetor do qual será armazanado a variável
+
 		for(int i = pos; i < linha.length(); i++)
 		{
 			if(linha.charAt(i) == '=')
@@ -98,14 +101,28 @@ public class Int extends Variaveis
 			{
 				id = id+""+linha.charAt(i);
 			}
-		}
-		for(int i = pos; i < linha.length(); i++)
-		{
-			value= value+""+linha.charAt(i);
-		}
-	
-		vetoresArmazenados.get(id).put(indetificadorDeNumerosInt(index,0),indetificadorDeNumerosInt(value,0));
+		} //variavel encontrada
 
+		if(linha.substring(pos,linha.length()).contains("[") && linha.substring(pos,linha.length()).contains("]"))
+		{
+			setVariavelValue(linha.substring(pos,linha.length()));
+			
+			
+			int indice = this.indetificadorDeNumerosInt(getVariavelValue().substring(getVariavelValue().indexOf("[")+1,getVariavelValue().indexOf("]")),0);
+				
+			setVariavelValue(linha.substring(pos,linha.length()));
+			
+			String nomeVetor = getVariavelValue().substring(getVariavelValue().indexOf("]")+1,getVariavelValue().length());
+
+			int val= vetoresArmazenados.get(nomeVetor).get(indice);
+			vetoresArmazenados.get(id).put(indetificadorDeNumerosInt(index,0),val);
+			
+		}
+		else
+		{
+			value = linha.substring(pos,linha.length());
+			vetoresArmazenados.get(id).put(indetificadorDeNumerosInt(index,0),indetificadorDeNumerosInt(value,0));
+		}
 	}
 	//fim do método inseriValorNoVetor
 	

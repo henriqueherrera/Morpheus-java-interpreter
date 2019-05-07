@@ -12,4 +12,5 @@ input("inserir no vetorzin 2 ",[1]vetorzin);
 input("inserir no vetorzin 3 ",[2]vetorzin);
 input("inserir no vetorzin 4 ",[3]vetorzin);
 input("inserir no vetorzin 5 ",[4]vetorzin);
+[0]vetorzin = [1]vetorzin;
 print([0]vetorzin=>" "=>[1]vetorzin=>" "=>[2]vetorzin=>" "=>[3]vetorzin=>" "=>[4]vetorzin);
