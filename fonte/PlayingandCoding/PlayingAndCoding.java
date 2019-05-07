@@ -1,7 +1,3 @@
-import java.io.*;
-
-import java.util.Scanner;
-
 //inicio da classe PlayingAndCoding
 
 public class PlayingAndCoding 
@@ -10,9 +6,7 @@ public class PlayingAndCoding
 	public static void main(String[] args) 
 	{
 		Leitor interpretador = new Leitor(args[0]);
-		
 		interpretador.reader();	
-		System.out.println(Int.vetoresArmazenados);
 	}
 	//fim do método main
 }

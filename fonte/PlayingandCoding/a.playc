@@ -8,3 +8,4 @@ int x = -4;
 [6]vetorzin = 10;
 test = (((x*2)-(2))/(2));
 print([6]vetorzin);
+print([1]vetorzin);
