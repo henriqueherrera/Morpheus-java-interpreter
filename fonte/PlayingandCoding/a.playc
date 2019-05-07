@@ -1,5 +1,5 @@
 bool blean = true;
-vetor [10] vetorzin;
+vetor [5] vetorzin;
 int test;
 int x = -4;
 
@@ -7,5 +7,9 @@ int x = -4;
 [1]vetorzin =-1;
 [6]vetorzin = 10;
 test = (((x*2)-(2))/(2));
-print([6]vetorzin);
-print([1]vetorzin);
+input("inserir no vetorzin 1 ",[0]vetorzin);
+input("inserir no vetorzin 2 ",[1]vetorzin);
+input("inserir no vetorzin 3 ",[2]vetorzin);
+input("inserir no vetorzin 4 ",[3]vetorzin);
+input("inserir no vetorzin 5 ",[4]vetorzin);
+print([0]vetorzin=>" "=>[1]vetorzin=>" "=>[2]vetorzin=>" "=>[3]vetorzin=>" "=>[4]vetorzin);

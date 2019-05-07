@@ -131,6 +131,7 @@ public class Tools
 				str.valueString(line,leValue);
 				leValue+=str.getVariavelValue().length()+3;// o +3 é para considerar os dois " e ,
 			}
+
 			for(int i = leValue; i< line.length(); i++)
 			{
 
@@ -148,8 +149,15 @@ public class Tools
 			{
 				System.out.print(str.getVariavelValue());
 			}
-
-			if((Comparadores.tipoVariaveis.get(id)).equals("int"))
+			
+			if(id.contains("[") && id.contains("]")) //por enquanto ta generico so para int
+			{
+				Int inteiro = new Int();
+				int value = 0;	
+				value = scan.nextInt();
+				Int.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),value);
+			}
+			else if((Comparadores.tipoVariaveis.get(id)).equals("int"))
 			{
 				int value = 0;
 				value = scan.nextInt();
