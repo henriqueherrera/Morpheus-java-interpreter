@@ -7,4 +7,4 @@ int x = -4;
 [1]vetorzin =-1;
 [6]vetorzin = 10;
 test = (((x*2)-(2))/(2));
-print(test);
+print([6]vetorzin);

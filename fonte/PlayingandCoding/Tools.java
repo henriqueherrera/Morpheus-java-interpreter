@@ -67,6 +67,7 @@ public class Tools
 		String[] prints = line.substring(inicioStr,fimStr).split("=>");
 
 		Strings strings = new Strings();
+
 		for( String str:prints)
 		{
 			if(str.charAt(0) == '"')
@@ -76,7 +77,13 @@ public class Tools
 				System.out.print(strings.getVariavelValue()+" ");
 				strings.setVariavelValue("");
 			}
+			else if(str.contains("[") && str.contains("]"))
+			{
+			   	Int inteiro = new Int();
 
+				System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+
+			}
 			else if(Comparadores.tipoVariaveis.get(str).equals("int"))
 			{
 				System.out.print(Int.variaveisArmazenadas.get(str)+" ");
