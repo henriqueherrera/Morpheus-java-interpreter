@@ -77,7 +77,7 @@ public class OperadoresAritmeticos
 	//fim do método dad
 	
 	//inicio do método isLeaf
-	public boolean isLeaf(int i)
+	public boolean isLeaf(int i) //se o nó for folha ele retorna true
 	{
 		if(heap.get(left(i)).equals("empty") && heap.get(right(i)).equals("empty"))
 		{
@@ -97,27 +97,33 @@ public class OperadoresAritmeticos
 		{
 			return;
 		}
+
 		ajuste(this.left(i));
+		
 		if( (heap.get(i).equals("#")))
 		{
 			heap.set(i,heap.get(left(i)));
 			heap.set(left(i),"empty");
 		}
+		
 		ajuste(this.right(i));
 	}
-	private void inOrder(int i)
+	private void inOrder(int i) //para verificar se tudo está sendo armazenado certo
 	{
 		if(heap.get(i) == "empty")
 		{
 			return;
 		}
+
 		inOrder(this.left(i));
+		
 		System.out.println(heap.get(i));
+		
 		inOrder(this.right(i));
 	}
 	//fim do método ajuste
 	//inicio do método val
-	public int val(int i)
+	public int val(int i) //aqui acontece a mágica, as continha são realizadas
 	{
 		if(isLeaf(i))
 		{
@@ -136,18 +142,22 @@ public class OperadoresAritmeticos
 			}
 			return x;
 		}
+
 		if( heap.get(i).equals("+"))
 		{	
 			return val(left(i)) + val( right(i));
 		}
+
 		else if (heap.get(i).equals("-"))
 		{
-			return val(left(i))-  val(right(i));
+			return val(left(i)) - val(right(i));
 		}
+
 		else if(heap.get(i).equals("*"))
 		{
 			return val(left(i)) * val(right(i));
 		}
+
 		else if(heap.get(i).equals("/"))
 		{
 			return val(left(i)) / val(right(i));
@@ -257,12 +267,13 @@ public class OperadoresAritmeticos
 						}
 					}
 				}
+
 				heap.set(indice,value);
 				value = "";
 			}
 		}
-		ajuste(1);
-		inOrder(1);
+		
+		ajuste(1); //reorganiza a árvore caso necessário
 		return val(1);
 	}
 	//fim do método leituraDaOperacao
