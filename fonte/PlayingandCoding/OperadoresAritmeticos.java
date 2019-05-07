@@ -263,11 +263,16 @@ public class OperadoresAritmeticos
 						}
 						else
 						{
+
 							value = value+""+linha.charAt(x);
 						}
 					}
 				}
-
+				if(value.contains("[") && value.contains("]"))
+				{
+					value = valorDoVetor(value);
+				}
+				
 				heap.set(indice,value);
 				value = "";
 			}
@@ -277,5 +282,14 @@ public class OperadoresAritmeticos
 		return val(1);
 	}
 	//fim do método leituraDaOperacao
+	//inicio do método valorDoVetor
+	private String valorDoVetor(String value)
+	{
+		Int inteiro = new Int();
+		String nomeVariavel = value.substring(value.indexOf("]")+1,value.length());
+		int index = inteiro.indetificadorDeNumerosInt(value.substring(value.indexOf("[")+1, value.indexOf("]")),0);
+		int valor = Int.vetoresArmazenados.get(nomeVariavel).get(index);
+		return ""+valor;
+	}
 }
 //fim da classe OperadoresAritmeticos

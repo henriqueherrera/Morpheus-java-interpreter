@@ -32,43 +32,8 @@ public class LePrimitivos extends Tools
 		linha.trim();	
 		Comparadores troca = new Comparadores();
 
-		if(linha.substring(0,5).equals("while") || controladorLaco)
-		{
 
-			
-			if(linha.substring(0,5).equals("while"))
-			{
-				
-				repeti.txtLines.put(count,linha.trim());
-				count++;
-				While repeti = new While();
-				controladorLaco = true;
-				setExpressao(this.tiraEspacos(linha).substring(5,this.tiraEspacos(linha).length())); //pega a expressão do while
-			}
-			
-			else if(tiraEspacos(linha).substring(0,6).equals("inicio"))
-			{
-				inicio = linha;
-			
-			}
-			else if(tiraEspacos(linha).substring(0,5).equals("final") && tiraEspacos(linha).substring(5,this.tiraEspacos(linha).length()).equals(inicio.substring(6,inicio.length())))
-			{
-				System.out.println(count);
-				
-				controladorLaco = false;
-
-				
-				repeti.lacoDeRepeticao(count,getExpressao(),whilis+1);
-			}
-			
-			else
-			{
-				repeti.txtLines.put(count,linha.trim());
-				count++;
-			}
-			
-		}
-		else if (linha.substring(0,3).equals("int"))
+		if (linha.substring(0,3).equals("int"))
 		{		
 			Int inteiros = new Int();
 			inteiros.verificador(linha);
