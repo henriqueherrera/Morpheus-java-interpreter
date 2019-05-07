@@ -1,7 +1,10 @@
 bool blean = true;
 vetor [10] vetorzin;
 int test;
-int x =40;
+int x = -4;
+
 [0]vetorzin = 54654;
-test = ((52+9)-(2));
+[1]vetorzin =-1;
+[6]vetorzin = 10;
+test = (((x*2)-(2))/(2));
 print(test);

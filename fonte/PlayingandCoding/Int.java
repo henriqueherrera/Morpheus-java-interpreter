@@ -56,10 +56,16 @@ public class Int extends Variaveis
 		}
 
 		vetoresArmazenados.put(id, new HashMap<Integer,Integer>());
-		for(int i = 0; i<this.indetificadorDeNumerosInt(value,0);i++)
+		
+		int size = this.indetificadorDeNumerosInt(value,0);
+		
+		for(int i = 0; i < size ;i++)
 		{
+
 			vetoresArmazenados.get(id).put(i,0);
+
 		}
+		Comparadores.tipoVariaveis.put(id, "int");
 	}
 	//fim do método armazenaVetor
 	
@@ -96,7 +102,8 @@ public class Int extends Variaveis
 		for(int i = pos; i < linha.length(); i++)
 		{
 			value= value+""+linha.charAt(i);
-		}	
+		}
+	
 		vetoresArmazenados.get(id).put(indetificadorDeNumerosInt(index,0),indetificadorDeNumerosInt(value,0));
 
 	}
@@ -105,7 +112,7 @@ public class Int extends Variaveis
 	//inicio do método indenrificadorDeNumerosInt
 	public int indetificadorDeNumerosInt(String str,int pos)
 	{
-
+		setVariavelValue(""); //ajuste tecnico para funcionar numeros negativos em vetores
 		int negativo = 1;
 		
 		for(int iii = pos; iii<str.length(); iii++)
@@ -115,7 +122,6 @@ public class Int extends Variaveis
 				negativo = -1;
 			}
 
-				
 			else if ((48<= str.charAt(iii)) && (str.charAt(iii)  <=57))
 			{
 				setVariavelValue(getVariavelValue()+""+str.charAt(iii));	
