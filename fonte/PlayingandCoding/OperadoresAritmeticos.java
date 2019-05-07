@@ -3,11 +3,11 @@ import java.util.ArrayList;
 //inicio da classe OperadoresAritmeticos
 public class OperadoresAritmeticos
 {
-	private ArrayList<String> heap = new ArrayList<String>();
+	private ArrayList<String> heap = new ArrayList<String>(); //pseudo-árvore heap
 	
 	private Int inteiro = new Int();
 
-	private int inicioDaExpressao;
+	private int inicioDaExpressao; 
 
 	private int fimDaExpressao;
 	
@@ -90,6 +90,32 @@ public class OperadoresAritmeticos
 	}
 	//fim do método isLeaf
 	
+	//inicio do método ajuste
+	private void ajuste(int i)
+	{
+		if(heap.get(i) == "empty")
+		{
+			return;
+		}
+		ajuste(this.left(i));
+		if( (heap.get(i).equals("#")))
+		{
+			heap.set(i,heap.get(left(i)));
+			heap.set(left(i),"empty");
+		}
+		ajuste(this.right(i));
+	}
+	private void inOrder(int i)
+	{
+		if(heap.get(i) == "empty")
+		{
+			return;
+		}
+		inOrder(this.left(i));
+		System.out.println(heap.get(i));
+		inOrder(this.right(i));
+	}
+	//fim do método ajuste
 	//inicio do método val
 	public int val(int i)
 	{
@@ -235,6 +261,8 @@ public class OperadoresAritmeticos
 				value = "";
 			}
 		}
+		ajuste(1);
+		inOrder(1);
 		return val(1);
 	}
 	//fim do método leituraDaOperacao

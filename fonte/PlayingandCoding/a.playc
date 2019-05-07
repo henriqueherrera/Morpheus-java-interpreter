@@ -1,16 +1,7 @@
-bool blean;
+bool blean = true;
 vetor [10] vetorzin;
 int test;
 int x =40;
 [0]vetorzin = 54654;
-string o;
-char p;
-float ls = 6.6;
-test = 10;
-int y = -12;
-test =((x/test)-(x-test));
-print(p);
+test = ((52+9)-(2));
 print(test);
-print(o);
-print(ls);
-print(blean);
