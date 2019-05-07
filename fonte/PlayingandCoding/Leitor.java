@@ -39,10 +39,12 @@ class Leitor extends Tools
 				if(linha != null)
                         	{
 				
-					if ( ( linha.length() != 0 ) && (!linha.contains("}")) && (!linha.contains("{")) && (!linha.contains("//")) && (linha.charAt(linha.length()-1) == 59) ) //verifica se tem um ponto e virgula no final
-					{ 
-						linha = linha.trim();
-
+					if ( ( linha.length() != 0 ) && (!linha.contains("//")) || (this.tiraEspacos(linha).equals("inicio") || this.tiraEspacos(linha).equals("final"))) //verifica se tem um ponto e virgula no final
+					{
+							
+						linha = linha.trim();	
+						lePrimitivos.idLinha(linha,0); //chama o metodo para ler as variaveis primitivas
+						/*
 						//chama as funções aqui para armazenamento
 						if (linha.substring(0,2).equals("if"))
 						{
@@ -60,7 +62,7 @@ class Leitor extends Tools
 						//falta terminar o diferençiador para chamar as respectivas funçoes
 							
 							
-							if (!troca.comparaStr(linha))  //chama a função que vai comprar as strings 
+						/*	if (!troca.comparaStr(linha))  //chama a função que vai comprar as strings 
 														   //e retornar um valor boleano  
 							{	
 								
@@ -72,40 +74,8 @@ class Leitor extends Tools
 							}
 						
 						
-						}
+					} */
 						
-				   		else if (linha.substring(0,5).equals("while"))
-                    				{                        
-                            				String idValue = tiraEspacos(linha.substring(5,linha.length()-1)); //pega a expressão do while
-							linha = buffRead.readLine(); //pula o }
-							int count = 0; //conta o numero de linhas dentro do while
-                                                        
-							if(linha.contains("{"))
-							{
-									linha = buffRead.readLine();
-									while(true)
-									{
-											if(linha.contains("}"))
-											{
-													break;
-											}
-											else
-											{
-													While.txtLines.put(count,linha);
-													count++;
-											}
-											linha = buffRead.readLine();
-									}
-							}
-                                                        
-							While.lacoDeRepeticao(count,idValue);//chama o laco de repeticao while
-                                                       
-                        }
-						else
-						{
-							lePrimitivos.idLinha(linha); //chama o metodo para ler as variaveis primitivas
-						}
-							
 					}	
 
 					else if ( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && (!linha.contains("//")) && tiraEspacos(linha).length() != 0 ) 
