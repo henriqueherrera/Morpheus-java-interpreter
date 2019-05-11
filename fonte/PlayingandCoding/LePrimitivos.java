@@ -4,15 +4,23 @@ public class LePrimitivos extends Tools
 	
 	private Int vetores;
 
+	private Int inteiros;
+
+	private Bool bool;
+
+	private Strings string;
+
 	private While repeti = new While();
-	
-	private int count = 0;
+
+	private Char chars;
 
 	private boolean controladorLaco = false;//quando true so passa pelo primeiro if
 	
+	private Float floats;
+
 	private String expressao ="";
 
-	private String inicio ="           ";
+	private Comparadores troca;
 	
 	//inicio do método setExpressao
 	public void setExpressao(String exp)
@@ -27,45 +35,33 @@ public class LePrimitivos extends Tools
 		return this.expressao;
 	}
 	//fim do método getExpressao
+	
+	//inicio do método idLinha
 	public void idLinha(String linha,int whilis)
 	{
-		linha.trim();	
-		Comparadores troca = new Comparadores();
-
+		linha.trim(); //tira a indentaçao	
+		
+		troca = new Comparadores();
 
 		if (linha.substring(0,3).equals("int"))
 		{		
-			Int inteiros = new Int();
+			this.inteiros = new Int();
 			inteiros.verificador(linha);
 		}
                    	
-                else if (linha.substring(0,5).equals("float"))
-		
-		{
-			Float floats = new Float();
-			floats.verificador(linha);
-                }
-			
+               	
 		else if (linha.substring(0,4).equals("char"))
 		{
-			Char chars = new Char();
+			this.chars = new Char();
 			chars.verificador(linha);
 		}
 
 		else if (linha.substring(0,4).equals("bool"))
 		{
-			Bool bool = new Bool();
+			this.bool = new Bool();
 			bool.verificador(linha);
 		}
 						
-		//verifica se foi escrito algo com 6 letras se e igual a string
-		else if (linha.substring(0,6).equals("string")) 
-		{
-							
-			Strings string = new Strings();
-			string.verificador(linha);
-		}
-					
 		else if (linha.substring(0,5).equals("input"))
 		{
 			this.input(this.tiraEspacos(linha));
@@ -78,19 +74,29 @@ public class LePrimitivos extends Tools
 						
 		else if (linha.substring(0,5).equals("vetor"))
 		{
-			vetores = new Int();
+			this.vetores = new Int();
 			vetores.armazenaVetor(this.tiraEspacos(linha.substring(5,linha.length()-1)));
 		}
+		//verifica se foi escrito algo com 6 letras se e igual a string
+		else if (linha.substring(0,6).equals("string")) 
+		{
+							
+			this.string = new Strings();
+			string.verificador(linha);
+		}
+
 		else if ((this.tiraEspacos(linha).charAt(0) == '[') && linha.contains("]"))
 		{
-			vetores = new Int();
+			this.vetores = new Int();
 			vetores.inseriValorNoVetor( this.tiraEspacos(linha).substring(0,this.tiraEspacos(linha).length()-1)); // o -1 é para ignorar o ; 
 		}
+
 		else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
 		
 		{
 
 			String str = this.tiraEspacos(linha);
+			
 			Int.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
 		}
 
