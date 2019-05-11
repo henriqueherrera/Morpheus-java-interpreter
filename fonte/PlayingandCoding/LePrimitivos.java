@@ -10,11 +10,11 @@ public class LePrimitivos extends Tools
 
 	private Strings string;
 
-	private While repeti = new While();
+	private While lacoDeRepeticao = new While();
 
 	private Char chars;
 
-	private boolean controladorLaco = false;//quando true so passa pelo primeiro if
+	private boolean controladorDeLaco = false;//quando true so passa pelo primeiro while
 	
 	private Float floats;
 
@@ -42,15 +42,40 @@ public class LePrimitivos extends Tools
 		linha.trim(); //tira a indentaçao	
 		
 		troca = new Comparadores();
+		
+		if (controladorDeLaco)
+		{
+			linha.trim();
+			
+			if(this.tiraEspacos(linha).equals("{"))
+			{
+				lacoDeRepeticao.countAbreChave();	
+			}
 
-		if (linha.substring(0,3).equals("int"))
+			else if(this.tiraEspacos(linha).equals("}"))
+			{
+
+				lacoDeRepeticao.countFechaChave();
+			}
+
+			else
+			{
+				lacoDeRepeticao.txtLines.put(lacoDeRepeticao.countLines(),linha);
+			}
+
+			if(lacoDeRepeticao.igualdadeDeChave())
+			{
+				lacoDeRepeticao.laco(lacoDeRepeticao.getNumeroDeLinhas(), this.getExpressao());
+				controladorDeLaco = false;
+			}
+		}
+		else if (linha.substring(0,3).equals("int"))
 		{		
 			this.inteiros = new Int();
 			inteiros.verificador(linha);
 		}
                    	
-               	
-		else if (linha.substring(0,4).equals("char"))
+               	else if (linha.substring(0,4).equals("char"))
 		{
 			this.chars = new Char();
 			chars.verificador(linha);
@@ -66,7 +91,12 @@ public class LePrimitivos extends Tools
 		{
 			this.input(this.tiraEspacos(linha));
 		}
-						
+		
+		else if (linha.substring(0,5).equals("while") || this.controladorDeLaco)
+		{
+			setExpressao(this.tiraEspacos(linha.substring(5, linha.length()))); //expressao do while
+			this.controladorDeLaco = true;
+		}
 		else if (linha.substring(0,5).equals("print"))
 		{
 			this.print(this.tiraEspacos(linha));
