@@ -193,7 +193,8 @@ public class Comparadores extends Tools
 	//inicio do método comparaChar
 	public boolean comparaChar(String expressao)
 	{
-		char v1='-',v2='+';//so para inicializar
+		char v1 = '-', v2 = '+'; //so para inicializar
+		
 		for(int i = 0; i< expressao.length(); i++)
 		{
 			if(expressao.charAt(i) == '=' && expressao.charAt(i+1) == '=')

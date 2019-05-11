@@ -3,7 +3,7 @@ import java.util.HashMap;
 //inicio da classe While
 public class While
 {
-        public HashMap<Integer, String> txtLines = new HashMap<Integer, String>(); //vai ler cada linha dentro do while
+    public HashMap<Integer, String> txtLines = new HashMap<Integer, String>(); //vai ler cada linha dentro do while
 
 	public LePrimitivos le;
 
@@ -54,7 +54,7 @@ public class While
         {
 		String tipo = "";
 
-		Comparadores troca = new Comparadores();
+		Comparadores testBooleano = new Comparadores();
 
 		for(int i = 0; i<value.length(); i++)
 		{
@@ -73,18 +73,30 @@ public class While
 		if(tipo.equals("bool"))
 		{
 
-                	while(Bool.variaveisArmazenadas.get(value))
-                	{
-			
-                        	
+            while(Bool.variaveisArmazenadas.get(value))
+            {
 				le = new LePrimitivos();
+				
 				for(int i = 1; i<=numeroDeLinhas;i++)
 				{
-						
-                                	le.idLinha(txtLines.get(i),i);
-                        	}
+					le.idLinha(txtLines.get(i),i);
+                }
 			}
-        	}
+		}
+		
+		else if(tipo.equals("char"))
+		{
+			
+            while(testBooleano.comparaChar(value))
+            {
+				le = new LePrimitivos();
+				
+				for(int i = 1; i<=numeroDeLinhas;i++)
+				{
+					le.idLinha(txtLines.get(i),i);
+                }
+			}
+		}
 	}
 	//fim do método lacoDeRepeticao
 }

@@ -1,14 +1,16 @@
 bool blean = true;
 bool boo = true;
+char a = 'b';
+char c = 'b';
 int i = 0;
-while bool|blean
+while char|     a   ==       c
 {	
 	input("insira boo ",boo);
 	while bool|boo
 	{
 		input("boo ",boo);
 	}
-	input("insira blean ",blean);
+	input("insira a",a);
 }
 print("test");
 blean = true;
