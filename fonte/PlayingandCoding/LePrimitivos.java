@@ -16,7 +16,7 @@ public class LePrimitivos extends Tools
 
 	private boolean controladorDeLaco = false;//quando true so passa pelo primeiro while
 	
-	private Float floats;
+	private Doubles doubles;
 
 	private String expressao ="";
 
@@ -68,6 +68,11 @@ public class LePrimitivos extends Tools
 				lacoDeRepeticao.laco(lacoDeRepeticao.getNumeroDeLinhas(), this.getExpressao());
 				controladorDeLaco = false;
 			}
+		}
+		else if(linha.substring(0,6).equals("double"))
+		{
+			this.doubles = new Doubles();
+			doubles.verificador(linha);
 		}
 		else if (linha.substring(0,3).equals("int"))
 		{		

@@ -6,24 +6,25 @@ string str2 = "oi";
 char a = 'b';
 char c = 'b';
 int i = 5;
+double x = 5.5;
 while int| i >= ii
 {
 	print("oloko bixo");
-	input("ii ",ii);
+	input("inteiro ii ",ii);
 	print(ii);
 }
 while string| str1 == str2
 {
-	input("str",str1);	
+	input("string str",str1);	
 }
 while char|     a   ==       c
 {	
-	input("insira boo ",boo);
+	input("bool insira boo ",boo);
 	while bool|boo
 	{
-		input("boo ",boo);
+		input("boleano boo ",boo);
 	}
-	input("insira a",a);
+	input("insira  chara",a);
 }
 print("test");
 blean = true;

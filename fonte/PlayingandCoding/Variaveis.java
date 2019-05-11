@@ -73,7 +73,7 @@ public abstract class Variaveis extends Primitivos
 			}
 
 		}
-		else if( str.substring(0,5).equals("float"))
+		else if( str.substring(0,6).equals("double"))
 		{
 			inicializaLeitura = 6;
 		

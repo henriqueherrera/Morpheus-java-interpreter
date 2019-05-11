@@ -105,9 +105,9 @@ public class Tools
 				System.out.print(Bool.variaveisArmazenadas.get(str)+" ");
 			}
 
-			else if(Comparadores.tipoVariaveis.get(str).equals("float"))
+			else if(Comparadores.tipoVariaveis.get(str).equals("double"))
 			{
-				System.out.printf("%f",Float.variaveisArmazenadas.get(str));
+				System.out.printf("%f",Doubles.variaveisArmazenadas.get(str));
 			}
 		}
 		System.out.println();
@@ -182,11 +182,11 @@ public class Tools
 				value = scan.nextBoolean();
 				Bool.variaveisArmazenadas.put(id,value);
 			}
-			else if((Comparadores.tipoVariaveis.get(id)).equals("float"))
+			else if((Comparadores.tipoVariaveis.get(id)).equals("double"))
 			{
 				double value;
 				value = scan.nextDouble();
-				Float.variaveisArmazenadas.put(id,value);
+				Doubles.variaveisArmazenadas.put(id,value);
 			}
 		}
 	}

@@ -103,7 +103,7 @@ public class Comparadores extends Tools
 		return false;
 	}
 	// fim do método comparaInt
-	
+
 	// inicio do método comparaStr 
 	public boolean comparaStr(String expressao) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals 
 	{
@@ -148,9 +148,9 @@ public class Comparadores extends Tools
 
 		}
 
-		else if( tipoVariaveis.get(v1).equals("float") && tipoVariaveis.get(v2).equals("float"))
+		else if( tipoVariaveis.get(v1).equals("double") && tipoVariaveis.get(v2).equals("double"))
 		{
-			Float.variaveisArmazenadas.put(v1,Float.variaveisArmazenadas.get(v2));
+			Doubles.variaveisArmazenadas.put(v1,Doubles.variaveisArmazenadas.get(v2));
 
 		}
 
