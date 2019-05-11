@@ -1,8 +1,14 @@
 bool blean = true;
 bool boo = true;
+string str1 = "oi";
+string str2 = "oi";
 char a = 'b';
 char c = 'b';
 int i = 0;
+while string| str1 == str2
+{
+	input("str",str1);	
+}
 while char|     a   ==       c
 {	
 	input("insira boo ",boo);

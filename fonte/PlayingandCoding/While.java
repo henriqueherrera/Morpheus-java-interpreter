@@ -86,8 +86,20 @@ public class While
 		
 		else if(tipo.equals("char"))
 		{
-			
-            while(testBooleano.comparaChar(value))
+			while(testBooleano.comparaChar(value))
+            {
+				le = new LePrimitivos();
+				
+				for(int i = 1; i<=numeroDeLinhas;i++)
+				{
+					le.idLinha(txtLines.get(i),i);
+                }
+			}
+		}
+
+		else if(tipo.equals("string"))
+		{
+			while(testBooleano.comparaStr(value))
             {
 				le = new LePrimitivos();
 				

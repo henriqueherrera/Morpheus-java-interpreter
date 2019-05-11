@@ -211,79 +211,33 @@ public class Comparadores extends Tools
 				}
 			}
 		}
-		if( v1 == v2)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return v1 == v2 ? true:false;
 	}
 	//fim do método comparaChar;
 
 
 	// inicio do método comparaStr 
-	public boolean comparaStr(String line) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals 
+	public boolean comparaStr(String expressao) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals 
 	{
-		String cleanLine = tiraEspacos(line);
-		String str1 = "", str2 = "";
+		String v1 = "",v2 = "";
 		
-		for(int i = 2; i < cleanLine.length()-1; i++) //le a linha toda ignorando o if 
+		for(int i = 0; i< expressao.length(); i++)
 		{
-			
-			if(cleanLine.charAt(i) == '=' && cleanLine.charAt(i+1) == '=') //ve se é == e começa a ler a variavel depois dele 
+			if(expressao.charAt(i) == '=' && expressao.charAt(i+1) == '=')
 			{
 				
-				for(int ii = i+2; ii< cleanLine.length(); ii++)//laço que le toda a variavel depois do == até o ;
+				if(tipoVariaveis.get(expressao.substring(0,i)).equals("string"))
 				{
-					
-					
-					if (cleanLine.charAt(ii) == '=') //se o caractere for = ele continua e não adiciona no str
-					{
-						continue;
-					}
-					
-					else if (cleanLine.charAt(ii) == ';' ) //se o caractere for = ele para o for e não adiciona mais nada 
-					{
-						break;
-					}		
-					
-					else  //se não for = ou ; ele adiciona os caracteres na variavel
-					{
-						str2=str2+""+cleanLine.charAt(ii);//adiciona todos os caracteres da variavel na str2
-						
-					}
-					
+					v1 = Strings.variaveisArmazenadas.get(expressao.substring(0,i));
 				}
-				break;
-			}
-			
-			else//le toda variavel depois do if e antes do ==
-			{
-				
-				str1=str1+""+cleanLine.charAt(i);//adiciona todos os caracteres da variavel antes do == na str1
-				
-			}
-			
-		}
-		
-		//busca o valor referente ao nome da variavel
-		str1 = Strings.variaveisArmazenadas.get(str1);
-		str2 = Strings.variaveisArmazenadas.get(str2);
-	
-		if (str1.equals(str2)) //compara se são iguais e retorna true 
-		{
-			return true;
-		}
-		
-		else  //se forem diferentes retorna false
-		{
-			return false;
-		}
-		
 
-	
+				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("string"))
+				{
+					v2 = Strings.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
+				}
+			}
+		}
+		return v1.equals(v2) ? true:false;
 	}
 	//fim do método comparaStr;
 
