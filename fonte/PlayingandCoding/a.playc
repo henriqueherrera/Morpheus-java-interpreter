@@ -10,3 +10,9 @@ while bool|blean
 	}
 	input("insira blean ",blean);
 }
+print("test");
+blean = true;
+while bool|blean
+{
+	input("insira blean",blean);
+}

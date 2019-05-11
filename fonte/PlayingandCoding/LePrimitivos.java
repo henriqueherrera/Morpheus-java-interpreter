@@ -10,7 +10,7 @@ public class LePrimitivos extends Tools
 
 	private Strings string;
 
-	private While lacoDeRepeticao = new While();
+	private While lacoDeRepeticao;
 
 	private Char chars;
 
@@ -94,6 +94,7 @@ public class LePrimitivos extends Tools
 		
 		else if (linha.substring(0,5).equals("while") || this.controladorDeLaco)
 		{
+			lacoDeRepeticao = new While();
 			setExpressao(this.tiraEspacos(linha.substring(5, linha.length()))); //expressao do while
 			this.controladorDeLaco = true;
 		}

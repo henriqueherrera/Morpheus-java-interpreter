@@ -56,7 +56,6 @@ public class While
 
 		Comparadores troca = new Comparadores();
 
-		System.out.println(txtLines);
 		for(int i = 0; i<value.length(); i++)
 		{
 			if(value.charAt(i) == '|')
