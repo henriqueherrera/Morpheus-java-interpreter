@@ -1,6 +1,12 @@
 bool blean = true;
+bool boo = true;
 int i = 0;
 while bool|blean
-{
-	input("insira blean: ",blean);
+{	
+	input("insira boo ",boo);
+	while bool|boo
+	{
+		input("boo ",boo);
+	}
+	input("insira blean ",blean);
 }

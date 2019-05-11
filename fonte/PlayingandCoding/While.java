@@ -56,6 +56,7 @@ public class While
 
 		Comparadores troca = new Comparadores();
 
+		System.out.println(txtLines);
 		for(int i = 0; i<value.length(); i++)
 		{
 			if(value.charAt(i) == '|')
@@ -73,15 +74,14 @@ public class While
 		if(tipo.equals("bool"))
 		{
 
-			le = new LePrimitivos();
                 	while(Bool.variaveisArmazenadas.get(value))
                 	{
 			
                         	
+				le = new LePrimitivos();
 				for(int i = 1; i<=numeroDeLinhas;i++)
 				{
 						
-					System.out.println(txtLines.get(i));
                                 	le.idLinha(txtLines.get(i),i);
                         	}
 			}
