@@ -3,8 +3,6 @@ import java.util.HashMap;
 //inicio da classe Comparadores
 public class Comparadores extends Tools
 {
-		public static int vl = 2; //se for if o valor tem que ser trocado para 2 se d
-		// a limpeza de linha agora é feita antes de chamar comparaInt
 	
 	public static HashMap<String,String> tipoVariaveis = new HashMap<String,String>(); //armazena os tipos das variaveis
 	
@@ -38,157 +36,6 @@ public class Comparadores extends Tools
 	}
 	//fim do método getVariaveis
 	
-		//inicio do método getDuasVar
-	public String[] getDuasVar( String line )
-	{
-		String cleanLine = tiraEspacos(line);
-		String[] v = {"",""};
-		
-		for(int i = 0; i < cleanLine.length(); i++)
-		{
-			if( ( cleanLine.charAt(i) == '=' ) && ( cleanLine.charAt(i+1) == '=' )  
-			|| ( ( cleanLine.charAt(i) == '!' ) && ( cleanLine.charAt(i+1) == '=' ) 
-			|| ( ( cleanLine.charAt(i) == '>' ) && ( cleanLine.charAt(i+1) == '=' ) 
-			|| ( ( cleanLine.charAt(i) == '<' ) && ( cleanLine.charAt(i+1) == '=' ) ) ) ) )
-			{
-				for(int ii = i+2; ii< cleanLine.length()-1; ii++)
-				{
-					v[1]=v[1]+""+cleanLine.charAt(ii);
-				}//laço que pega o nome da variavel dps de ==, !=, >= e <=
-				
-				break;
-			}
-			else if( ( cleanLine.charAt(i) == '>' ) )  {
-				for(int ii = i+1; ii< cleanLine.length()-1; ii++)
-				{
-					v[1]=v[1]+""+cleanLine.charAt(ii);
-				}//laço que pega o nome da variavel dps de >
-				
-				break;
-			}
-			else if( ( cleanLine.charAt(i) == '<' ) )  {
-				for(int ii = i+1; ii< cleanLine.length()-1; ii++)
-				{
-					v[1]=v[1]+""+cleanLine.charAt(ii);
-				}//laço que pega o nome da variavel dps de <
-				
-				break;
-			}
-			
-			else
-			{
-				v[0]=v[0]+""+cleanLine.charAt(i);
-			}//nome antes do igual
-		}
-		
-		return v;
-	}
-	//fim do método getDuasVar
-
-	//inicio do método checaComparador
-	public int checaComparador( String line )
-	{
-		// 1 - ==
-		// 2 - !=
-		// 3 - >=
-		// 4 - <=
-		// 5 - >
-		// 6 - <
-		
-		String cleanLine = tiraEspacos(line);
-		
-		for(int i = 0; i < cleanLine.length(); i++)
-		{
-			if( ( cleanLine.charAt(i) == '=') && ( cleanLine.charAt(i+1) == '=' ) ) {
-				return 1;
-			}
-			
-			else if( ( cleanLine.charAt(i) == '!') && ( ( cleanLine.charAt(i+1) == '=') ) ) {
-				return 2;
-			}
-			
-			else if( ( cleanLine.charAt(i) == '>') && ( cleanLine.charAt(i+1) == '=' ) ) {
-				return 3;
-			}
-			
-			else if( ( cleanLine.charAt(i) == '<') && ( cleanLine.charAt(i+1) == '=' ) ) {
-				return 4;
-			}
-			
-			else if( ( cleanLine.charAt(i) == '>') ) {
-				return 5;
-			}
-			
-			else if( ( cleanLine.charAt(i) == '<') ) {
-				return 6;
-			}
-		}
-		
-		return 0;
-	}
-	//fim do método checaComparador
-	
-	//inicio do método comparaInt
-	public boolean comparaInt( String s ) 
-	{
-		String[] v = getDuasVar(s);
-		int t1 = 0, t2 = 0;
-		int c = checaComparador(s);
-		
-		if (v[0].chars().allMatch(Character::isLetter)) 
-		{
-			t1 = Int.variaveisArmazenadas.get(v[0]);
-		}
-		
-		else
-		{
-			t1 = Integer.parseInt(v[0]);
-		}
-		if (v[1].chars().allMatch(Character::isLetter)) 
-		{
-			t2 = Int.variaveisArmazenadas.get(v[1]);
-		} 
-		
-		else
-		{
-			t2 = Integer.parseInt(v[1]);
-		}
-
-		switch(c) 
-		{
-			// 1 - ==
-			// 2 - !=
-			// 3 - >=
-			// 4 - <=
-			// 5 - >
-			// 6 - <
-			case 1:
-				if (t1 == t2) return true;
-				else return false;
-			
-			case 2:
-				if (t1 != t2) return true;
-				else return false;
-			
-			case 3:
-				if (t1 >= t2) return true;
-				else return false;
-			case 4:
-				if (t1 <= t2) return true;
-				else return false;
-			case 5:
-				if (t1 > t2) return true;
-				else return false;
-			
-			case 6:
-				if (t1 < t2) return true;
-				else return false;
-			
-			default:
-				return false;
-			}
-	}
-	//fim do método comparaInt
 	
 	//inicio do método comparaChar
 	public boolean comparaChar(String expressao)
@@ -215,7 +62,48 @@ public class Comparadores extends Tools
 	}
 	//fim do método comparaChar;
 
+	// inicio do método comparaInt
+	public boolean comparaInt(String expressao)
+	{
+		int v1 = 0, v2 = 0; //so para inicializar
+		String comparacao ="";
+		for(int i = 0; i< expressao.length(); i++)
+		{
+			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
+			{
+				comparacao = expressao.substring(i,i+2);
+				if(tipoVariaveis.get(expressao.substring(0,i)).equals("int"))
+				{
+					v1 = Int.variaveisArmazenadas.get(expressao.substring(0,i));
+				}
 
+				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("int"))
+				{
+					v2 = Int.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
+				}
+			}
+		}
+		if(comparacao.equals(">="))
+		{
+			return v1 >= v2 ? true:false;
+		}
+
+		else if(comparacao.equals("<="))
+		{
+			return v1 <= v2 ? true:false;
+		}
+		else if(comparacao.equals("=="))
+		{
+			return v1 == v2 ? true:false;
+		}
+		else if(comparacao.equals("!="))
+		{
+			return v1 == v2 ? false:true;
+		}
+		return false;
+	}
+	// fim do método comparaInt
+	
 	// inicio do método comparaStr 
 	public boolean comparaStr(String expressao) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals 
 	{

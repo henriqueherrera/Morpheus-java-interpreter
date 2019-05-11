@@ -1,10 +1,17 @@
 bool blean = true;
 bool boo = true;
+int ii = 0;
 string str1 = "oi";
 string str2 = "oi";
 char a = 'b';
 char c = 'b';
-int i = 0;
+int i = 5;
+while int| i >= ii
+{
+	print("oloko bixo");
+	input("ii ",ii);
+	print(ii);
+}
 while string| str1 == str2
 {
 	input("str",str1);	
