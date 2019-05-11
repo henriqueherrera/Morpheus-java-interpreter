@@ -6,7 +6,9 @@ string str2 = "oi";
 char a = 'b';
 char c = 'b';
 int i = 5;
-double x = 5.5;
+double x = 5.55555555;
+input("double x",x);
+print(x);
 while int| i >= ii
 {
 	print("oloko bixo");

@@ -7,8 +7,8 @@ public abstract class Primitivos
 	protected String intId;
 	protected int intValue;
 	
-	protected String floatId;
-	protected double floatValue;
+	protected String doubleId;
+	protected double doubleValue;
 	
 	protected String boolId;
 	protected boolean boolValue;
@@ -99,33 +99,33 @@ public abstract class Primitivos
 	}
 	//fim do método getIntId
 	
-	//inicio do método setFloatValue
-	protected void setFloatValue(double i)
+	//inicio do método setDoubleValue
+	protected void setDoubleValue(double i)
 	{
-		this.floatValue = i;
+		this.doubleValue = i;
 	}
-	//fim do método setFloatValue
+	//fim do método setDoubleValue
 	
-	//inicio do método getFloatValue
-	protected double getFloatValue()
+	//inicio do método getDoubleValue
+	protected double getDoubleValue()
 	{
-		return this.floatValue;
+		return this.doubleValue;
 	}
-	//fim do método getFloatValue
+	//fim do método getDoubleValue
 	
-	//inicio do método setFloatId
-	protected void setFloatId(String str)
+	//inicio do método setDoubleId
+	protected void setDoubleId(String str)
 	{
-		this.floatId = str;
+		this.doubleId = str;
 	}
-	//fim do método serFloatId
+	//fim do método setDoubleId
 	
-	//inicio do método getFloatId
-	protected String getFloatId()
+	//inicio do método getDoubleId
+	protected String getDoubleId()
 	{
-		return this.floatId;
+		return this.doubleId;
 	}
-	//fim do método getFloatId
+	//fim do método getDoubleId
 
 	//inicio do método setStrValue
 	protected void setStrValue(String str)
@@ -134,9 +134,6 @@ public abstract class Primitivos
 	}
 	//fim do método setStrValue
 
-
-//METODOS GETTERS E SETTERS DA STRING
-	
 	//inicio do método getStrValue
 	protected String getStrValue()
 	{
@@ -157,7 +154,5 @@ public abstract class Primitivos
 		return this.StrId;
 	}
 	//fim do método getStrId
-
-
 }
 //fim da classe abstrada Primitivos
