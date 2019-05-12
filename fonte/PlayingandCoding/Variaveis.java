@@ -1,7 +1,3 @@
-import java.util.HashMap;
-import java.lang.*;
-import java.util.Scanner;
-
 //inicio da classe Int
 public abstract class Variaveis extends Primitivos
 {

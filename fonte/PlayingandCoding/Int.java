@@ -1,6 +1,4 @@
 import java.util.HashMap;
-import java.lang.*;
-
 //inicio da classe Int
 public class Int extends Variaveis
 {
@@ -118,6 +116,7 @@ public class Int extends Variaveis
 			vetoresArmazenados.get(id).put(indetificadorDeNumerosInt(index,0),val);
 			
 		}
+		
 		else
 		{
 			value = linha.substring(pos,linha.length());

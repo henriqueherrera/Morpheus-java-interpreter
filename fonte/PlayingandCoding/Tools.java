@@ -1,8 +1,5 @@
 /* na classe tools será coloca ferramentas básicas para linguagem, sendo elas, respectivamente, o print e o input*/
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
-import java.text.DecimalFormat;
 //inicio da classe Tools
 public class Tools
 {

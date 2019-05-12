@@ -1,6 +1,4 @@
 import java.util.HashMap;
-import java.lang.*;
-
 //inicio da classe Char
 public class Char extends Variaveis
 {

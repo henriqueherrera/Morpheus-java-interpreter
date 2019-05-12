@@ -1,6 +1,4 @@
 import java.util.HashMap;
-import java.lang.*;
-
 //inicio da classe Bool 
 public class Bool extends Variaveis
 {

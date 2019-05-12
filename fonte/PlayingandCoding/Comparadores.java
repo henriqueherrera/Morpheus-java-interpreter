@@ -129,7 +129,6 @@ public class Comparadores extends Tools
 	}
 	//fim do método comparaStr;
 
-
 	//inicio do método trocaDeVariaveis
 	public void trocaDeVariaveis( String v1, String v2,String line, int pos )
 	{		
@@ -189,10 +188,7 @@ public class Comparadores extends Tools
 				Strings.variaveisArmazenadas.put(v1, Strings.variaveisArmazenadas.get(v2));
 			}
 		}
-
-
 	}
 	//fim do método trocaDeVariaveis
-
 }
 //fim da classe Comparadores
