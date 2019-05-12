@@ -126,15 +126,25 @@ public class LePrimitivos extends Tools
 		//verifica se foi escrito algo com 6 letras se e igual a string
 		else if (linha.substring(0,6).equals("string")) 
 		{
-							
 			this.string = new Strings();
 			string.verificador(linha);
 		}
 
 		else if ((this.tiraEspacos(linha).charAt(0) == '[') && linha.contains("]"))
 		{
-			this.vetores = new Int();
-			vetores.inseriValorNoVetor( this.tiraEspacos(linha).substring(0,this.tiraEspacos(linha).length()-1)); // o -1 é para ignorar o ; 
+			linha = this.tiraEspacos(linha);
+
+			if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("string"))
+			{
+				this.string = new Strings();
+				string.inseriValorNoVetor(linha.substring(0, linha.length()-1));
+			}
+
+			else if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("int"))
+			{
+				this.vetores = new Int();
+				vetores.inseriValorNoVetor(linha.substring(0, linha.length()-1));
+			} 
 		}
 
 		else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer

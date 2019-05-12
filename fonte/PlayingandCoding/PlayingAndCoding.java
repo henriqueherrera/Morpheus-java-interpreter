@@ -11,7 +11,7 @@ public class PlayingAndCoding
 		}
 		catch(Exception e)
 		{
-			System.out.println("algo de errado nao está certo no código");
+			System.out.println("algo de errado nao está certo no código "+e);
 		}
 	}
 	//fim do método main
