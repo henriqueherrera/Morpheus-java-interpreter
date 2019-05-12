@@ -76,10 +76,17 @@ public class Tools
 			}
 			else if(str.contains("[") && str.contains("]"))
 			{
-			   	Int inteiro = new Int();
-
-				System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-
+				str = this.tiraEspacos(str);
+				Int inteiro = new Int();
+				if( Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("string"))
+				{
+					System.out.print(strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				}
+				
+				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("int"))
+				{
+					System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				}
 			}
 			else if(Comparadores.tipoVariaveis.get(str).equals("int"))
 			{

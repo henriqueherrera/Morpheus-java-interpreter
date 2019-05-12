@@ -2,6 +2,7 @@ vetor string|[9]vetorstr;
 vetor int|[5]vetorint;
 [1]vetorstr = "atirei o pau no gato toto";
 [1]vetorint = 84512458;
+print([1]vetorstr);
 print([1]vetorint);
 bool blean = true;
 bool boo = true;

@@ -155,7 +155,8 @@ class Strings extends Variaveis
 		else
 		{
 			value = linha.substring(pos,linha.length());
-			vetoresArmazenados.get(id).put(inteiro.indetificadorDeNumerosInt(index,0),value);
+			vetoresArmazenados.get(id).put(inteiro.indetificadorDeNumerosInt(index,0),value.substring(1,value.length()-1));
+			//o substring é para tirar os "" da string
 		}
 	}
 	//fim do método inseriValorNoVetor
