@@ -8,13 +8,11 @@ char c = 'b';
 int i = 5;
 double x = 5.5;
 double y = 5.5;
-y = x;
-y = (x+5.5);
-print(y);
-while int| i >= ii
+
+while double| x <= y
 {
 	print("oloko bixo");
-	input("inteiro ii ",ii);
+	input("inserir inteiro ii: ",ii);
 	print(ii);
 }
 while string| str1 == str2

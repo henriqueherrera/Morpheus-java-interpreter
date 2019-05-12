@@ -4,8 +4,15 @@ public class PlayingAndCoding
 	//inicio do método main
 	public static void main(String[] args) 
 	{
-		Leitor interpretador = new Leitor(args[0]);
-		interpretador.reader();
+		try
+		{
+			Leitor interpretador = new Leitor(args[0]);
+			interpretador.reader();
+		}
+		catch(Exception e)
+		{
+			System.out.println("algo de errado nao está certo no código");
+		}
 	}
 	//fim do método main
 }

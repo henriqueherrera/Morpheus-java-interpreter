@@ -111,7 +111,6 @@ public class While
 		}
 		else if (tipo.equals("int"))
 		{
-			System.out.println(testBooleano.comparaInt(value));
 			while(testBooleano.comparaInt(value))
             {
 				le = new LePrimitivos();
@@ -120,7 +119,17 @@ public class While
 					le.idLinha(txtLines.get(i),i);
                 }
 			}
-			
+		}
+		else if (tipo.equals("double"))
+		{
+			while(testBooleano.comparaDouble(value))
+			{
+				le = new LePrimitivos();
+				for(int i = 1; i<=numeroDeLinhas; i++)
+				{
+					le.idLinha(txtLines.get(i), i);
+				}
+			}
 		}
 	}
 	//fim do método lacoDeRepeticao

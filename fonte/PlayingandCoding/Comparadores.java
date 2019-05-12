@@ -83,27 +83,38 @@ public class Comparadores extends Tools
 				}
 			}
 		}
-		if(comparacao.equals(">="))
-		{
-			return v1 >= v2 ? true:false;
-		}
-
-		else if(comparacao.equals("<="))
-		{
-			return v1 <= v2 ? true:false;
-		}
-		else if(comparacao.equals("=="))
-		{
-			return v1 == v2 ? true:false;
-		}
-		else if(comparacao.equals("!="))
-		{
-			return v1 == v2 ? false:true;
-		}
-		return false;
+		return valorBooleanoDaExpressao(comparacao, v1, v2);
 	}
 	// fim do método comparaInt
 
+	// inicio do método comparaDouble
+	public boolean comparaDouble(String expressao)
+	{
+		double v1 = 0, v2 = 0; //so para inicializar
+		
+		String comparacao ="";
+		
+		for(int i = 0; i< expressao.length(); i++)
+		{
+			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
+			{
+				comparacao = expressao.substring(i,i+2);
+				
+				if(tipoVariaveis.get(expressao.substring(0,i)).equals("double"))
+				{
+					v1 = Doubles.variaveisArmazenadas.get(expressao.substring(0,i));
+				}
+
+				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("double"))
+				{
+					v2 = Doubles.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
+				}
+			}
+		}
+		return valorBooleanoDaExpressao(comparacao,v1,v2);
+	}
+	// fim do método comparaDouble
+	
 	// inicio do método comparaStr 
 	public boolean comparaStr(String expressao) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals 
 	{
@@ -190,5 +201,29 @@ public class Comparadores extends Tools
 		}
 	}
 	//fim do método trocaDeVariaveis
+
+	//inicio do método valorBooleanoDaExpressao
+	public boolean valorBooleanoDaExpressao(String comparacao,double v1, double v2)
+	{
+		if(comparacao.equals(">="))
+		{
+			return v1 >= v2 ? true:false;
+		}
+
+		else if(comparacao.equals("<="))
+		{
+			return v1 <= v2 ? true:false;
+		}
+		else if(comparacao.equals("=="))
+		{
+			return v1 == v2 ? true:false;
+		}
+		else if(comparacao.equals("!="))
+		{
+			return v1 == v2 ? false:true;
+		}
+		return false;
+	}
+	//fim do método valorBooleanoDaExpressao
 }
 //fim da classe Comparadores

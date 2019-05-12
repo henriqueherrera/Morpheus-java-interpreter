@@ -1,6 +1,4 @@
 import java.util.HashMap;
-import java.lang.*;
-
 //inicio da classe Double
 public class Doubles extends Variaveis
 {
@@ -39,5 +37,4 @@ public class Doubles extends Variaveis
 		Comparadores.tipoVariaveis.put(getDoubleId(),"double");
     }
 }
-	//fim do método armazenarValor
-	
+//fim do método armazenarValor

@@ -1,14 +1,10 @@
 import java.io.*;
-import java.lang.*;
-
 //inicio da classe Leitor
 class Leitor extends Tools
 {
 	private String arquivo; //Lê o arquivo para ser Interpretado
 
-	private Comparadores troca = new Comparadores();
-	
-	private LePrimitivos lePrimitivos = new LePrimitivos();	
+	private LePrimitivos lePrimitivos = new LePrimitivos();
 	
 	public static boolean laco = true; //enquanto tudo estiver ocorrendo de maneira prevista
 					//o laco de repeticao continua trocando de linha
@@ -29,53 +25,19 @@ class Leitor extends Tools
 		{
 			BufferedReader buffRead = new BufferedReader(new FileReader (this.getArquivo()));
 
-                	String linha = "";
+            String linha = "";
 
-                	while(laco)
-                	{
+            while(laco)
+            {
 			
 				linha = buffRead.readLine();
                         
 				if(linha != null)
-                        	{
-				
+                {
 					if ( ( linha.length() != 0 ) && (!linha.contains("//")) || (this.tiraEspacos(linha).equals("inicio") || this.tiraEspacos(linha).equals("final"))) //verifica se tem um ponto e virgula no final
 					{
-							
 						linha = linha.trim();	
-						lePrimitivos.idLinha(linha,0); //chama o metodo para ler as variaveis primitivas
-						/*
-						//chama as funções aqui para armazenamento
-						if (linha.substring(0,2).equals("if"))
-						{
-							Comparadores.vl =2;
-							String cleanLine = tiraEspacos(linha);
-						/*	if (!troca.comparaInt(cleanLine.substring(2,cleanLine.length()))) 
-							{
-								while (!tiraEspacos(linha).contains("}"))
-								{
-									linha = buffRead.readLine();
-								}
-							}
-						*/
-						
-						//falta terminar o diferençiador para chamar as respectivas funçoes
-							
-							
-						/*	if (!troca.comparaStr(linha))  //chama a função que vai comprar as strings 
-														   //e retornar um valor boleano  
-							{	
-								
-								while (!tiraEspacos(linha).contains("}"))
-								{
-									linha = buffRead.readLine();
-								}
-			
-							}
-						
-						
-					} */
-						
+						lePrimitivos.idLinha(linha,0); //chama o metodo para ler as variaveis primitivas	
 					}	
 
 					else if ( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && (!linha.contains("//")) && tiraEspacos(linha).length() != 0 ) 
