@@ -1,11 +1,14 @@
-import java.io.*;
 import java.util.HashMap;
 
 //inicio da classe Strings
 class Strings extends Variaveis
 {
+	private Int inteiro;
+
 	public static HashMap<String,String> variaveisArmazenadas = new HashMap<String, String>();
 
+	public static HashMap<String,HashMap<Integer,String>> vetoresArmazenados = new HashMap<String,HashMap<Integer,String>>();
+	
 	protected void indentificaValor(String str, int pos)
 	{
 		this.valueString(str,pos);
@@ -53,7 +56,50 @@ class Strings extends Variaveis
 		}
 	}
 	//fim do método valueString
+	
+	//inicio do método armazenaVetor
+	public void armazenaVetor(String linha)
+	{
+		inteiro = new Int();
+		String value = "";
+		String id = "";
+		int pos = 0;
+		for(int i = 0; i< linha.length(); i++)
+		{
+			if( linha.charAt(i) == '[')
+			{
+				for(int ii = i+1; ii<= linha.length(); ii++)
+				{
+					if(linha.charAt(ii) == ']') //tamanho do vetor
+					{
+						pos = ii+1;//onde começa leitura da variavel
+						break;
+					}
+		
+					else
+					{
+						value = value+""+linha.charAt(ii);
+					}
+				}
+			}
+			break;
+		}
+	
+		for(int i = pos; i< linha.length();i++)
+		{
+			id = id+""+linha.charAt(i);
+		}
+		
+		vetoresArmazenados.put(id, new HashMap<Integer,String>());
+			
+		int size = inteiro.indetificadorDeNumerosInt(value,0);
+			
+		for(int i = 0; i < size ;i++)
+		{
+			vetoresArmazenados.get(id).put(i," ");
+		}
+		Comparadores.tipoVariaveis.put(id, "String");
+	}
+	//fim do método armazenaVetor
 }
- 
-
-//fim da classe Strings
+ //fim da classe Strings

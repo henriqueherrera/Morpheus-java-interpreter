@@ -110,8 +110,18 @@ public class LePrimitivos extends Tools
 						
 		else if (linha.substring(0,5).equals("vetor"))
 		{
-			this.vetores = new Int();
-			vetores.armazenaVetor(this.tiraEspacos(linha.substring(5,linha.length()-1)));
+			linha = this.tiraEspacos(linha);
+			if(linha.substring(5,linha.indexOf("|")).equals("string"))
+			{
+				this.string = new Strings();
+				string.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
+			}
+			
+			else if(linha.substring(5,linha.indexOf("|")).equals("int"))
+			{
+				this.vetores = new Int();
+				vetores.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
+			}
 		}
 		//verifica se foi escrito algo com 6 letras se e igual a string
 		else if (linha.substring(0,6).equals("string")) 

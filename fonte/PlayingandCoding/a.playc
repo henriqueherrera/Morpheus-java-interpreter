@@ -1,3 +1,4 @@
+vetor string|[9]vetorstr;
 bool blean = true;
 bool boo = true;
 int ii = 0;
@@ -19,7 +20,7 @@ while string| str1 == str2
 {
 	input("string str",str1);	
 }
-while char|     a   ==       c
+while char|     a==c
 {	
 	input("bool insira boo ",boo);
 	while bool|boo
