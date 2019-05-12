@@ -13,6 +13,8 @@ public class OperadoresAritmeticos
 	
 	private String  variavelParaArmazenar;
 
+	private Doubles doubles = new Doubles();
+
 	//inicio do método setVariavelParaArmazenar
 	public void setVariavelParaArmazenar(String str)
 	{
@@ -108,37 +110,40 @@ public class OperadoresAritmeticos
 		
 		ajuste(this.right(i));
 	}
-	private void inOrder(int i) //para verificar se tudo está sendo armazenado certo
-	{
-		if(heap.get(i) == "empty")
-		{
-			return;
-		}
-
-		inOrder(this.left(i));
-		
-		System.out.println(heap.get(i));
-		
-		inOrder(this.right(i));
-	}
 	//fim do método ajuste
+	
 	//inicio do método val
-	public int val(int i) //aqui acontece a mágica, as continha são realizadas
+	public double val(int i) //aqui acontece a mágica, as continha são realizadas
 	{
 		if(isLeaf(i))
 		{
-			int x = 0;
-			inteiro = new Int();
+			double x = 0;
+			doubles = new Doubles();
 			if(!((48<= heap.get(i).charAt(0)) && ( heap.get(i).charAt(0) <=57)))
 			{
 				if((Comparadores.tipoVariaveis.get(heap.get(i))).equals("int"))
 				{
 					x = Int.variaveisArmazenadas.get(heap.get(i));
 				}
+
+				else if((Comparadores.tipoVariaveis.get(heap.get(i))).equals("double"))
+				{
+					x = Doubles.variaveisArmazenadas.get(heap.get(i));
+				}
 			}
 			else
 			{
-				x = inteiro.indetificadorDeNumerosInt(heap.get(i),0);
+				System.out.println(heap.get(i));
+				if (heap.get(i).contains("."))
+				{
+					x = doubles.convertDouble(heap.get(i)+" ",0);
+			
+				}
+				else
+				{
+					x = inteiro.indetificadorDeNumerosInt(heap.get(i),0);
+				}
+				
 			}
 			return x;
 		}
@@ -198,12 +203,8 @@ public class OperadoresAritmeticos
 	//fim do método analisadorLexicoDeOperacoes
 	
 	//inicio do método leituraDaOperacao
-	public int leituraDaOperacao(String linha) // faz o cálculo da expressao
+	public double leituraDaOperacao(String linha) // faz o cálculo da expressao
 	{
-	
-		
-		Int inteiro = new Int();
-
 		int indice = 1; //indice
 
 		String value = "";
@@ -240,7 +241,7 @@ public class OperadoresAritmeticos
 				{
 					for(int x = i; x<linha.length(); x++)
 					{
-						if(!((48<= linha.charAt(x)) && (linha.charAt(x)  <=57)))
+						if(!((48<= linha.charAt(x)) && (linha.charAt(x)  <=57)) && !(linha.charAt(x) == '.'))
 						{
 							i = x-1;
 							break;

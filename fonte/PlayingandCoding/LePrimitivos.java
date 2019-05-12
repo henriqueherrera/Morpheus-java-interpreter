@@ -130,10 +130,15 @@ public class LePrimitivos extends Tools
 		else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
 		
 		{
-
 			String str = this.tiraEspacos(linha);
-			
-			Int.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
+			if(troca.tipoVariaveis.get(tiraEspacos(linha).substring(0,this.tiraEspacos(linha).indexOf("="))).equals("int"))
+			{
+				Int.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),(int)operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
+			}
+			else
+			{
+				Doubles.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
+			}
 		}
 
 		else

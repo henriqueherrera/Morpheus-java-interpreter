@@ -184,7 +184,6 @@ public class Tools
 			}
 			else if((Comparadores.tipoVariaveis.get(id)).equals("double"))
 			{
-				System.out.println("passa aqui");
 				double value;
 				value = Double.parseDouble(scan.nextLine());
 				Doubles.variaveisArmazenadas.put(id,value);

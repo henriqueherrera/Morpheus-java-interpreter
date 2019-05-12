@@ -1,5 +1,4 @@
 //inicio da classe PlayingAndCoding
-
 public class PlayingAndCoding 
 {
 	//inicio do método main
@@ -7,7 +6,6 @@ public class PlayingAndCoding
 	{
 		Leitor interpretador = new Leitor(args[0]);
 		interpretador.reader();
-		System.out.println(Doubles.variaveisArmazenadas);
 	}
 	//fim do método main
 }
