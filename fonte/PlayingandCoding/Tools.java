@@ -157,9 +157,19 @@ public class Tools
 			if(id.contains("[") && id.contains("]")) //por enquanto ta generico so para int
 			{
 				Int inteiro = new Int();
-				int value = 0;	
-				value = scan.nextInt();
-				Int.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),value);
+				
+				if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("string"))
+				{
+					String vl = "";
+					vl = scan.nextLine();
+					Strings.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
+				}
+				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("int"))	
+				{
+					int vl;
+					vl = scan.nextInt();
+					Int.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
+				}
 			}
 			else if((Comparadores.tipoVariaveis.get(id)).equals("int"))
 			{

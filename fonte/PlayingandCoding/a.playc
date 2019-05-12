@@ -2,6 +2,8 @@ vetor string|[9]vetorstr;
 vetor int|[5]vetorint;
 [1]vetorstr = "atirei o pau no gato toto";
 [1]vetorint = 84512458;
+input("inserir uma string no vetor",[1]vetorstr);
+input("inserir um int no vetor",[1]vetorint);
 print([1]vetorstr);
 print([1]vetorint);
 bool blean = true;
