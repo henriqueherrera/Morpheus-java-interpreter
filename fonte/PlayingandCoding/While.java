@@ -1,54 +1,6 @@
-import java.util.HashMap;
-
 //inicio da classe While
-public class While
+public class While extends Tools
 {
-    public HashMap<Integer, String> txtLines = new HashMap<Integer, String>(); //vai ler cada linha dentro do while
-
-	public LePrimitivos le;
-
-	private int abreChave;
-
-	private int fechaChave;
-
-	private int numeroDeLinhas;
-
-	//inicio do método countLines
-	public int countLines()
-	{
-		numeroDeLinhas++;
-		return numeroDeLinhas;
-	}
-	//fim do método countLines
-	
-	//inicio do método getNumeroDelinhas
-	public int getNumeroDeLinhas()
-	{
-		return numeroDeLinhas;
-	}
-	//fim do método getNumeroDeLinhas
-	
-	//inicio do método countAbreChave
-	public void countAbreChave()
-	{
-		this.abreChave++;
-	}
-	//fim do método countAbreChave
-	
-	//inicio do método countFechaChave
-	public void countFechaChave()
-	{
-		this.fechaChave++;
-	}
-	//fim do método countFechaChave
-	
-	//inicio do método igualdadeDeChave
-	public boolean igualdadeDeChave()
-	{
-		return this.abreChave == this.fechaChave ? true:false;
-	}
-	//fim do método igualdadeDeChave
-	
 	//inicio do método laco
 	public void laco(int numeroDeLinhas, String value)
         {

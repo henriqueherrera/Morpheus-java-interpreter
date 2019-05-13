@@ -1,5 +1,7 @@
 char b = 't';
 char c = 't';
+int t = 8;
+int tu = 8;
 bool d = false;
 while char| c == b
 {
@@ -7,7 +9,9 @@ while char| c == b
     {
         input("input no b: ",b);
         print(b);
-        input("input no d: ",d);
-        print(d);
+        if int|tu==t
+        {
+            input("input no int tu",tu);
+        }
     }
 }
