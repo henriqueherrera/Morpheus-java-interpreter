@@ -1,17 +1,10 @@
 char b = 't';
 char c = 't';
-int t = 8;
-int tu = 8;
-bool d = false;
-while char| c == b
+int t = 10;
+int tu = 0;
+bool d = true;
+while int| tu <<t
 {
-    if char|c ==b
-    {
-        input("input no b: ",b);
-        print(b);
-        if int|tu==t
-        {
-            input("input no int tu",tu);
-        }
-    }
+    tu = (tu+1);
+    print(tu);
 }

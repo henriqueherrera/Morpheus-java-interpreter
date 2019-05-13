@@ -69,7 +69,7 @@ public class Comparadores extends Tools
 		String comparacao ="";
 		for(int i = 0; i< expressao.length(); i++)
 		{
-			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
+			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
 			{
 				comparacao = expressao.substring(i,i+2);
 				if(tipoVariaveis.get(expressao.substring(0,i)).equals("int"))
@@ -208,6 +208,16 @@ public class Comparadores extends Tools
 		if(comparacao.equals(">="))
 		{
 			return v1 >= v2 ? true:false;
+		}
+
+		else if(comparacao.equals(">>"))
+		{
+			return v1 > v2 ? true:false;
+		}
+		
+		else if(comparacao.equals("<<"))
+		{
+			return v1 < v2 ? true:false;
 		}
 
 		else if(comparacao.equals("<="))

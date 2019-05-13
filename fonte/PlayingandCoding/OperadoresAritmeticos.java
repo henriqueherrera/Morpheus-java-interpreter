@@ -133,7 +133,6 @@ public class OperadoresAritmeticos
 			}
 			else
 			{
-				System.out.println(heap.get(i));
 				if (heap.get(i).contains("."))
 				{
 					x = doubles.convertDouble(heap.get(i)+" ",0);
