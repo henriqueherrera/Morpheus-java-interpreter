@@ -1,44 +1,13 @@
-vetor string|[9]vetorstr;
-vetor int|[5]vetorint;
-[1]vetorstr = "atirei o pau no gato toto";
-[1]vetorint = 84512458;
-input("inserir uma string no vetor",[1]vetorstr);
-input("inserir um int no vetor",[1]vetorint);
-print([1]vetorstr);
-print([1]vetorint);
-bool blean = true;
-bool boo = true;
-int ii = 0;
-string str1 = "oi";
-string str2 = "oi";
-char a = 'b';
-char c = 'b';
-int i = 5;
-double x = 5.5;
-double y = 5.5;
-
-while double| x <= y
+char b = 't';
+char c = 't';
+bool d = false;
+while char| c == b
 {
-	print("oloko bixo");
-	input("inserir inteiro ii: ",ii);
-	print(ii);
-}
-while string| str1 == str2
-{
-	input("string str",str1);	
-}
-while char|     a==c
-{	
-	input("bool insira boo ",boo);
-	while bool|boo
-	{
-		input("boleano boo ",boo);
-	}
-	input("insira  chara",a);
-}
-print("test");
-blean = true;
-while bool|blean
-{
-	input("insira blean",blean);
+    if char|c ==b
+    {
+        input("input no b: ",b);
+        print(b);
+        input("input no d: ",d);
+        print(d);
+    }
 }

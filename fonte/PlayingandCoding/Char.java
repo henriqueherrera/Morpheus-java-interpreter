@@ -3,8 +3,6 @@ import java.util.HashMap;
 public class Char extends Variaveis
 {
 	//dicionario que armazena as váriaveis criadas
-	public static int leituraDaLinha;
-	
 	public static HashMap< String,Character> variaveisArmazenadas = new HashMap<String, Character>();
 	
 	//inicio do método indentificaValor
@@ -14,7 +12,7 @@ public class Char extends Variaveis
 		for(int iii = pos; iii<str.length(); iii++)
 		{
 			if ( (str.charAt(iii) == 39) && !(iii+2 == str.length()-1))
-			{
+				{
 
 				if(str.charAt(iii+2) == 39)
 				{

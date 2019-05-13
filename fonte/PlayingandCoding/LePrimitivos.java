@@ -10,31 +10,23 @@ public class LePrimitivos extends Tools
 
 	private Strings string;
 
+	private Condicional ifCondicional;
+
 	private While lacoDeRepeticao;
 
 	private Char chars;
 
 	private boolean controladorDeLaco = false;//quando true so passa pelo primeiro while
 	
-	private Doubles doubles;
+	private boolean controladorIf = false;
 
-	private String expressao ="";
+	private Doubles doubles;
+	
+	private String ifExpressao = "";
+
+	private String expressao = "";
 
 	private Comparadores troca;
-	
-	//inicio do método setExpressao
-	public void setExpressao(String exp)
-	{
-		this.expressao = exp;
-	}
-	//fim do método setExpressao
-	
-	//inicio do método getExpressao
-	public String getExpressao()
-	{
-		return this.expressao;
-	}
-	//fim do método getExpressao
 	
 	//inicio do método idLinha
 	public void idLinha(String linha,int whilis)
@@ -65,8 +57,35 @@ public class LePrimitivos extends Tools
 
 			if(lacoDeRepeticao.igualdadeDeChave())
 			{
+				
 				lacoDeRepeticao.laco(lacoDeRepeticao.getNumeroDeLinhas(), this.getExpressao());
 				controladorDeLaco = false;
+			}
+		}
+		else if (controladorIf)
+		{
+			linha.trim();
+			
+			if(this.tiraEspacos(linha).equals("{"))
+			{
+				ifCondicional.countAbreChave();	
+			}
+
+			else if(this.tiraEspacos(linha).equals("}"))
+			{
+
+				ifCondicional.countFechaChave();
+			}
+
+			else
+			{
+				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
+			}
+
+			if(ifCondicional.igualdadeDeChave())
+			{
+				ifCondicional.condicionalIf(ifCondicional.getNumeroDeLinhas(), this.getIfExpressao());
+				controladorIf = false;
 			}
 		}
 		else if(linha.substring(0,6).equals("double"))
@@ -102,7 +121,9 @@ public class LePrimitivos extends Tools
 			lacoDeRepeticao = new While();
 			setExpressao(this.tiraEspacos(linha.substring(5, linha.length()))); //expressao do while
 			this.controladorDeLaco = true;
+		
 		}
+		
 		else if (linha.substring(0,5).equals("print"))
 		{
 			this.print(this.tiraEspacos(linha));
@@ -146,7 +167,12 @@ public class LePrimitivos extends Tools
 				vetores.inseriValorNoVetor(linha.substring(0, linha.length()-1));
 			} 
 		}
-
+		else if (linha.substring(0,2).equals("if") || this.controladorIf)
+		{
+			ifCondicional = new Condicional();
+			setIfExpressao(this.tiraEspacos(linha.substring(2,linha.length())));
+			this.controladorIf = true;
+		}
 		else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
 		
 		{
@@ -165,4 +191,29 @@ public class LePrimitivos extends Tools
 			troca.getVariaveis(linha);
 		}
 	}
+	//inicio do método setExpressao
+	public void setExpressao(String exp)
+	{
+		this.expressao = exp;
+	}
+	//fim do método setExpressao
+	
+	//inicio do método getExpressao
+	public String getExpressao()
+	{
+		return this.expressao;
+	}
+	//fim do método getIfExpressao
+	public void setIfExpressao(String exp)
+	{
+		this.ifExpressao = exp;
+	}
+	//fim do método setIfExpressao
+	
+	//inicio do método getIfExpressao
+	public String getIfExpressao()
+	{
+		return this.ifExpressao;
+	}
+	//fim do método getIfExpressao
 }
