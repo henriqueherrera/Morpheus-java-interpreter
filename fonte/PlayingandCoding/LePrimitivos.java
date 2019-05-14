@@ -35,19 +35,49 @@ public class LePrimitivos extends Tools
 		
 		troca = new Comparadores();
 		
-		if (controladorDeLaco)
+		
+		if (controladorIf)
+		{
+			linha.trim();
+			
+			if(this.tiraEspacos(linha).equals("{"))
+			{
+				ifCondicional.countAbreChave();	
+				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
+			}
+
+			else if(this.tiraEspacos(linha).equals("}"))
+			{
+				ifCondicional.countFechaChave();
+				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
+			}
+
+			else
+			{
+				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
+			}
+
+			if(ifCondicional.igualdadeDeChave())
+			{
+				ifCondicional.condicionalIf(ifCondicional.getNumeroDeLinhas(), this.getIfExpressao());
+				controladorIf = false;
+			}
+		}
+		else if (controladorDeLaco)
 		{
 			linha.trim();
 			
 			if(this.tiraEspacos(linha).equals("{"))
 			{
 				lacoDeRepeticao.countAbreChave();	
+				lacoDeRepeticao.txtLines.put(lacoDeRepeticao.countLines(),linha);
 			}
 
 			else if(this.tiraEspacos(linha).equals("}"))
 			{
 
 				lacoDeRepeticao.countFechaChave();
+				lacoDeRepeticao.txtLines.put(lacoDeRepeticao.countLines(),linha);
 			}
 
 			else
@@ -62,31 +92,10 @@ public class LePrimitivos extends Tools
 				controladorDeLaco = false;
 			}
 		}
-		else if (controladorIf)
+		
+		else if(linha.contains("}") || linha.contains("{"))
 		{
-			linha.trim();
-			
-			if(this.tiraEspacos(linha).equals("{"))
-			{
-				ifCondicional.countAbreChave();	
-			}
 
-			else if(this.tiraEspacos(linha).equals("}"))
-			{
-
-				ifCondicional.countFechaChave();
-			}
-
-			else
-			{
-				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
-			}
-
-			if(ifCondicional.igualdadeDeChave())
-			{
-				ifCondicional.condicionalIf(ifCondicional.getNumeroDeLinhas(), this.getIfExpressao());
-				controladorIf = false;
-			}
 		}
 		else if(linha.substring(0,6).equals("double"))
 		{

@@ -1,5 +1,4 @@
 import java.util.HashMap;
-
 //inicio da classe Strings
 class Strings extends Variaveis
 {

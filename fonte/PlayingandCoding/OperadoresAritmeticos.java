@@ -101,7 +101,7 @@ public class OperadoresAritmeticos
 		}
 
 		ajuste(this.left(i));
-		
+
 		if( (heap.get(i).equals("#")))
 		{
 			heap.set(i,heap.get(left(i)));
@@ -166,6 +166,10 @@ public class OperadoresAritmeticos
 		{
 			return val(left(i)) / val(right(i));
 		}
+		else if(heap.get(i).equals("%"))
+		{
+			return val(left(i)) % val(right(i));
+		}
 		else
 		{
 			return 0;
@@ -179,7 +183,7 @@ public class OperadoresAritmeticos
 		int total1 = linha.replaceAll("[^(]", "").length();
 		int total2 = linha.replaceAll("[^)]", "").length();
 		
-		if(( linha.contains("+") || linha.contains("-") || linha.contains("*") || linha.contains("/")) && (total1 == total2))
+		if((linha.contains("+") || linha.contains("-") || linha.contains("*") || linha.contains("/") || linha.contains("%")) && (total1 == total2))
 		{
 			for(int i = 0; i<linha.length(); i++)
 			{
@@ -228,7 +232,7 @@ public class OperadoresAritmeticos
 				indice  = this.dad(indice);
 			}
 			
-			else if((linha.charAt(i) == '*') || (linha.charAt(i) == '-') || (linha.charAt(i) == '+') || (linha.charAt(i) == '/'))
+			else if((linha.charAt(i) == '*') || (linha.charAt(i) == '-') || (linha.charAt(i) == '+') || (linha.charAt(i) == '/') ||(linha.charAt(i) == '%'))
 			{	
 				indice = this.dad(indice);
 				heap.set(indice,linha.substring(i,i+1));
@@ -256,7 +260,7 @@ public class OperadoresAritmeticos
 				{
 					for(int x = i; x<linha.length();x++)
 					{
-						if((linha.charAt(x) == '*') || (linha.charAt(x) == '-') || (linha.charAt(x) == '+') || (linha.charAt(x) == '/') || (linha.charAt(x) == '(') || (linha.charAt(x) == ')'))
+						if( (linha.charAt(x) == '%') || (linha.charAt(x) == '*') || (linha.charAt(x) == '-') || (linha.charAt(x) == '+') || (linha.charAt(x) == '/') || (linha.charAt(x) == '(') || (linha.charAt(x) == ')'))
 						{
 							i = x-1;
 							break;
@@ -286,10 +290,17 @@ public class OperadoresAritmeticos
 	private String valorDoVetor(String value)
 	{
 		Int inteiro = new Int();
-		String nomeVariavel = value.substring(value.indexOf("]")+1,value.length());
+		
+		String nomeVariavel = value.substring(value.indexOf("]")+1,value.length()); //pega o nome da variavel
+		
 		int index = inteiro.indetificadorDeNumerosInt(value.substring(value.indexOf("[")+1, value.indexOf("]")),0);
-		int valor = Int.vetoresArmazenados.get(nomeVariavel).get(index);
-		return ""+valor;
+	
+		if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("int"))
+		{
+			return ""+Int.vetoresArmazenados.get(nomeVariavel).get(index);
+		}
+	
+		return "";
 	}
 }
 //fim da classe OperadoresAritmeticos

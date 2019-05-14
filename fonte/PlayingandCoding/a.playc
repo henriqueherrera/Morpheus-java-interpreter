@@ -1,10 +1,19 @@
+vetor int|[10]vetorInt;
+vetor string|[10]vetorStr;
+[5]vetorInt = 78;
+[1]vetorStr = "oioioioi";
+[2]vetorStr = "tico";
+[1]vetorStr = [2]vetorStr;
+print([1]vetorStr);
 char b = 't';
 char c = 't';
-int t = 10;
+int t;
+t = (2+[5]vetorInt);
+print(t);
 int tu = 0;
 bool d = true;
-while int| tu <<t
-{
-    tu = (tu+1);
-    print(tu);
-}
+t = ((10%5) +((8-4)/(2));
+t = (8+2);
+double p =5.0;
+p = ((p%5.8)+(5));
+print(p);

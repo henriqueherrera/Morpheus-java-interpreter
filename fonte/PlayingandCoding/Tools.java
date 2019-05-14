@@ -5,7 +5,7 @@ import java.util.HashMap;
 //inicio da classe Tools
 public class Tools
 {
-	public HashMap<Integer, String> txtLines = new HashMap<Integer, String>(); //vai ler cada linha dentro do while
+	public HashMap<Integer, String> txtLines = new HashMap<Integer, String>();
 
 	public LePrimitivos le;
 
@@ -51,14 +51,22 @@ public class Tools
 	}
 	//fim do método igualdadeDeChave
 
+	//inicio do método resetChaves
+	public void resetChaves()
+	{
+		this.abreChave = 0;
+		this.fechaChave = 0;
+	}
+	//fim do método reserChaves
 	//inicio do método tiraEspacos
 	public String tiraEspacos(String line)
-        {
-                String cleanLine= "";
+    {
+        String cleanLine= "";
 
 		boolean achoString = true;
+		
 		for(int i = 0; i < line.length(); i++)
-                {
+        {
 			if( line.charAt(i) == '"' && achoString) //aqui é pra ele nao tira os espacos dentro de uma string
 			{
 				cleanLine = cleanLine+""+line.charAt(i);
@@ -80,13 +88,14 @@ public class Tools
 				}
 			}
 
-                        if( line.charAt(i) != ' ')
-                        {
-                                cleanLine= cleanLine+""+line.charAt(i);
-                        }
-                }//esse laço tira os espaços da linha
-                return cleanLine;
-        }
+            if( line.charAt(i) != ' ')
+            {
+                cleanLine= cleanLine+""+line.charAt(i);
+            }
+        }//esse laço tira os espaços da linha
+		
+		return cleanLine;
+    }
 	//fim do método tiraEspacos
 
 	//inicio do método print
@@ -127,7 +136,7 @@ public class Tools
 				Int inteiro = new Int();
 				if( Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("string"))
 				{
-					System.out.print(strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+					System.out.print(Strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 				}
 				
 				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("int"))
