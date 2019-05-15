@@ -17,3 +17,17 @@ t = (8+2);
 double p =5.0;
 p = ((p%5.8)+(5));
 print(p);
+
+double d1 = 5.0;
+string s1 = "abcd";
+int i1 = 15;
+
+if string|s1==abcd
+{
+print("sei la");
+}
+
+if int|i1==15
+{
+print("sei la");
+}

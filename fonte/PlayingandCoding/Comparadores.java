@@ -40,22 +40,33 @@ public class Comparadores extends Tools
 	//inicio do método comparaChar
 	public boolean comparaChar(String expressao)
 	{
-		char v1 = '-', v2 = '+'; //so para inicializar
+		char v1 = '-', v2 = '+', c1 = '*', c2 = '/' ; //so para inicializar
 		
 		for(int i = 0; i< expressao.length(); i++)
 		{
 			if(expressao.charAt(i) == '=' && expressao.charAt(i+1) == '=')
 			{
-				
-				if(tipoVariaveis.get(expressao.substring(0,i)).equals("char"))
+                if( tipoVariaveis.containsKey(expressao.substring(0,i) ) 
+                    && tipoVariaveis.get(expressao.substring(0,i)).equals("char"))
 				{
 					v1 = Char.variaveisArmazenadas.get(expressao.substring(0,i));
 				}
-
-				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("char"))
+                else                
+                {
+                    v1 = expressao.substring(0,1).charAt(0);
+                }
+                if( tipoVariaveis.containsKey(expressao.substring(i+2,expressao.length()) )
+                    && tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("char"))
 				{
 					v2 = Char.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
 				}
+                else                
+                {
+                    v2 = expressao.substring(i+2,expressao.length()).charAt(0);
+                }
+
+
+
 			}
 		}
 		return v1 == v2 ? true:false;
@@ -72,12 +83,19 @@ public class Comparadores extends Tools
 			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
 			{
 				comparacao = expressao.substring(i,i+2);
-				if(tipoVariaveis.get(expressao.substring(0,i)).equals("int"))
+                if( expressao.substring(0,i).chars().allMatch(Character::isDigit) ) 
+                {
+                    v1 = Integer.parseInt(expressao.substring(0,i));
+                }
+				else if(tipoVariaveis.get(expressao.substring(0,i)).equals("int"))
 				{
 					v1 = Int.variaveisArmazenadas.get(expressao.substring(0,i));
 				}
-
-				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("int"))
+                if( expressao.substring(i+2,expressao.length()).chars().allMatch(Character::isDigit) )
+				{
+					v2 = Integer.parseInt(expressao.substring(i+2));
+				}
+				else if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("int"))
 				{
 					v2 = Int.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
 				}
@@ -99,15 +117,21 @@ public class Comparadores extends Tools
 			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
 			{
 				comparacao = expressao.substring(i,i+2);
-				
 				if(tipoVariaveis.get(expressao.substring(0,i)).equals("double"))
 				{
 					v1 = Doubles.variaveisArmazenadas.get(expressao.substring(0,i));
 				}
-
+                else if( expressao.substring(0,i).chars().allMatch(Character::isDigit) )
+				{
+					v1 = Double.parseDouble(expressao.substring(0,i));
+				}
 				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("double"))
 				{
 					v2 = Doubles.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
+				}
+                else if( expressao.substring(i+2,expressao.length()).chars().allMatch(Character::isDigit) )
+				{
+					v2 = Double.parseDouble(expressao.substring(i+2));
 				}
 			}
 		}
@@ -124,16 +148,25 @@ public class Comparadores extends Tools
 		{
 			if(expressao.charAt(i) == '=' && expressao.charAt(i+1) == '=')
 			{
-				
-				if(tipoVariaveis.get(expressao.substring(0,i)).equals("string"))
-				{
-					v1 = Strings.variaveisArmazenadas.get(expressao.substring(0,i));
-				}
-
-				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("string"))
-				{
-					v2 = Strings.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
-				}
+				if ( tipoVariaveis.containsKey(expressao.substring(0,i)) 
+                    && tipoVariaveis.get(expressao.substring(0,i)).equals("string"))
+                {
+				    v1 = Strings.variaveisArmazenadas.get(expressao.substring(0,i));
+    		    }
+                else 
+                {
+                    v1 = expressao.substring(0,i);
+                }
+                
+                if ( tipoVariaveis.containsKey( expressao.substring(i+2,expressao.length() ) ) 
+                    && tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("string") ) 
+                {
+				    v2 = Strings.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
+                }
+                else 
+                {
+                    v2 = expressao.substring(i+2,expressao.length());
+                }
 			}
 		}
 		return v1.equals(v2) ? true:false;
