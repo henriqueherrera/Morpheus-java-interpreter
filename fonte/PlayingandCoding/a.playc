@@ -1,6 +1,7 @@
 vetor int|[10]vetorInt;
 vetor string|[10]vetorStr;
 vetor char|[10]vetorchar;
+[1]vetorchar = 'a';
 [5]vetorInt = 78;
 [1]vetorStr = "oioioioi";
 [2]vetorStr = "tico";

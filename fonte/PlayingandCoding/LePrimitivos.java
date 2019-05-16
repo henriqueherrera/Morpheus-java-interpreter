@@ -35,8 +35,7 @@ public class LePrimitivos extends Tools
 		
 		troca = new Comparadores();
 		
-		
-		if (controladorIf)
+		if (controladorIf) //enquanto o controlador do If for true toda linha passará por aqui e será armazenado em um hashmap
 		{
 			linha.trim();
 			
@@ -63,7 +62,7 @@ public class LePrimitivos extends Tools
 				controladorIf = false;
 			}
 		}
-		else if (controladorDeLaco)
+		else if (controladorDeLaco) // enquanto for true toda linha passará por aqui e será armazenado em um hashmap
 		{
 			linha.trim();
 			
@@ -95,20 +94,22 @@ public class LePrimitivos extends Tools
 		
 		else if(linha.contains("}") || linha.contains("{"))
 		{
-
+			//artificio tecnico para ignorar as chaves
 		}
+
 		else if(linha.substring(0,6).equals("double"))
 		{
 			this.doubles = new Doubles();
 			doubles.verificador(linha);
 		}
+
 		else if (linha.substring(0,3).equals("int"))
 		{		
 			this.inteiros = new Int();
 			inteiros.verificador(linha);
 		}
                    	
-               	else if (linha.substring(0,4).equals("char"))
+        else if (linha.substring(0,4).equals("char"))
 		{
 			this.chars = new Char();
 			chars.verificador(linha);
@@ -152,7 +153,7 @@ public class LePrimitivos extends Tools
 				this.chars = new Char();
 				chars.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
 			}
-			
+
 			else if(linha.substring(5,linha.indexOf("|")).equals("int"))
 			{
 				this.vetores = new Int();
@@ -160,7 +161,7 @@ public class LePrimitivos extends Tools
 			}
 			
 		}
-		//verifica se foi escrito algo com 6 letras se e igual a string
+
 		else if (linha.substring(0,6).equals("string")) 
 		{
 			this.string = new Strings();
@@ -212,6 +213,10 @@ public class LePrimitivos extends Tools
 			troca.getVariaveis(linha);
 		}
 	}
+	
+	/* os métodos de expressao é oq vai pegar a expressão
+	booleana que tem depois do if ou do while*/
+
 	//inicio do método setExpressao
 	public void setExpressao(String exp)
 	{
@@ -232,7 +237,7 @@ public class LePrimitivos extends Tools
 	//fim do método setIfExpressao
 	
 	//inicio do método getIfExpressao
-	public String getIfExpressao()
+	public String getIfExpressao() 
 	{
 		return this.ifExpressao;
 	}
