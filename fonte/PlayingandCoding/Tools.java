@@ -139,10 +139,16 @@ public class Tools
 					System.out.print(Strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 				}
 				
+				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("bool"))
+				{
+					System.out.print(Bool.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				}
+
 				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("char"))
 				{
 					System.out.print(Char.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 				}
+
 				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("int"))
 				{
 					System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
