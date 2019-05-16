@@ -188,6 +188,11 @@ public class LePrimitivos extends Tools
 				this.chars = new Char();
 				chars.inseriValorNoVetor(linha.substring(0,linha.length()-1));
 			}
+			else if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("bool"))
+			{
+				this.bool = new Bool();
+				bool.inseriValorNoVetor(linha.substring(0,linha.length()-1));
+			}
 			else if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("int"))
 			{
 				this.vetores = new Int();

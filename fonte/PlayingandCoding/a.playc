@@ -2,6 +2,7 @@ vetor int|[10]vetorInt;
 vetor string|[10]vetorStr;
 vetor char|[10]vetorchar;
 vetor bool|[12]vetorbool;
+[0]vetorbool = false;
 [1]vetorchar = 'b';
 [0]vetorchar = [1]vetorchar;
 print([0]vetorchar);
