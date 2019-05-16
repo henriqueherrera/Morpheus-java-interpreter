@@ -5,6 +5,7 @@ vetor bool|[12]vetorbool;
 bool t = false;
 [0]vetorbool = t;
 [1]vetorchar = 'b';
+input("digite um valor pro vetor bool ",[0]vetorbool);
 print([0]vetorbool);
 [0]vetorchar = [1]vetorchar;
 print([0]vetorchar);
