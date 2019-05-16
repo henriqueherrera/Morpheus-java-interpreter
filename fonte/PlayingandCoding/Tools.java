@@ -224,6 +224,12 @@ public class Tools
 					vl = scan.nextLine();
 					Strings.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
 				}
+				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("char"))	
+				{
+					char vl;
+					vl = scan.next().charAt(0);
+					Char.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
+				}
 				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("int"))	
 				{
 					int vl;

@@ -4,6 +4,8 @@ vetor char|[10]vetorchar;
 [1]vetorchar = 'b';
 [0]vetorchar = [1]vetorchar;
 print([0]vetorchar);
+input("digite um char no vetor",[3]vetorchar);
+print([3]vetorchar);
 [5]vetorInt = 78;
 [1]vetorStr = "oioioioi";
 [2]vetorStr = "tico";
