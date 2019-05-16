@@ -138,7 +138,7 @@ public class Char extends Variaveis
 		{
 			value = linha.substring(pos,linha.length());
 			vetoresArmazenados.get(id).put(inteiro.indetificadorDeNumerosInt(index,0),value.charAt(1));
-			//o substring é para tirar os "" da string
+			//o substring é para tirar os ''do char
 		}
 	}
 	//fim do método inseriValorNoVetor

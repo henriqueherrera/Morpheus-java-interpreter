@@ -153,6 +153,12 @@ public class LePrimitivos extends Tools
 				this.chars = new Char();
 				chars.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
 			}
+			
+			else if(linha.substring(5,linha.indexOf("|")).equals("bool"))
+			{
+				this.bool = new Bool();
+				bool.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
+			}
 
 			else if(linha.substring(5,linha.indexOf("|")).equals("int"))
 			{
