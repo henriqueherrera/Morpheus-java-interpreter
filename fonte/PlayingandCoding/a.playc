@@ -2,6 +2,8 @@ vetor int|[10]vetorInt;
 vetor string|[10]vetorStr;
 vetor char|[10]vetorchar;
 vetor bool|[12]vetorbool;
+vetor double|[10]vetordouble;
+[1]vetordouble = 55.5;
 bool t = false;
 [0]vetorbool = t;
 [1]vetorchar = 'b';
