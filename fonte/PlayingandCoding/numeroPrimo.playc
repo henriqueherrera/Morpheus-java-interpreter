@@ -28,7 +28,7 @@ while int|aux<<n
     {
         print("nao eh primo");
     }
-    if int|nprimo==um
+    if int|                                 nprimo==1
     {
         print("eh primo");
     }

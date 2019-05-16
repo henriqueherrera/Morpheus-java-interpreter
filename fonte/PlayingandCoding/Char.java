@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import com.sun.glass.ui.Size;
 //inicio da classe Char
 public class Char extends Variaveis
 {

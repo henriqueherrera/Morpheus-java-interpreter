@@ -4,9 +4,12 @@ public class Doubles extends Variaveis
 {
     //dicionario que armazena as váriaveis criadas
     public static HashMap< String, Double> variaveisArmazenadas = new HashMap<String, Double>();
+    
     public static HashMap< String, HashMap<Integer, Double>> vetoresArmazenados = new HashMap<String, HashMap<Integer, Double>>();
-	Int conversor = new Int();
-	Int inteiros;
+	
+    Int conversor = new Int();
+	
+    Int inteiros;
 
 	@Override
 	protected void indentificaValor(String str,int pos)

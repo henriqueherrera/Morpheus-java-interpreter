@@ -182,7 +182,7 @@ public class OperadoresAritmeticos
 	{
 		int total1 = linha.replaceAll("[^(]", "").length();
 		int total2 = linha.replaceAll("[^)]", "").length();
-		
+	
 		if((linha.contains("+") || linha.contains("-") || linha.contains("*") || linha.contains("/") || linha.contains("%")) && (total1 == total2))
 		{
 			for(int i = 0; i<linha.length(); i++)
@@ -286,7 +286,8 @@ public class OperadoresAritmeticos
 		return val(1);
 	}
 	//fim do método leituraDaOperacao
-	//inicio do método valorDoVetor
+	
+    //inicio do método valorDoVetor
 	private String valorDoVetor(String value)
 	{
 		Int inteiro = new Int();
@@ -299,7 +300,11 @@ public class OperadoresAritmeticos
 		{
 			return ""+Int.vetoresArmazenados.get(nomeVariavel).get(index);
 		}
-	
+
+        else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("double"))
+        {
+            return ""+Doubles.vetoresArmazenados.get(nomeVariavel).get(index);
+        }
 		return "";
 	}
 }

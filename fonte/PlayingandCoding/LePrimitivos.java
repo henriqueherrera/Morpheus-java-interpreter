@@ -179,6 +179,36 @@ public class LePrimitivos extends Tools
 			this.string = new Strings();
 			string.verificador(linha);
 		}
+	    else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
+		{
+
+           	if(this.tiraEspacos(linha.substring(0,this.tiraEspacos(linha).indexOf('='))).contains("[") && this.tiraEspacos(linha.substring(0,this.tiraEspacos(linha).indexOf('='))).contains("]"))
+            {
+                String aux =  this.tiraEspacos(linha);
+                if(Comparadores.tipoVariaveis.get(aux.substring(aux.indexOf(']')+1,aux.indexOf('='))).equals("double"))
+                {
+                    this.inteiros =new Int();
+                    int index = inteiros.indetificadorDeNumerosInt(aux.substring(aux.indexOf('[')+1,aux.indexOf(']')),0);
+	                Doubles.vetoresArmazenados.get(aux.substring(aux.indexOf(']')+1,aux.indexOf('='))).put(index, operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
+                }
+                else
+                {
+
+                    this.inteiros =new Int();
+                    int index = inteiros.indetificadorDeNumerosInt(aux.substring(aux.indexOf('[')+1,aux.indexOf(']')),0);
+	                Int.vetoresArmazenados.get(aux.substring(aux.indexOf(']')+1,aux.indexOf('='))).put(index, (int)operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
+                }
+            }
+
+            else if (Comparadores.tipoVariaveis.get(tiraEspacos(linha).substring(0, this.tiraEspacos(linha).indexOf("="))).equals("int"))
+			{
+			    Int.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),(int)operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
+			}
+			else
+			{
+				Doubles.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
+			}
+        }
 
 		else if ((this.tiraEspacos(linha).charAt(0) == '[') && linha.contains("]"))
 		{
@@ -220,18 +250,7 @@ public class LePrimitivos extends Tools
 			setIfExpressao(this.tiraEspacos(linha.substring(2,linha.length())));
 			this.controladorIf = true;
 		}
-		else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
-		
-		{
-			if (Comparadores.tipoVariaveis.get(tiraEspacos(linha).substring(0, this.tiraEspacos(linha).indexOf("="))).equals("int"))
-			{
-				Int.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),(int)operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
-			}
-			else
-			{
-				Doubles.variaveisArmazenadas.put(operacoes.getVariavelParaArmazenar(),operacoes.leituraDaOperacao(this.tiraEspacos(linha).substring(operacoes.getInicioDaExpressao(),operacoes.getFimDaExpressao())));
-			}
-		}
+	
 
 		else
 		{
