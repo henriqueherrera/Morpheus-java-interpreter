@@ -147,11 +147,18 @@ public class LePrimitivos extends Tools
 				string.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
 			}
 			
+			else if(linha.substring(5,linha.indexOf("|")).equals("char"))
+			{
+				this.chars = new Char();
+				chars.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
+			}
+			
 			else if(linha.substring(5,linha.indexOf("|")).equals("int"))
 			{
 				this.vetores = new Int();
 				vetores.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
 			}
+			
 		}
 		//verifica se foi escrito algo com 6 letras se e igual a string
 		else if (linha.substring(0,6).equals("string")) 
@@ -169,12 +176,17 @@ public class LePrimitivos extends Tools
 				this.string = new Strings();
 				string.inseriValorNoVetor(linha.substring(0, linha.length()-1));
 			}
-
+			else if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("char"))
+			{
+				this.chars = new Char();
+				chars.inseriValorNoVetor(linha.substring(0,linha.length()-1));
+			}
 			else if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("int"))
 			{
 				this.vetores = new Int();
 				vetores.inseriValorNoVetor(linha.substring(0, linha.length()-1));
-			} 
+			}
+			 
 		}
 		else if (linha.substring(0,2).equals("if") || this.controladorIf)
 		{
