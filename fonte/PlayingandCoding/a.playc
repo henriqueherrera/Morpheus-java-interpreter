@@ -27,7 +27,7 @@ if string|s1==abcd
 print("sei la");
 }
 
-if int|i1==15
+if int|15==10
 {
 print("sei la");
 }
