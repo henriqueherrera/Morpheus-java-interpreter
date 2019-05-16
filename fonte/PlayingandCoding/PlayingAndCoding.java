@@ -8,7 +8,6 @@ public class PlayingAndCoding
 		{
 			Leitor interpretador = new Leitor(args[0]);
 			interpretador.reader();
-			System.out.println(Doubles.vetoresArmazenados);
 		}
 		catch(Exception e)
 		{

@@ -138,7 +138,12 @@ public class Tools
 				{
 					System.out.print(Strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 				}
-				
+
+				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("double"))
+				{
+					System.out.print(Doubles.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				}
+
 				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("bool"))
 				{
 					System.out.print(Bool.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
@@ -154,9 +159,15 @@ public class Tools
 					System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 				}
 			}
-			else if(Comparadores.tipoVariaveis.get(str).equals("int"))
+			
+			else if(Comparadores.tipoVariaveis.get(str).equals("double"))
 			{
-				System.out.print(Int.variaveisArmazenadas.get(str)+" ");
+				System.out.printf("%f",Doubles.variaveisArmazenadas.get(str));
+			}
+
+			else if(Comparadores.tipoVariaveis.get(str).equals("string"))
+			{
+				System.out.print(Strings.variaveisArmazenadas.get(str)+" ");
 			}
 
 			else if(Comparadores.tipoVariaveis.get(str).equals("char"))
@@ -164,20 +175,14 @@ public class Tools
 				System.out.print(Char.variaveisArmazenadas.get(str)+" ");
 			}
 
-			else if(Comparadores.tipoVariaveis.get(str).equals("string"))
-			{
-				System.out.print(Strings.variaveisArmazenadas.get(str)+" ");
-
-			}
-
 			else if(Comparadores.tipoVariaveis.get(str).equals("bool"))
 			{
 				System.out.print(Bool.variaveisArmazenadas.get(str)+" ");
 			}
 
-			else if(Comparadores.tipoVariaveis.get(str).equals("double"))
+			else if(Comparadores.tipoVariaveis.get(str).equals("int"))
 			{
-				System.out.printf("%f",Doubles.variaveisArmazenadas.get(str));
+				System.out.print(Int.variaveisArmazenadas.get(str)+" ");
 			}
 		}
 		System.out.println();
@@ -231,6 +236,12 @@ public class Tools
 					Strings.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
 				}
 
+				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("double"))	
+				{
+					double vl;
+					vl = Double.parseDouble(scan.nextLine());
+					Doubles.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
+				}
 				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("bool"))	
 				{
 					boolean vl;
@@ -252,18 +263,21 @@ public class Tools
 					Int.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
 				}
 			}
-			else if((Comparadores.tipoVariaveis.get(id)).equals("int"))
+
+			else if((Comparadores.tipoVariaveis.get(id)).equals("double"))
 			{
-				int value = 0;
-				value = scan.nextInt();
-				Int.variaveisArmazenadas.put(id,value);
+				double value;
+				value = Double.parseDouble(scan.nextLine());
+				Doubles.variaveisArmazenadas.put(id,value);
 			}
+
 			else if((Comparadores.tipoVariaveis.get(id)).equals("string"))
 			{
 				String value = "";
 				value = scan.nextLine();
 				Strings.variaveisArmazenadas.put(id,value);
 			}
+
 			else if((Comparadores.tipoVariaveis.get(id)).equals("char"))
 			{
 				char value;
@@ -277,11 +291,12 @@ public class Tools
 				value = scan.nextBoolean();
 				Bool.variaveisArmazenadas.put(id,value);
 			}
-			else if((Comparadores.tipoVariaveis.get(id)).equals("double"))
+
+			else if((Comparadores.tipoVariaveis.get(id)).equals("int"))
 			{
-				double value;
-				value = Double.parseDouble(scan.nextLine());
-				Doubles.variaveisArmazenadas.put(id,value);
+				int value = 0;
+				value = scan.nextInt();
+				Int.variaveisArmazenadas.put(id,value);
 			}
 		}
 	}
