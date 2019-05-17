@@ -1,3 +1,4 @@
+import java.util.HashMap;
 public class LePrimitivos extends Tools
 {
 	private OperadoresAritmeticos operacoes  = new OperadoresAritmeticos();
@@ -14,11 +15,17 @@ public class LePrimitivos extends Tools
 
 	private While lacoDeRepeticao;
 
+	private Def def;
+
+	private HashMap<String,Def> funcoes = new HashMap<String,Def>(); //armazena as funcoes
+
 	private Char chars;
 
 	private boolean controladorDeLaco = false;//quando true so passa pelo primeiro while
 	
 	private boolean controladorIf = false;
+
+	private boolean controladorDef = false;
 
 	private Doubles doubles;
 	
@@ -32,7 +39,6 @@ public class LePrimitivos extends Tools
 	public void idLinha(String linha,int whilis)
 	{
 		linha.trim(); //tira a indentaçao	
-		
 		troca = new Comparadores();
 		
 		if (controladorIf) //enquanto o controlador do If for true toda linha passará por aqui e será armazenado em um hashmap
@@ -91,24 +97,63 @@ public class LePrimitivos extends Tools
 				controladorDeLaco = false;
 			}
 		}
-		
+		else if (controladorDef) // enquanto for true toda linha passará por aqui e será armazenado em um hashmap
+		{
+			linha.trim();
+			
+			if(this.tiraEspacos(linha).equals("{"))
+			{
+				def.countAbreChave();	
+				def.txtLines.put(def.countLines(),linha);
+			}
+
+			else if(this.tiraEspacos(linha).equals("}"))
+			{
+
+				def.countFechaChave();
+				def.txtLines.put(def.countLines(),linha);
+			}
+
+			else
+			{
+				def.txtLines.put(def.countLines(),linha);
+			}
+
+			if(def.igualdadeDeChave())
+			{
+				controladorDef = false;
+			}
+		}
+
 		else if(linha.contains("}") || linha.contains("{"))
 		{
 			//artificio tecnico para ignorar as chaves
 		}
 
-		else if(linha.substring(0,6).equals("double"))
+		else if (linha.substring(0,2).equals("if") || this.controladorIf)
 		{
-			this.doubles = new Doubles();
-			doubles.verificador(linha);
+			ifCondicional = new Condicional();
+			setIfExpressao(this.tiraEspacos(linha.substring(2,linha.length())));
+			this.controladorIf = true;
 		}
-
+				
 		else if (linha.substring(0,3).equals("int"))
 		{		
 			this.inteiros = new Int();
 			inteiros.verificador(linha);
 		}
-                   	
+
+		else if (linha.substring(0,3).equals("def"))
+		{
+			String aux = this.tiraEspacos(linha);
+			def = new Def();
+			def.setEscopo(linha.substring(linha.indexOf("(")+1,linha.indexOf(")")));
+			
+			funcoes.put(aux.substring(3,aux.indexOf("(")),def);
+			this.controladorDef = true;
+		}
+		
+		
         else if (linha.substring(0,4).equals("char"))
 		{
 			this.chars = new Char();
@@ -120,20 +165,6 @@ public class LePrimitivos extends Tools
 			this.bool = new Bool();
 			bool.verificador(linha);
 		}
-						
-		else if (linha.substring(0,5).equals("input"))
-		{
-			this.input(this.tiraEspacos(linha));
-		}
-		
-		else if (linha.substring(0,5).equals("while") || this.controladorDeLaco)
-		{
-			lacoDeRepeticao = new While();
-			setExpressao(this.tiraEspacos(linha.substring(5, linha.length()))); //expressao do while
-			this.controladorDeLaco = true;
-		
-		}
-		
 		else if (linha.substring(0,5).equals("print"))
 		{
 			this.print(this.tiraEspacos(linha));
@@ -173,18 +204,48 @@ public class LePrimitivos extends Tools
 			}
 			
 		}
+						
+		else if (linha.substring(0,5).equals("input"))
+		{
+			this.input(this.tiraEspacos(linha));
+		}
+
+		else if (linha.substring(0,5).equals("while") || this.controladorDeLaco)
+		{
+			lacoDeRepeticao = new While();
+			setExpressao(this.tiraEspacos(linha.substring(5, linha.length()))); //expressao do while
+			this.controladorDeLaco = true;
+		
+		}
+		
+		else if(linha.substring(0,6).equals("double"))
+		{
+			this.doubles = new Doubles();
+			doubles.verificador(linha);
+		}
 
 		else if (linha.substring(0,6).equals("string")) 
 		{
 			this.string = new Strings();
 			string.verificador(linha);
 		}
+
+		else if(linha.contains("call"))
+		{
+			String aux =  this.tiraEspacos(linha);
+			String var = aux.substring(aux.indexOf("call")+4,aux.indexOf("("));
+			String parametros = aux.substring(aux.indexOf("(")+1,aux.indexOf(")"));
+			funcoes.get(var).runParametros(parametros);
+			funcoes.get(var).chamadaDef(this.tiraEspacos(linha));
+
+		}
 	    else if( operacoes.analisadorLexicoDeOperacoes(this.tiraEspacos(linha))) //verifica se tem continha para fazer
 		{
 
+			String aux =  this.tiraEspacos(linha);
            	if(this.tiraEspacos(linha.substring(0,this.tiraEspacos(linha).indexOf('='))).contains("[") && this.tiraEspacos(linha.substring(0,this.tiraEspacos(linha).indexOf('='))).contains("]"))
             {
-                String aux =  this.tiraEspacos(linha);
+                
                 if(Comparadores.tipoVariaveis.get(aux.substring(aux.indexOf(']')+1,aux.indexOf('='))).equals("double"))
                 {
                     this.inteiros =new Int();
@@ -243,14 +304,6 @@ public class LePrimitivos extends Tools
 				vetores.inseriValorNoVetor(linha.substring(0, linha.length()-1));
 			}
 		}
-
-		else if (linha.substring(0,2).equals("if") || this.controladorIf)
-		{
-			ifCondicional = new Condicional();
-			setIfExpressao(this.tiraEspacos(linha.substring(2,linha.length())));
-			this.controladorIf = true;
-		}
-	
 
 		else
 		{

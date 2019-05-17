@@ -5,15 +5,22 @@ vetor string|[10]vetorStr2;
 vetor char|[10]vetorchar;
 vetor bool|[12]vetorbool;
 vetor double|[10]vetordouble;
-
 [5]vetorInt = 78;
 [6]vetorInt = 79;
 [2]vetorInt2 = 78;
 [6]vetorInt2 = 76;
 [9]vetorStr = "nine";
 [8]vetorStr2 = "nines";
-[1]vetorChar = 'x';
-[0]vetorChar = 'x';
+[1]vetorchar = 'x';
+int test = 2;
+def fuc(int i)
+{
+    int p = 8;
+    p = (p+i);
+    return p;
+}
+test = call fuc(test);
+print("test"=>test);
 
 if vetor|[2]vetorInt2==[5]vetorInt
 {

@@ -98,12 +98,15 @@ public class Def extends Tools
     //Inicio do método runParametros
     public void runParametros(String value)//armazena as variveis do escopo
     {
+        this.saveVariaveis();
         String[] list = getEscopo().split(","); //variaveis do escopo
         String[] valores = value.split(","); //valores passados como parametro
+        
         int count = 0;
         for(String str: list)
         {
-            leitor.idLinha(str+"="+valores[count]+";",0);
+            String aux = str+"="+Int.variaveisArmazenadas.get(valores[count])+";";
+            leitor.idLinha(aux,1);
             count++;
         }
     }
@@ -116,22 +119,23 @@ public class Def extends Tools
         
         String variavel = linha.substring(0,linha.indexOf("="));
         
-        this.saveVariaveis();
         
-        for(int i = 0; i< this.txtLines.size();i++)
+        
+        for(int i = 1; i< this.txtLines.size();i++)
         {
             linhaDeComando = txtLines.get(i); 
-
+            
             if(linhaDeComando.contains("return"))
             {
+                
                 conversor = new Int();
                 
-                String valorParaRetornar = linhaDeComando.substring( 6,linhaDeComando.indexOf(";"));
+                String valorParaRetornar = this.tiraEspacos(linhaDeComando.substring( 6,linhaDeComando.indexOf(";")));
                 
                 if(variavel.contains("[") && variavel.contains("]"))//armazena o valor no vetor
                 {
-
-                    String variavelDoVetor = variavel.substring(variavel.indexOf("]"),variavel.indexOf("="));
+                    
+                    String variavelDoVetor = linha.substring(linha.indexOf("]"),linha.indexOf("="));
                     
                     int indice = conversor.indetificadorDeNumerosInt(variavel.substring(variavel.indexOf("[")+1,variavel.indexOf("]")),0);
                     
@@ -163,29 +167,30 @@ public class Def extends Tools
                 
                 else
                 {
-                    String variavelDoVetor = variavel.substring(0,variavel.indexOf("="));
+                   
+                    String variavelId = linha.substring(0,linha.indexOf("="));
                     
-                    if(Comparadores.tipoVariaveis.get(variavelDoVetor).equals("int"))
+                    if(Comparadores.tipoVariaveis.get(variavelId).equals("int"))
                     {
-                        intArmazenadas.put(valorParaRetornar,Int.variaveisArmazenadas.get(valorParaRetornar));
+                        intArmazenadas.put(variavelId,Int.variaveisArmazenadas.get(valorParaRetornar));
                     }
                     
-                    else if(Comparadores.tipoVariaveis.get(variavelDoVetor).equals("double"))
+                    else if(Comparadores.tipoVariaveis.get(variavelId).equals("double"))
                     {
                         doubleArmazenadas.put(valorParaRetornar,Doubles.variaveisArmazenadas.get(valorParaRetornar));
                     }
                     
-                    else if(Comparadores.tipoVariaveis.get(variavelDoVetor).equals("char"))
+                    else if(Comparadores.tipoVariaveis.get(variavelId).equals("char"))
                     {
                         charArmazenadas.put(valorParaRetornar,Char.variaveisArmazenadas.get(valorParaRetornar));
                     }
                     
-                    else if(Comparadores.tipoVariaveis.get(variavelDoVetor).equals("string"))
+                    else if(Comparadores.tipoVariaveis.get(variavelId).equals("string"))
                     {
                         strArmazenadas.put(valorParaRetornar,Strings.variaveisArmazenadas.get(valorParaRetornar));
                     }
 
-                    else if(Comparadores.tipoVariaveis.get(variavelDoVetor).equals("bool"))
+                    else if(Comparadores.tipoVariaveis.get(variavelId).equals("bool"))
                     {
                         boolArmazenadas.put(valorParaRetornar,Bool.variaveisArmazenadas.get(valorParaRetornar));
                     }
@@ -199,6 +204,7 @@ public class Def extends Tools
             }
         }
         this.clearVariaveis();
+
         this.setVariaveis();
     }
     //Fim do método chamadaDef

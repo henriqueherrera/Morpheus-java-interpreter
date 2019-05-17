@@ -10,7 +10,6 @@ public class PlayingAndCoding
 			Leitor interpretador = new Leitor(args[0]);
 			long tempoInicial = System.currentTimeMillis();
 			interpretador.reader();
-			//System.out.println(Int.variaveisArmazenadas);
 		}
 		catch(Exception e)
 		{
