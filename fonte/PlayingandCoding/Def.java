@@ -24,7 +24,7 @@ public class Def extends Tools
     private Int conversor;
     private LePrimitivos leitor = new LePrimitivos();
     //Inicio do método saveVariaveis
-    public void saveVariaveis()
+    public void saveVariaveis() //salva as variaveis para alternar apenas a que vai retornar
     {
         //salva as variaveis do codigo principal
         this.doubleArmazenadas.putAll(Doubles.variaveisArmazenadas);
@@ -43,7 +43,7 @@ public class Def extends Tools
     //Fim do método saveVariaveis
     
     //Inicio do método clearVariaveis
-    public void clearVariaveis()
+    public void clearVariaveis() //limpa todas as variaveis modificadas na funcao
     {
         Doubles.variaveisArmazenadas.clear();
         Doubles.vetoresArmazenados.clear();
@@ -63,40 +63,40 @@ public class Def extends Tools
     //fim do método clearVariaveis
 
      //Inicio do método setVariaveis
-     public void setVariaveis()
-     {
-         //salva as variaveis no codigo principal
-         Doubles.variaveisArmazenadas.putAll( this.doubleArmazenadas);
-         Int.variaveisArmazenadas.putAll(this.intArmazenadas);
-         Char.variaveisArmazenadas.putAll(this.charArmazenadas);
-         Strings.variaveisArmazenadas.putAll(this.strArmazenadas);
-         Bool.variaveisArmazenadas.putAll(this.boolArmazenadas);
- 
-         //salva os vetores no codigo principal
-         Doubles.vetoresArmazenados.putAll(this.doubleVetArmazenados);
-         Int.vetoresArmazenados.putAll(this.intVetArmazenados);
-         Char.vetoresArmazenados.putAll(this.charVetArmazenados);
-         Strings.vetoresArmazenados.putAll(this.strVetArmazenados);
-         Bool.vetoresArmazenados.putAll(this.boolVetArmazenados);
-     }
-     //Fim do método setVariaveis
+    public void setVariaveis() //seta as variaveis modificando apenas a que vai retornar
+    {
+        //salva as variaveis no codigo principal
+        Doubles.variaveisArmazenadas.putAll( this.doubleArmazenadas);
+        Int.variaveisArmazenadas.putAll(this.intArmazenadas);
+        Char.variaveisArmazenadas.putAll(this.charArmazenadas);
+        Strings.variaveisArmazenadas.putAll(this.strArmazenadas);
+        Bool.variaveisArmazenadas.putAll(this.boolArmazenadas);
+          
+        //salva os vetores no codigo principal
+        Doubles.vetoresArmazenados.putAll(this.doubleVetArmazenados);
+        Int.vetoresArmazenados.putAll(this.intVetArmazenados);
+        Char.vetoresArmazenados.putAll(this.charVetArmazenados);
+        Strings.vetoresArmazenados.putAll(this.strVetArmazenados);
+        Bool.vetoresArmazenados.putAll(this.boolVetArmazenados);
+    }
+    //Fim do método setVariaveis
      
     //Inicio do método getEscopo
-    public String getEscopo()
+    public String getEscopo() //pega o escopo da funcao
     {
         return this.escopo;
     }
     //Fim do método getEscopo
 
     //Inicio do método setEscopo
-    public void setEscopo(String escopo)
+    public void setEscopo(String escopo) //seta o escopo da fruncao
     {
         this.escopo = escopo;
     }
     //Fim do método setEscopo
 
     //Inicio do método runParametros
-    public void runParametros(String value)//armazena as variveis do escopo
+    public void runParametros(String value)//armazena as variveis do escopo com os valores passados
     {
         this.saveVariaveis();
         String[] list = getEscopo().split(","); //variaveis do escopo
@@ -113,16 +113,15 @@ public class Def extends Tools
     //Fim do método runParametros
     
     //Inicio do método chamadaDef
-    public void chamadaDef(String linha)
+    public void chamadaDef(String linha) //chama a funcao
     {
         String linhaDeComando;
         
         String variavel = linha.substring(0,linha.indexOf("="));
         
-        
-        
         for(int i = 1; i< this.txtLines.size();i++)
         {
+            //le as linha da funcao
             linhaDeComando = txtLines.get(i); 
             
             if(linhaDeComando.contains("return"))
@@ -135,7 +134,7 @@ public class Def extends Tools
                 if(variavel.contains("[") && variavel.contains("]"))//armazena o valor no vetor
                 {
                     
-                    String variavelDoVetor = linha.substring(linha.indexOf("]"),linha.indexOf("="));
+                    String variavelDoVetor = linha.substring(linha.indexOf("]")+1,linha.indexOf("="));
                     
                     int indice = conversor.indetificadorDeNumerosInt(variavel.substring(variavel.indexOf("[")+1,variavel.indexOf("]")),0);
                     
@@ -204,7 +203,6 @@ public class Def extends Tools
             }
         }
         this.clearVariaveis();
-
         this.setVariaveis();
     }
     //Fim do método chamadaDef
