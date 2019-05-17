@@ -280,6 +280,7 @@ public class LePrimitivos extends Tools
 				this.string = new Strings();
 				string.inseriValorNoVetor(linha.substring(0, linha.length()-1));
 			}
+			
 			else if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("double"))
 			{
 				this.doubles = new Doubles();

@@ -13,25 +13,20 @@ vetor double|[10]vetordouble;
 [8]vetorStr2 = "nines";
 [1]vetorchar = 'x';
 int test = 2;
-def fuc(int i)
+int b = 0;
+def fuc(int t,int base)
 {
-    int p = 8;
-    p = (p+i);
-    return p;
+    int x = 1;
+    while int|x<<base
+    {
+        t = (t*2);
+        x = (x+1);
+    }
+    return t;
 }
-test = call fuc(test);
-print("test"=>test);
-
-if vetor|[2]vetorInt2==[5]vetorInt
-{
-print("blz");
-}
-
-if vetor|[9]vetorStr!=[8]vetorStr2
-{
-print("beleza");
-}
-
+input("2 em qual base: ",b);
+test = call fuc(test,b);
+print("2 **"=>b=>"é: "=>test);
 [1]vetordouble = 55.5;
 double v = 0.0;
 [0]vetorInt = ([1]vetordouble+0.5);
