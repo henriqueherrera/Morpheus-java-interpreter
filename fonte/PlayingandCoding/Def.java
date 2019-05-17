@@ -105,7 +105,23 @@ public class Def extends Tools
         int count = 0;
         for(String str: list)
         {
-            String aux = str+"="+Int.variaveisArmazenadas.get(valores[count])+";";
+            String aux;
+            if(valores[count].contains("["))
+            {
+                conversor = new Int();
+                aux  = str+"="+Int.vetoresArmazenados
+                .get(valores[count]
+                .substring(valores[count]
+                .indexOf("]")+1,valores[count].length()))
+                .get(conversor.indetificadorDeNumerosInt(valores[count]
+                .substring(valores[count]
+                .indexOf("[")+1,valores[count]
+                .indexOf("]")),0))+";";
+            }
+            else
+            {
+                aux = str+"="+Int.variaveisArmazenadas.get(valores[count])+";";
+            }
             leitor.idLinha(aux,1);
             count++;
         }

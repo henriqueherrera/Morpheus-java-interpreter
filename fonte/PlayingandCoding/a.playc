@@ -24,9 +24,9 @@ def fuc(int t,int base)
     }
     return t;
 }
-input("2 em qual base: ",b);
-test = call fuc(test,b);
-print("2 **"=>b=>"é: "=>test);
+input("2 em qual base: ",[2]vetorInt);
+test = call fuc(test,[2]vetorInt);
+print("2 **"=>[2]vetorInt=>" é: "=>test);
 [1]vetordouble = 55.5;
 double v = 0.0;
 [0]vetorInt = ([1]vetordouble+0.5);

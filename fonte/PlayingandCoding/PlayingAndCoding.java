@@ -10,6 +10,7 @@ public class PlayingAndCoding
 			Leitor interpretador = new Leitor(args[0]);
 			long tempoInicial = System.currentTimeMillis();
 			interpretador.reader();
+			System.out.println("tempo de execução: " + (System.currentTimeMillis() - tempoInicial)*0.001f +" segundos");
 		}
 		catch(Exception e)
 		{
