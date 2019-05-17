@@ -35,4 +35,3 @@ while int|aux<<n
 
     aux = (aux+1);
 }
-print("funciona carai");

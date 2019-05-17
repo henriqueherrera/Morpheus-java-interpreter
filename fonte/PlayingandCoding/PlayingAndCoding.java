@@ -1,3 +1,4 @@
+import java.util.HashMap;
 //inicio da classe PlayingAndCoding
 public class PlayingAndCoding 
 {
@@ -7,8 +8,10 @@ public class PlayingAndCoding
 		try
 		{
 			Leitor interpretador = new Leitor(args[0]);
+			long tempoInicial = System.currentTimeMillis();
 			interpretador.reader();
-			//System.out.println(Int.vetoresArmazenados);
+			System.out.println("tempo de execução: " + (System.currentTimeMillis() - tempoInicial)*0.001f +" segundos");
+			//System.out.println(Int.variaveisArmazenadas);
 		}
 		catch(Exception e)
 		{
