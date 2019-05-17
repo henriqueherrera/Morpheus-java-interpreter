@@ -1,6 +1,7 @@
 vetor int|[10]vetorInt;
 vetor int|[10]vetorInt2;
 vetor string|[10]vetorStr;
+vetor string|[10]vetorStr2;
 vetor char|[10]vetorchar;
 vetor bool|[12]vetorbool;
 vetor double|[10]vetordouble;
@@ -9,10 +10,19 @@ vetor double|[10]vetordouble;
 [6]vetorInt = 79;
 [2]vetorInt2 = 78;
 [6]vetorInt2 = 76;
+[9]vetorStr = "nine";
+[8]vetorStr2 = "nines";
+[1]vetorChar = 'x';
+[0]vetorChar = 'x';
 
-if vetor|[5]vetorInt==[2]vetorInt2
+if vetor|[2]vetorInt2==[5]vetorInt
 {
 print("blz");
+}
+
+if vetor|[9]vetorStr!=[8]vetorStr2
+{
+print("beleza");
 }
 
 [1]vetordouble = 55.5;
