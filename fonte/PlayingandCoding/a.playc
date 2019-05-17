@@ -1,8 +1,20 @@
 vetor int|[10]vetorInt;
+vetor int|[10]vetorInt2;
 vetor string|[10]vetorStr;
 vetor char|[10]vetorchar;
 vetor bool|[12]vetorbool;
 vetor double|[10]vetordouble;
+
+[5]vetorInt = 78;
+[6]vetorInt = 79;
+[2]vetorInt2 = 78;
+[6]vetorInt2 = 76;
+
+if vetor|[5]vetorInt==[2]vetorInt2
+{
+print("blz");
+}
+
 [1]vetordouble = 55.5;
 double v = 0.0;
 [0]vetorInt = ([1]vetordouble+0.5);
@@ -18,7 +30,6 @@ print([0]vetorbool);
 print([0]vetorchar);
 input("digite um char no vetor",[3]vetorchar);
 print([3]vetorchar);
-[5]vetorInt = 78;
 print([5]vetorInt);
 [1]vetorStr = "oioioioi";
 [2]vetorStr = "tico";
@@ -50,3 +61,5 @@ if int|15==10
 {
 print("sei la");
 }
+
+

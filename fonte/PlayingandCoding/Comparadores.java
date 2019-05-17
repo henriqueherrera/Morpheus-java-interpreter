@@ -36,6 +36,45 @@ public class Comparadores extends Tools
 	}
 	//fim do método getVariaveis
 	
+    // Copiei na cara dura e nem chamei a função igual gente
+    private String valorDoVetor(String value)
+	{
+		Int inteiro = new Int();
+		
+		String nomeVariavel = value.substring(value.indexOf("]")+1,value.length()); //pega o nome da variavel
+		
+		int index = inteiro.indetificadorDeNumerosInt(value.substring(value.indexOf("[")+1, value.indexOf("]")),0);
+	
+		if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("int"))
+		{
+			return ""+Int.vetoresArmazenados.get(nomeVariavel).get(index);
+		}
+
+        else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("double"))
+        {
+            return ""+Doubles.vetoresArmazenados.get(nomeVariavel).get(index);
+        }
+		return "";
+	}
+
+    public boolean comparaVetor(String expressao)
+	{
+		String v1 = "", v2 = "", comparacao = ""; // inicializando
+		
+		for(int i = 0; i < expressao.length(); i++) 
+		{
+            if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
+            {
+                comparacao = expressao.substring(i,i+2);
+                v1 = valorDoVetor(expressao.substring(0,i));
+                v2 = valorDoVetor(expressao.substring(i+2,expressao.length()));
+                if ( (v1.chars().allMatch(Character::isDigit)) || (v2.chars().allMatch(Character::isDigit)) ) 
+                return valorBooleanoDaExpressao(comparacao,Double.parseDouble(v1),Double.parseDouble(v2));
+                else return false;
+            }
+		}
+        return false;
+	}
 	
 	//inicio do método comparaChar
 	public boolean comparaChar(String expressao)
