@@ -16,6 +16,12 @@ vetor double|[10]vetordouble;
 [1]vetorchar = 'x';
 [0]vetorchar = 'x';
 
+[4]vetordouble = 5.5;
+[7]vetordouble = 5.523;
+
+[11]vetorbool = true;
+[10]vetorbool = false;
+
 if vetor|[2]vetorInt2==[5]vetorInt
 {
 print("blz");
@@ -31,4 +37,12 @@ if vetor|[1]vetorchar==x
 print("bl");
 }
 
-if vetor|
+if vetor|[4]vetordouble!=5.523
+{
+print("joia")
+}
+
+if vetor|[11]vetorbool!=[10]vetorbool
+{
+print("certo")
+}

@@ -43,27 +43,40 @@ public class Comparadores extends Tools
 
 		String nomeVariavel = value.substring(value.indexOf("]")+1,value.length()); //pega o nome da variavel
 
-		int index = inteiro.indetificadorDeNumerosInt(value.substring(value.indexOf("[")+1, value.indexOf("]")),0);
-
-		if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("int"))
+		if (Comparadores.tipoVariaveis.containsKey(nomeVariavel))
 		{
-			return ""+Int.vetoresArmazenados.get(nomeVariavel).get(index);
+				int index = inteiro.indetificadorDeNumerosInt(value.substring(value.indexOf("[")+1, value.indexOf("]")),0);
+
+				if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("int"))
+				{
+					return ""+Int.vetoresArmazenados.get(nomeVariavel).get(index);
+				}
+
+				else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("double"))
+				{
+				  		return ""+Doubles.vetoresArmazenados.get(nomeVariavel).get(index);
+				}
+
+			  else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("char"))
+			  {
+			    return ""+Char.vetoresArmazenados.get(nomeVariavel).get(index);
+			  }
+
+				else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("string"))
+				{
+				  		return ""+Strings.vetoresArmazenados.get(nomeVariavel).get(index);
+				}
+
+				else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("bool"))
+				{
+							return ""+Bool.vetoresArmazenados.get(nomeVariavel).get(index);
+				}
+		}
+		else
+		{
+			return nomeVariavel;
 		}
 
-    	else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("double"))
-    	{
-        		return ""+Doubles.vetoresArmazenados.get(nomeVariavel).get(index);
-    	}
-
-        else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("char"))
-        {
-	        return ""+Char.vetoresArmazenados.get(nomeVariavel).get(index);
-        }
-
-    	else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("string"))
-    	{
-        		return ""+Strings.vetoresArmazenados.get(nomeVariavel).get(index);
-    	}
 		return "";
 	}
 
