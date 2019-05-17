@@ -10,7 +10,7 @@ vetor double|[10]vetordouble;
 [2]vetorInt2 = 78;
 [6]vetorInt2 = 76;
 
-if vetor|[5]vetorInt==[2]vetorInt2
+if vetor|[5]vetorInt>>77
 {
 print("blz");
 }

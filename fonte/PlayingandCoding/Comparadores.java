@@ -50,10 +50,10 @@ public class Comparadores extends Tools
 			return ""+Int.vetoresArmazenados.get(nomeVariavel).get(index);
 		}
 
-        else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("double"))
-        {
-            return ""+Doubles.vetoresArmazenados.get(nomeVariavel).get(index);
-        }
+        	else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("double"))
+        	{
+            		return ""+Doubles.vetoresArmazenados.get(nomeVariavel).get(index);
+        	}
 		return "";
 	}
 
@@ -66,11 +66,14 @@ public class Comparadores extends Tools
             if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
             {
                 comparacao = expressao.substring(i,i+2);
-                v1 = valorDoVetor(expressao.substring(0,i));
-                v2 = valorDoVetor(expressao.substring(i+2,expressao.length()));
-                if ( (v1.chars().allMatch(Character::isDigit)) || (v2.chars().allMatch(Character::isDigit)) ) 
+                v1 = expressao.substring(0,i);
+                v2 = expressao.substring(i+2,expressao.length());
+
+    		    if (!(v1.chars().allMatch(Character::isDigit))) v1 = valorDoVetor(expressao.substring(0,i));
+
+                if (!(v2.chars().allMatch(Character::isDigit))) v2 = valorDoVetor(expressao.substring(i+2,expressao.length()));
+
                 return valorBooleanoDaExpressao(comparacao,Double.parseDouble(v1),Double.parseDouble(v2));
-                else return false;
             }
 		}
         return false;
