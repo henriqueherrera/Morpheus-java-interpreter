@@ -1,4 +1,3 @@
-import java.util.HashMap;
 //inicio da classe PlayingAndCoding
 public class PlayingAndCoding 
 {

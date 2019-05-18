@@ -298,6 +298,7 @@ public class Tools
 				value = scan.nextInt();
 				Int.variaveisArmazenadas.put(id,value);
 			}
+			
 		}
 	}
 	//fim do método input
