@@ -7,7 +7,8 @@ public class Comparadores extends Tools
 	public static HashMap<String,String> tipoVariaveis = new HashMap<String,String>(); //armazena os tipos das variaveis
 
 	public Int ints = new Int();
-
+	
+	public Doubles  conversorDouble = new Doubles();
 	//inicio do método getVariaveis
 	public void getVariaveis( String line )
 	{
@@ -272,6 +273,7 @@ public class Comparadores extends Tools
 	//inicio do método trocaDeVariaveis
 	public void trocaDeVariaveis( String v1, String v2,String line, int pos )
 	{
+		
 		if( tipoVariaveis.get(v1).equals("int"))
 		{
 				if (48<= v2.charAt(0) && v2.charAt(0) <= 57)
@@ -287,9 +289,21 @@ public class Comparadores extends Tools
 
 		}
 
-		else if( tipoVariaveis.get(v1).equals("double") && tipoVariaveis.get(v2).equals("double"))
+		else if( tipoVariaveis.get(v1).equals("double"))
 		{
+			System.out.println(tipoVariaveis.get(v1).equals("double"));
+			
 			Doubles.variaveisArmazenadas.put(v1,Doubles.variaveisArmazenadas.get(v2));
+			if (48<= v2.charAt(0) && v2.charAt(0) <= 57)
+			{
+				Doubles.variaveisArmazenadas.put(v1,conversorDouble.convertDouble(line,pos)); // se o primeiro caractere deposi do = for
+				// um numero entre 0 e 9 ele reconhece como se fosse um numero a ser armazenado
+			}
+
+			else
+			{
+				Doubles.variaveisArmazenadas.put(v1,Doubles.variaveisArmazenadas.get(v2));// troca uma variavel pela outra
+			}
 
 		}
 

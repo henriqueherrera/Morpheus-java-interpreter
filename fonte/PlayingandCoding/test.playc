@@ -1,5 +1,8 @@
 int t = 2;
 int v = 1;
+double y = 5.0;
+y = 5.9;
+print(y);
 bool po = true;
 char p= '5';
 print(p);
