@@ -1,0 +1,11 @@
+int t = 2;
+int v = 1;
+string p="top";
+print(p);
+def str(string i)
+{
+    i = "tchau";
+    return i;
+}
+p = call str(p);
+print(p);

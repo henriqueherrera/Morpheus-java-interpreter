@@ -13,7 +13,7 @@ public class PlayingAndCoding
 		}
 		catch(Exception e)
 		{
-			System.out.println("algo de errado nao está certo no código "+e);
+			System.out.println("Error: "+e +" linha: "+ErrosNaCompilacao.numeroDaLinha);
 		}
 	}
 	//fim do método main

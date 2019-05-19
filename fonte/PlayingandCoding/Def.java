@@ -104,23 +104,72 @@ public class Def extends Tools
         int count = 0;
         for(String str: list)
         {
-            String aux;
+            String aux = "";
+            // verifica se é um vetor passado como parametro
             if(valores[count].contains("["))
             {
                 conversor = new Int();
-                aux  = str+"="+Int.vetoresArmazenados
-                .get(valores[count]
-                .substring(valores[count]
-                .indexOf("]")+1,valores[count].length()))
-                .get(conversor.indetificadorDeNumerosInt(valores[count]
+                String nomeVariavel = valores[count].substring(valores[count].indexOf("]")+1,valores[count].length());
+                
+                int index = conversor.indetificadorDeNumerosInt(valores[count]
                 .substring(valores[count]
                 .indexOf("[")+1,valores[count]
-                .indexOf("]")),0))+";";
+                .indexOf("]")),0);
+                //nomeVariavel pega o nome do vetor e o index pega o indice do vetor
+
+                if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("int"))
+                {
+                    aux  = str+"="+Int.vetoresArmazenados.get(nomeVariavel).get(index)+";";
+                }
+                
+                else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("double"))
+                {
+                    aux  = str+"="+Doubles.vetoresArmazenados.get(nomeVariavel).get(index)+";";
+                }
+                else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("string"))
+                {
+                    aux  = str+"="+Strings.vetoresArmazenados.get(nomeVariavel).get(index)+";";
+                }
+                else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("char"))
+                {
+                    aux  = str+"="+Char.vetoresArmazenados.get(nomeVariavel).get(index)+";";
+                }
+                else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("bool"))
+                {
+                    aux  = str+"="+Bool.vetoresArmazenados.get(nomeVariavel).get(index)+";";
+                }
             }
+            //se for uma variavel normal passada como parametro ela vem para esse
             else
             {
-                aux = str+"="+Int.variaveisArmazenadas.get(valores[count])+";";
+                
+                if(Comparadores.tipoVariaveis.get(valores[count]).equals("int"))
+                {
+                    aux = str+"="+Int.variaveisArmazenadas.get(valores[count])+";";
+                }
+
+                else if(Comparadores.tipoVariaveis.get(valores[count]).equals("double"))
+                {
+                    aux = str+"="+Doubles.variaveisArmazenadas.get(valores[count])+";";
+                }
+                
+                else if(Comparadores.tipoVariaveis.get(valores[count]).equals("string"))
+                {
+                    char aspas = '"';
+                    aux = str+"="+aspas+Strings.variaveisArmazenadas.get(valores[count])+aspas+";";
+                }
+
+                else if(Comparadores.tipoVariaveis.get(valores[count]).equals("char"))
+                {
+                    aux = str+"="+Char.variaveisArmazenadas.get(valores[count])+";";
+                }
+
+                else if(Comparadores.tipoVariaveis.get(valores[count]).equals("bool"))
+                {
+                    aux = str+"="+Bool.variaveisArmazenadas.get(valores[count])+";";
+                }
             }
+
             leitor.idLinha(aux,1);
             count++;
         }
@@ -191,22 +240,22 @@ public class Def extends Tools
                     
                     else if(Comparadores.tipoVariaveis.get(variavelId).equals("double"))
                     {
-                        doubleArmazenadas.put(valorParaRetornar,Doubles.variaveisArmazenadas.get(valorParaRetornar));
+                        doubleArmazenadas.put(variavelId,Doubles.variaveisArmazenadas.get(valorParaRetornar));
                     }
                     
                     else if(Comparadores.tipoVariaveis.get(variavelId).equals("char"))
                     {
-                        charArmazenadas.put(valorParaRetornar,Char.variaveisArmazenadas.get(valorParaRetornar));
+                        charArmazenadas.put(variavelId,Char.variaveisArmazenadas.get(valorParaRetornar));
                     }
                     
                     else if(Comparadores.tipoVariaveis.get(variavelId).equals("string"))
                     {
-                        strArmazenadas.put(valorParaRetornar,Strings.variaveisArmazenadas.get(valorParaRetornar));
+                        strArmazenadas.put(variavelId,Strings.variaveisArmazenadas.get(valorParaRetornar));
                     }
 
                     else if(Comparadores.tipoVariaveis.get(variavelId).equals("bool"))
                     {
-                        boolArmazenadas.put(valorParaRetornar,Bool.variaveisArmazenadas.get(valorParaRetornar));
+                        boolArmazenadas.put(variavelId,Bool.variaveisArmazenadas.get(valorParaRetornar));
                     }
                 }
                 break; // encerra a funcao

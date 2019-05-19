@@ -136,7 +136,7 @@ public abstract class Variaveis extends Primitivos
                                 //laço de repetição que lê o char a ser armazenado
 
                                 indentificaValor(str,pos);
-				 if (getVariavelValue().length() == 0)
+								if (getVariavelValue().length() == 0)
                                 {
                                         return false;
                                 }
@@ -161,7 +161,7 @@ public abstract class Variaveis extends Primitivos
 			aux = Integer.parseInt(String.valueOf(str.charAt(i)));//converter para string
 			value+= aux*base10;
 			base10*=10;
-                }
+        }
 		return (int)value;
 	}
 	//fim do método ConvertStringParaInt
@@ -187,7 +187,8 @@ public abstract class Variaveis extends Primitivos
 		
 		else
 		{
-			ErrosNaCompilacao.tipo = lineText.substring(0,4);
+			System.out.println(Strings.variaveisArmazenadas);
+			ErrosNaCompilacao.tipo = lineText;
 			ErrosNaCompilacao.getLineError(1);
 		}
 	}
