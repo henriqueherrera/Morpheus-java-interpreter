@@ -1,9 +1,11 @@
-//inicio da classe Int
+//inicio da classe Variaveis
 public abstract class Variaveis extends Primitivos
 {
 	//dicionario que armazena as váriaveis criadas
 	public static int leituraDaLinha;
+
 	public String variavelId ="";
+
 	public String variavelValue="";
 
 	//inicio do método TamanhoDaVariavelId
@@ -50,12 +52,12 @@ public abstract class Variaveis extends Primitivos
 	//fim do método getVariavelId
 	
 	//inicio do método verificacao
-        protected boolean verificacao(String str)
-        {               
+    protected boolean verificacao(String str) //verifica se tem uma varivel e um valor para ser armazenado
+    {               
         
-                boolean verificacaoDoNomeVariavel = false;
+        boolean verificacaoDoNomeVariavel = false;
                 
-                int pos=0, inicializaLeitura = 0;
+        int pos=0, inicializaLeitura = 0;
        
 		if( str.substring(0,3).equals("int"))
 		{
@@ -106,49 +108,49 @@ public abstract class Variaveis extends Primitivos
 				return true;
 			}
 		}
-                //laco de repetição que lê a linha
+        //laco de repetição que lê a linha
 		
 		for( int i = 0; i< str.length()-1; i++)
-                {
-
+        {
 			if ( str.charAt(i)  == '=' )
-                        {                       
-                                pos = i+1; //marca onde vai começar a leitura da variavel
+            {                       
+                pos = i+1; //marca onde vai começar a leitura da variavel
 
-                                for( int ii = inicializaLeitura; ii < i; ii++)
-                                {
-                                        if (str.charAt(ii) == ' ')
-                                        {
-                                                continue;
-                                        }
+                for( int ii = inicializaLeitura; ii < i; ii++)
+                {
+                    if (str.charAt(ii) == ' ')
+                    {
+                        continue;
+                    }
                                         
-                                        else
-                                        {
-                                                setVariavelId(getVariavelId()+ ""+str.charAt(ii));
-                                        }
-                                }
-                                
-                                verificacaoDoNomeVariavel =  tamanhoDaVariavelId();
-
-                        }
-                        else if( verificacaoDoNomeVariavel ) //quando a verificação do nome da váriavel é realizada ela passa por essa condicional
-                        {
-                                //laço de repetição que lê o char a ser armazenado
-
-                                indentificaValor(str,pos);
-								if (getVariavelValue().length() == 0)
-                                {
-                                        return false;
-                                }
-
-                                else
-                                {
-                                        return true;
-                                }
-                        }
+                    else
+                    {
+                        setVariavelId(getVariavelId()+ ""+str.charAt(ii));
+                    }
                 }
-                return false;
+                                
+                verificacaoDoNomeVariavel =  tamanhoDaVariavelId();
+
+            }
+            else if( verificacaoDoNomeVariavel ) //quando a verificação do nome da váriavel é realizada ela passa por essa condicional
+            {
+                //laço de repetição que lê o char a ser armazenado
+
+                indentificaValor(str,pos);
+				
+				if (getVariavelValue().length() == 0)
+                {
+                    return false;
+                }
+
+                else
+                {
+                    return true;
+                }
+            }
         }
+        return false;
+    }
 	//fim do método verificacao
 
 	//inicio do método ConvertStringParaInt
@@ -195,7 +197,7 @@ public abstract class Variaveis extends Primitivos
 	//fim do método verificador
 	
 	//inicio do método analisadorLexicoDeVariaveis
-	public boolean analisadorLexicoDeVariaveis(String str, int inicializaLeitura)
+	public boolean analisadorLexicoDeVariaveis(String str, int inicializaLeitura) //verifica se é possivel add o valor de uma variavel
 	{
 		
 		char igual = '?';
@@ -223,19 +225,27 @@ public abstract class Variaveis extends Primitivos
 	}
 	//fim do método analisadorLexicoDeVariaveis
 
+	//Inicio do método armazenarVetorNaVariavel
 	protected void armazenarVetorNaVariavel(String id,int size)
 	{
 
 	}
-	
+	//Fim do método armazenarVetorNaVariavel
+
+	//Inicio do método inserirValor
 	protected void inserirValor(String id,String index,String value) //inseri valor no vetor
 	{
 
 	}
+	//Fim do método inserirValor
+
+	//Inicio do método inserirVariavel
 	protected void inserirVariavel(String nomeVetor, int indice, String id, String index) //inseri variavel no vetor
 	{
 
 	}
+	//Fim do método inserirVariavel
+
 	//inicio do método armazenaVetor
 	public void armazenaVetor(String linha)
 	{
@@ -271,6 +281,7 @@ public abstract class Variaveis extends Primitivos
 		int size = inteiro.indetificadorDeNumerosInt(value,0);
 		armazenarVetorNaVariavel(id,size);
 	}
+	//Fim do método armazenaVetor
 
 	//inicio do método inseriValorNoVetor
 	public void inseriValorNoVetor(String linha)

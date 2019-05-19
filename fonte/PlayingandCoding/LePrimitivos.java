@@ -1,4 +1,5 @@
 import java.util.HashMap;
+
 public class LePrimitivos extends Tools
 {
 	private OperadoresAritmeticos operacoes  = new OperadoresAritmeticos();

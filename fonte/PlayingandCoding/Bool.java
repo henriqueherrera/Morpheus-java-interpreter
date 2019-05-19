@@ -1,9 +1,12 @@
 import java.util.HashMap;
 //inicio da classe Bool 
+
 public class Bool extends Variaveis
 {
 	public static int leituraDaLinha;
+
 	private Int inteiro;
+	
 	public static HashMap<String, Boolean> variaveisArmazenadas = new HashMap<String, Boolean>();
 	public static HashMap<String,HashMap<Integer,Boolean>> vetoresArmazenados = new HashMap<String,HashMap<Integer,Boolean>>();
 	
@@ -20,6 +23,7 @@ public class Bool extends Variaveis
 		Int inteiro = new Int();
 		vetoresArmazenados.get(id).put(inteiro.indetificadorDeNumerosInt(index,0),Boolean.valueOf(value.substring(0,value.length())));
 	}
+	
 	//inicio do método indentificaValor
 	protected void indentificaValor(String str, int pos)
 	{

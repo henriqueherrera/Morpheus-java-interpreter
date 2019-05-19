@@ -56,8 +56,7 @@ public class Doubles extends Variaveis
 
 		return conversor.indetificadorDeNumerosInt(str,pos)*x;
 	}
-	//fim do metodo convertDouble
-	//inicio do método armazenarValor
+	//fim do método convertDouble
 	@Override
 	protected void armazenarValor()
 	{

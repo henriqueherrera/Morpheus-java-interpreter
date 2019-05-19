@@ -127,7 +127,7 @@ public class Tools
 			{
 				str = str+" "; //esse " " é para passar na funcao valueString sem excluir o ultimo caractere
 				strings.valueString(str,0);
-				System.out.print(strings.getVariavelValue()+" ");
+				System.out.print(strings.getVariavelValue());
 				strings.setVariavelValue("");
 			}
 			else if(str.contains("[") && str.contains("]"))
@@ -167,22 +167,22 @@ public class Tools
 
 			else if(Comparadores.tipoVariaveis.get(str).equals("string"))
 			{
-				System.out.print(Strings.variaveisArmazenadas.get(str)+" ");
+				System.out.print(Strings.variaveisArmazenadas.get(str));
 			}
 
 			else if(Comparadores.tipoVariaveis.get(str).equals("char"))
 			{
-				System.out.print(Char.variaveisArmazenadas.get(str)+" ");
+				System.out.print(Char.variaveisArmazenadas.get(str));
 			}
 
 			else if(Comparadores.tipoVariaveis.get(str).equals("bool"))
 			{
-				System.out.print(Bool.variaveisArmazenadas.get(str)+" ");
+				System.out.print(Bool.variaveisArmazenadas.get(str));
 			}
 
 			else if(Comparadores.tipoVariaveis.get(str).equals("int"))
 			{
-				System.out.print(Int.variaveisArmazenadas.get(str)+" ");
+				System.out.print(Int.variaveisArmazenadas.get(str));
 			}
 		}
 		System.out.println();

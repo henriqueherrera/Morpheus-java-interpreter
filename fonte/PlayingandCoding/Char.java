@@ -1,4 +1,5 @@
 import java.util.HashMap;
+
 //inicio da classe Char
 public class Char extends Variaveis
 {
@@ -7,6 +8,7 @@ public class Char extends Variaveis
 	public static HashMap< String,Character> variaveisArmazenadas = new HashMap<String, Character>();
 	
 	public static HashMap< String, HashMap<Integer,Character>> vetoresArmazenados = new HashMap<String, HashMap<Integer,Character>>();
+	
 	@Override
 	protected void inserirVariavel(String nomeVetor, int indice, String id, String index) //inseri variavel no vetor
 	{		
@@ -14,12 +16,14 @@ public class Char extends Variaveis
 		Int inteiro = new Int();
 		vetoresArmazenados.get(id).put(inteiro.indetificadorDeNumerosInt(index,0),val);
 	}
+
 	@Override
 	protected void inserirValor(String id,String index,String value) //inseri valor no vetor
 	{
 		Int inteiro = new Int();
 		vetoresArmazenados.get(id).put(inteiro.indetificadorDeNumerosInt(index,0),value.charAt(1));
 	}
+
 	@Override
 	protected void armazenarVetorNaVariavel(String id, int size)
 	{
@@ -30,7 +34,7 @@ public class Char extends Variaveis
 			vetoresArmazenados.get(id).put(i,' ');
 		}
 	}	
-	//inicio do método indentificaValor
+	
 	@Override
 	protected void indentificaValor (String str,int pos) 
 	{
@@ -52,15 +56,12 @@ public class Char extends Variaveis
 				
 		this.setCharId(getVariavelId());
 	}
-	//fim do método indentificaValor
 	
-	//inicio do método armazenarValor
 	@Override
 	protected void armazenarValor ()
 	{
 		variaveisArmazenadas.put(this.getCharId(), this.getCharValue());
 		Comparadores.tipoVariaveis.put(this.getCharId(), "char");
 	}
-	//fim do método armazenarValor
 }
 //fim da classe Char

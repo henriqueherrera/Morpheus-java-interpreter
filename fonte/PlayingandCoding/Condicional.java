@@ -1,4 +1,3 @@
-
 //Inicio da classe Condiconais
 public class Condicional extends Tools
 {

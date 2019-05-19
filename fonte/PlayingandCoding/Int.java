@@ -39,14 +39,12 @@ public class Int extends Variaveis
 		setIntValue( indetificadorDeNumerosInt(str,pos));
 	}
 
-	//inicio do método armazenarValor
 	@Override
 	protected void armazenarValor ()
 	{
 		variaveisArmazenadas.put(getIntId(), getIntValue());
 		Comparadores.tipoVariaveis.put(getIntId(), "int");
 	}
-	//fim do método armazenarValor
 
 	//inicio do método indenrificadorDeNumerosInt
 	public int indetificadorDeNumerosInt(String str,int pos)

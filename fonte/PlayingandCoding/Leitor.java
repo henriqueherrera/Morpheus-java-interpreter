@@ -34,13 +34,13 @@ class Leitor extends Tools
                         
 				if(linha != null)
                 {
-					if ( ( linha.length() != 0 ) && (!linha.contains("//")) || (this.tiraEspacos(linha).equals("inicio") || this.tiraEspacos(linha).equals("final"))) //verifica se tem um ponto e virgula no final
+					if((linha.length() != 0 ) && (!linha.contains("//"))) //verifica se tem um ponto e virgula no final
 					{
 						linha = linha.trim();	
 						lePrimitivos.idLinha(linha,0); //chama o metodo para ler as variaveis primitivas	
 					}	
 
-					else if ( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && (!linha.contains("//")) && tiraEspacos(linha).length() != 0 ) 
+					else if( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && (!linha.contains("//")) && tiraEspacos(linha).length() != 0 ) 
 					{
 						
 						ErrosNaCompilacao.getLineError(0);
