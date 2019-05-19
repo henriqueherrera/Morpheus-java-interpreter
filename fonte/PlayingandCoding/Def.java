@@ -161,7 +161,8 @@ public class Def extends Tools
 
                 else if(Comparadores.tipoVariaveis.get(valores[count]).equals("char"))
                 {
-                    aux = str+"="+Char.variaveisArmazenadas.get(valores[count])+";";
+                    aux = str+"= '"+Char.variaveisArmazenadas.get(valores[count])+"';";
+                
                 }
 
                 else if(Comparadores.tipoVariaveis.get(valores[count]).equals("bool"))
@@ -228,7 +229,7 @@ public class Def extends Tools
                     }
                 }
                 
-                else
+                else //armazena o valor na variavel
                 {
                    
                     String variavelId = linha.substring(0,linha.indexOf("="));
@@ -263,6 +264,7 @@ public class Def extends Tools
 
             else
             {
+                //interpreta as linhas de codigos da funcao
                 leitor.idLinha(this.txtLines.get(i), i);
             }
         }

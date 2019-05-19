@@ -1,11 +1,15 @@
 int t = 2;
 int v = 1;
-string p="top";
+bool po = true;
+char p= '5';
 print(p);
-def str(string i)
+def str(bool i)
 {
-    i = "tchau";
+    if bool|i
+    {
+        print("é vdd");
+    }
     return i;
 }
-p = call str(p);
+po = call str(po);
 print(p);
