@@ -1,0 +1,10 @@
+string s1 = "abcd";
+
+if string|s1==abc
+{
+print("sei la");
+}
+//else
+//{
+//print("filha da puta");
+//}
