@@ -1,13 +1,20 @@
 //Inicio da classe Condiconais
 public class Condicional extends Tools
 {
-    //inicio do método laco
+	//inicio do método laco
+	public int linhaDoElse = -1; // se for diferente de -1 é pq tem um else
+
 	public void condicionalIf(int numeroDeLinhas, String value)
     {
+		int end = numeroDeLinhas;
 		String tipo = "";
-
+		if(linhaDoElse != -1) // se nao tiver else o if le todas as linhas se tiver ele le ate o ponto em que esta o else
+		//que seria o linhaDoElse
+		{
+			end = linhaDoElse;
+		}
 		Comparadores testBooleano = new Comparadores();
-		for(int i = 0; i<value.length(); i++)
+		for(int i = 0; i < value.length(); i++)
 		{
 			if(value.charAt(i) == '|')
 			{
@@ -25,11 +32,19 @@ public class Condicional extends Tools
 		{
 			if(testBooleano.comparaStr(value))
             {
-				le = new LePrimitivos();
-				for(int i = 1; i<=numeroDeLinhas;i++)
+				le = new LePrimitivos();	
+				for(int i = 1; i<=end;i++)
 				{
 					le.idLinha(txtLines.get(i),i);
                 }
+			}
+			else if(this.linhaDoElse > -1)
+			{
+				le = new LePrimitivos();				
+				for(int i = this.linhaDoElse; i<= numeroDeLinhas; i++)
+				{
+					le.idLinha(txtLines.get(i),i);
+				}
 			}
 		}
 
@@ -40,22 +55,36 @@ public class Condicional extends Tools
 				value = testBooleano.valorDoVetor(value);
 				if( Boolean.parseBoolean(value))
 				{
-					le = new LePrimitivos();
-				
-					for(int i = 1; i<=numeroDeLinhas;i++)
+					le = new LePrimitivos();	
+					for(int i = 1; i<=end;i++)
 					{
 						le.idLinha(txtLines.get(i),i);
-                	}	
+                	}
+				}
+				else if(this.linhaDoElse > -1)
+				{
+					le = new LePrimitivos();				
+					for(int i = this.linhaDoElse; i<= numeroDeLinhas; i++)
+					{
+						le.idLinha(txtLines.get(i),i);
+					}
 				}
 			}
             else if(Bool.variaveisArmazenadas.get(value))
             {
-				le = new LePrimitivos();
-				
-				for(int i = 1; i<=numeroDeLinhas;i++)
+				le = new LePrimitivos();	
+				for(int i = 1; i<=end;i++)
 				{
 					le.idLinha(txtLines.get(i),i);
                 }
+			}
+			else if(this.linhaDoElse > -1)
+			{
+				le = new LePrimitivos();				
+				for(int i = this.linhaDoElse; i<= numeroDeLinhas; i++)
+				{
+					le.idLinha(txtLines.get(i),i);
+				}
 			}
 		}
 		
@@ -63,9 +92,16 @@ public class Condicional extends Tools
 		{
 			if(testBooleano.comparaChar(value))
             {
-				le = new LePrimitivos();
-				
-				for(int i = 1; i<=numeroDeLinhas;i++)
+				le = new LePrimitivos();	
+				for(int i = 1; i<=end;i++)
+				{
+					le.idLinha(txtLines.get(i),i);
+                }
+			}
+			else if(this.linhaDoElse > -1)
+			{
+				le = new LePrimitivos();				
+				for(int i = this.linhaDoElse; i<= numeroDeLinhas; i++)
 				{
 					le.idLinha(txtLines.get(i),i);
 				}
@@ -74,13 +110,22 @@ public class Condicional extends Tools
 
 		else if (tipo.equals("int"))
 		{
+
 			if(testBooleano.comparaInt(value))
             {
-				le = new LePrimitivos();
-				for(int i = 1; i<=numeroDeLinhas;i++)
+				le = new LePrimitivos();	
+				for(int i = 1; i<=end;i++)
 				{
 					le.idLinha(txtLines.get(i),i);
                 }
+			}
+			else if(this.linhaDoElse > -1)
+			{
+				le = new LePrimitivos();				
+				for(int i = this.linhaDoElse; i<= numeroDeLinhas; i++)
+				{
+					le.idLinha(txtLines.get(i),i);
+				}
 			}
 		}
 
@@ -88,10 +133,18 @@ public class Condicional extends Tools
 		{
 			if(testBooleano.comparaDouble(value))
 			{
-				le = new LePrimitivos();
-				for(int i = 1; i<=numeroDeLinhas; i++)
+				le = new LePrimitivos();	
+				for(int i = 1; i<=end;i++)
 				{
-					le.idLinha(txtLines.get(i), i);
+					le.idLinha(txtLines.get(i),i);
+                }
+			}
+			else if(this.linhaDoElse > -1)
+			{
+				le = new LePrimitivos();				
+				for(int i = this.linhaDoElse; i<= numeroDeLinhas; i++)
+				{
+					le.idLinha(txtLines.get(i),i);
 				}
 			}
 		}

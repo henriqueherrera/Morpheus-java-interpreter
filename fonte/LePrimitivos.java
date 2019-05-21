@@ -52,18 +52,23 @@ public class LePrimitivos extends Tools
 				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
 			}
 
-			else if(this.tiraEspacos(linha).equals("}"))
+			else if(this.tiraEspacos(linha).equals("}") || this.tiraEspacos(linha).equals("}else"))
 			{
+				int aux1 = ifCondicional.countLines(); //numero as linhas do if
 				ifCondicional.countFechaChave();
-				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
+				if(this.tiraEspacos(linha).equals("}else") && ifCondicional.igualdadeDeChave())
+				{
+					ifCondicional.linhaDoElse = aux1; //pega a linha do else
+				}	
+				ifCondicional.txtLines.put(aux1,linha);
 			}
 
 			else
 			{
 				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
 			}
-
-			if(ifCondicional.igualdadeDeChave())
+			
+			if(ifCondicional.igualdadeDeChave() && !(this.tiraEspacos(linha).equals("}else")))
 			{
 				ifCondicional.condicionalIf(ifCondicional.getNumeroDeLinhas(), this.getIfExpressao());
 				controladorIf = false;
@@ -72,16 +77,14 @@ public class LePrimitivos extends Tools
 		else if (controladorDeLaco) // enquanto for true toda linha passará por aqui e será armazenado em um hashmap
 		{
 			linha.trim();
-			
 			if(this.tiraEspacos(linha).equals("{"))
 			{
 				lacoDeRepeticao.countAbreChave();	
 				lacoDeRepeticao.txtLines.put(lacoDeRepeticao.countLines(),linha);
 			}
 
-			else if(this.tiraEspacos(linha).equals("}"))
+			else if(this.tiraEspacos(linha).charAt(0) == '}')
 			{
-
 				lacoDeRepeticao.countFechaChave();
 				lacoDeRepeticao.txtLines.put(lacoDeRepeticao.countLines(),linha);
 			}
@@ -90,8 +93,7 @@ public class LePrimitivos extends Tools
 			{
 				lacoDeRepeticao.txtLines.put(lacoDeRepeticao.countLines(),linha);
 			}
-
-			if(lacoDeRepeticao.igualdadeDeChave())
+			if(lacoDeRepeticao.igualdadeDeChave() && !(this.tiraEspacos(linha).equals("}else")))
 			{
 				
 				lacoDeRepeticao.laco(lacoDeRepeticao.getNumeroDeLinhas(), this.getExpressao());
@@ -108,7 +110,7 @@ public class LePrimitivos extends Tools
 				def.txtLines.put(def.countLines(),linha);
 			}
 
-			else if(this.tiraEspacos(linha).equals("}"))
+			else if(this.tiraEspacos(linha).charAt(0) == '}')
 			{
 
 				def.countFechaChave();
@@ -120,7 +122,7 @@ public class LePrimitivos extends Tools
 				def.txtLines.put(def.countLines(),linha);
 			}
 
-			if(def.igualdadeDeChave())
+			if(def.igualdadeDeChave() && !(this.tiraEspacos(linha).equals("}else")))
 			{
 				controladorDef = false;
 			}
@@ -216,7 +218,6 @@ public class LePrimitivos extends Tools
 			lacoDeRepeticao = new While();
 			setExpressao(this.tiraEspacos(linha.substring(5, linha.length()))); //expressao do while
 			this.controladorDeLaco = true;
-		
 		}
 		
 		else if(linha.substring(0,6).equals("double"))

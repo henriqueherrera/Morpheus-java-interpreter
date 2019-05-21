@@ -3,7 +3,7 @@ public class While extends Tools
 {
 	//inicio do método laco
 	public void laco(int numeroDeLinhas, String value)
-        {
+    {
 		String tipo = "";
 
 		Comparadores testBooleano = new Comparadores();
