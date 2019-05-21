@@ -1,0 +1,10 @@
+vetor double|[3]vetor;
+vetor int|[4]ints;
+[2]ints = 5;
+int x = 5;
+[2]vetor = 5.5;
+print([2]vetor);
+if int|5==[2]ints
+{
+	print("verdadeiro");
+}

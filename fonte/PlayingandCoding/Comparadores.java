@@ -174,39 +174,6 @@ public class Comparadores extends Tools
 	public boolean comparaInt(String expressao)
 	{
 		int v1 = 0, v2 = 0; //so para inicializar
-		String comparacao ="";
-		for(int i = 0; i< expressao.length(); i++)
-		{
-			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
-			{
-				comparacao = expressao.substring(i,i+2);
-                		if( expressao.substring(0,i).chars().allMatch(Character::isDigit) )
-                		{
-                    			v1 = Integer.parseInt(expressao.substring(0,i));
-                		}
-				else if(tipoVariaveis.get(expressao.substring(0,i)).equals("int"))
-				{
-					v1 = Int.variaveisArmazenadas.get(expressao.substring(0,i));
-				}
-                		if( expressao.substring(i+2,expressao.length()).chars().allMatch(Character::isDigit) )
-				{
-					v2 = Integer.parseInt(expressao.substring(i+2));
-				}
-				else if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("int"))
-				{
-					v2 = Int.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
-				}
-			}
-		}
-		return valorBooleanoDaExpressao(comparacao, v1, v2);
-	}
-	// fim do método comparaInt
-
-	// inicio do método comparaDouble
-	public boolean comparaDouble(String expressao)
-	{
-		double v1 = 0, v2 = 0; //so para inicializar
-		int index;
 		String comparacao ="",var1 = "", var2 = "";
 		for(int i = 0; i< expressao.length(); i++)
 		{
@@ -220,9 +187,50 @@ public class Comparadores extends Tools
 				
 				if(var1.contains("[") && var1.contains("]"))
 				{
-					
-					index = (int)Double.parseDouble(var1.substring(var1.indexOf("[")+1,var1.indexOf("]")));
-					v1 = Doubles.vetoresArmazenados.get(var1.substring(var1.indexOf("]")+1,var1.length())).get(index);
+					v1 =  (int)Double.parseDouble(valorDoVetor(var1));
+				}
+				
+				else
+				{
+					try{v1 = (int)Double.parseDouble(var1);}
+					catch(Exception e){v1 = Int.variaveisArmazenadas.get(var1);}
+				}
+				
+				if(var2.contains("[") && var2.contains("]"))
+				{
+					v2 = (int)Double.parseDouble(valorDoVetor(var2));
+				}
+				
+				else
+				{
+					try{v2 = (int)Double.parseDouble(var2);}
+					catch(Exception e){v2 = Int.variaveisArmazenadas.get(var2);}
+				}
+			}
+		}
+		return valorBooleanoDaExpressao(comparacao,v1,v2);
+	}
+
+	// fim do método comparaInt
+
+	// inicio do método comparaDouble
+	public boolean comparaDouble(String expressao)
+	{
+		double v1 = 0, v2 = 0; //so para inicializar
+		String comparacao ="",var1 = "", var2 = "";
+		for(int i = 0; i< expressao.length(); i++)
+		{
+			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
+			{
+				comparacao = expressao.substring(i,i+2);
+				
+				var1 = expressao.substring(0,i);
+				
+				var2 = expressao.substring(i+2, expressao.length());	
+				
+				if(var1.contains("[") && var1.contains("]"))
+				{
+					v1 =  Double.parseDouble(valorDoVetor(var1));
 				}
 				
 				else
@@ -233,8 +241,7 @@ public class Comparadores extends Tools
 				
 				if(var2.contains("[") && var2.contains("]"))
 				{
-					index = (int)Double.parseDouble(var2.substring(var2.indexOf("[")+1,var2.indexOf("]")));
-					v2 = Doubles.vetoresArmazenados.get(var2.substring(var2.indexOf("]")+1,var2.length())).get(index);
+					v2 = Double.parseDouble(valorDoVetor(var2));
 				}
 				
 				else
