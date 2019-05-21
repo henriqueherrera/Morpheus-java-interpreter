@@ -37,7 +37,7 @@ public class Comparadores extends Tools
 	}
 	//fim do método getVariaveis
 
-	private String valorDoVetor(String value)
+	public String valorDoVetor(String value)
 	{
 		Int inteiro = new Int();
 

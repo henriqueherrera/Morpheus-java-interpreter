@@ -24,18 +24,32 @@ public class While extends Tools
 
 		if(tipo.equals("bool"))
 		{
-
-            while(Bool.variaveisArmazenadas.get(value))
-            {
-				le = new LePrimitivos();
+			System.out.println(value);
+			if(value.contains("[") && value.contains("]"))
+			{
+				while(Boolean.parseBoolean(testBooleano.valorDoVetor(value)))
+            	{
+					le = new LePrimitivos();
+					
+					for(int i = 1; i<=numeroDeLinhas;i++)
+					{
+						le.idLinha(txtLines.get(i),i);
+                	}
+				}	
+			}
+			else
+			{
+            	while(Bool.variaveisArmazenadas.get(value))
+            	{
+					le = new LePrimitivos();
 				
-				for(int i = 1; i<=numeroDeLinhas;i++)
-				{
-					le.idLinha(txtLines.get(i),i);
-                }
+					for(int i = 1; i<=numeroDeLinhas;i++)
+					{
+						le.idLinha(txtLines.get(i),i);
+               	 	}
+				}
 			}
 		}
-		
 		else if(tipo.equals("char"))
 		{
 			while(testBooleano.comparaChar(value))

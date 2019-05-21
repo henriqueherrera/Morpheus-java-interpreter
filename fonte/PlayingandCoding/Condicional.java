@@ -36,8 +36,20 @@ public class Condicional extends Tools
 
 		else if(tipo.equals("bool"))
 		{
-
-            if(Bool.variaveisArmazenadas.get(value))
+			if (value.contains("[") && value.contains("]"))
+			{	
+				value = testBooleano.valorDoVetor(value);
+				if( Boolean.parseBoolean(value))
+				{
+					le = new LePrimitivos();
+				
+					for(int i = 1; i<=numeroDeLinhas;i++)
+					{
+						le.idLinha(txtLines.get(i),i);
+                	}	
+				}
+			}
+            else if(Bool.variaveisArmazenadas.get(value))
             {
 				le = new LePrimitivos();
 				
