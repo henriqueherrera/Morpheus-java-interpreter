@@ -2,7 +2,7 @@
 public class Condicional extends Tools
 {
     //inicio do método laco
-	public boolean condicionalIf(int numeroDeLinhas, String value)
+	public void condicionalIf(int numeroDeLinhas, String value)
     {
 		String tipo = "";
 
@@ -31,7 +31,6 @@ public class Condicional extends Tools
 					le.idLinha(txtLines.get(i),i);
                 }
 			}
-            return true;
 		}
 
 		else if(tipo.equals("bool"))
@@ -48,7 +47,6 @@ public class Condicional extends Tools
 						le.idLinha(txtLines.get(i),i);
                 	}	
 				}
-                return true;
 			}
             else if(Bool.variaveisArmazenadas.get(value))
             {
@@ -58,7 +56,6 @@ public class Condicional extends Tools
 				{
 					le.idLinha(txtLines.get(i),i);
                 }
-                return true;
 			}
 		}
 		
@@ -72,7 +69,6 @@ public class Condicional extends Tools
 				{
 					le.idLinha(txtLines.get(i),i);
 				}
-                return true;
 			}
 		}
 
@@ -85,7 +81,6 @@ public class Condicional extends Tools
 				{
 					le.idLinha(txtLines.get(i),i);
                 }
-                return true;
 			}
 		}
 
@@ -98,10 +93,8 @@ public class Condicional extends Tools
 				{
 					le.idLinha(txtLines.get(i), i);
 				}
-                return true;
 			}
 		}
-        return false;
 	}
 	//fim do método lacoDeRepeticao
 }

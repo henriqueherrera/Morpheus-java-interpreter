@@ -36,12 +36,6 @@ public class LePrimitivos extends Tools
 
 	private Comparadores troca;
 	
-    private Else elseCondicional;
-
-    private boolean existeElse = false;
-
-    private boolean devoRodarElse = false;
-
 	//inicio do método idLinha
 	public void idLinha(String linha,int whilis)
 	{
@@ -63,49 +57,17 @@ public class LePrimitivos extends Tools
 				ifCondicional.countFechaChave();
 				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
 			}
+
 			else
 			{
 				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
 			}
 
-			if(ifCondicional.igualdadeDeChave() && (!(devoRodarElse)) )
+			if(ifCondicional.igualdadeDeChave())
 			{
-                if(this.tiraEspacos(linha).equals("else"))
-                {
-                    existeElse = true;
-                }
-                else if(existeElse) 
-                {
-                    if(this.tiraEspacos(linha).equals("{"))
-		            {
-			            elseCondicional.countAbreChave();	
-			            elseCondicional.txtLines.put(elseCondicional.countLines(),linha);
-		            }
-
-		            else if(this.tiraEspacos(linha).equals("}"))
-		            {
-			            elseCondicional.countFechaChave();
-			            elseCondicional.txtLines.put(elseCondicional.countLines(),linha);
-		            }
-                    else
-		            {
-			            elseCondicional.txtLines.put(elseCondicional.countLines(),linha);
-		            }
-                    if(elseCondicional.igualdadeDeChave())
-			        {
-                        devoRodarElse = true;
-			        }
-                }
-            }
-            else 
-            {
-                if (!(ifCondicional.condicionalIf(ifCondicional.getNumeroDeLinhas(), this.getIfExpressao())) && (devoRodarElse))
-                {
-                    elseCondicional.condicionalElse(elseCondicional.getNumeroDeLinhas(), this.getIfExpressao()); // getIfExpressao não é necessário
-                }
-                devoRodarElse = false;
+				ifCondicional.condicionalIf(ifCondicional.getNumeroDeLinhas(), this.getIfExpressao());
 				controladorIf = false;
-            }
+			}
 		}
 		else if (controladorDeLaco) // enquanto for true toda linha passará por aqui e será armazenado em um hashmap
 		{
