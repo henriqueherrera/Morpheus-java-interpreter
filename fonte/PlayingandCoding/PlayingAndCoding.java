@@ -11,9 +11,10 @@ public class PlayingAndCoding
 			interpretador.reader();
 			System.out.println("tempo de execução: " + (System.currentTimeMillis() - tempoInicial)*0.001f +" segundos");
 		}
+
 		catch(Exception e)
 		{
-			System.out.println("Error: "+e +" linha: "+ErrosNaCompilacao.numeroDaLinha);
+			System.out.println("Error: na linha ("+ErrosNaCompilacao.numeroDaLinha+") verifique se desta linha para trás, está tudo de acordo com a sintaxe de Morpheus");
 		}
 	}
 	//fim do método main

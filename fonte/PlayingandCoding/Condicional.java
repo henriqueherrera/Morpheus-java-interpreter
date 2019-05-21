@@ -3,7 +3,7 @@ public class Condicional extends Tools
 {
     //inicio do método laco
 	public void condicionalIf(int numeroDeLinhas, String value)
-        {
+    {
 		String tipo = "";
 
 		Comparadores testBooleano = new Comparadores();
@@ -23,7 +23,6 @@ public class Condicional extends Tools
 		
 		if(tipo.equals("string"))
 		{
-			
 			if(testBooleano.comparaStr(value))
             {
 				le = new LePrimitivos();
@@ -73,7 +72,6 @@ public class Condicional extends Tools
 			}
 		}
 
-		
 		else if (tipo.equals("int"))
 		{
 			if(testBooleano.comparaInt(value))
@@ -85,6 +83,7 @@ public class Condicional extends Tools
                 }
 			}
 		}
+
 		else if (tipo.equals("double"))
 		{
 			if(testBooleano.comparaDouble(value))
@@ -98,6 +97,5 @@ public class Condicional extends Tools
 		}
 	}
 	//fim do método lacoDeRepeticao
-
 }
-//Fim da classe Condicionais
+//Fim da classe Condicional

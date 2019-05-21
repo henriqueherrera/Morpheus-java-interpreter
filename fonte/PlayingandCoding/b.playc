@@ -1,47 +1,14 @@
-vetor double|[3]vetor;
-vetor int|[4]ints;
-vetor string|[5]strs;
-vetor char|[10]chars;
-vetor bool|[3]bools;
-[1]bools = true;
-bool b = true;
-[1]strs = "pato";
-[2]ints = 5;
-[1]chars = 'i';
-[2]vetor = 5.5;
-char ia = 'i';
-string str = "t";
-def test(string i)
+int x;
+int y;
+int nota;
+int aux;
+double media;
+input("qual o numero de notas: ", x);
+while int|aux<<x
 {
-	i = "funciona pra caralho";
-	while bool|[1]bools
-	{
-		input("digite um booleano: ",[1]bools);
-		if bool|[1]bools
-		{
-			print("funciona mesmo");
-			if bool|[1]bools
-			{
-				print("so pra ter ctz");
-				while bool|b
-				{
-					input("DIGITE UM B: ",b);
-					if bool|b
-					{
-						print("funciona pra caralho");
-					}
-				}
-			}
-		}
-	}
-	return i;
+	input("digita a nota ",nota);
+	y = (y+nota);
+	aux =(aux+1);
 }
-str = call test(str);
-print(str);
-
-
-if bool|b
-{
-	print("verdadeiro");
-}
-print("i");
+media = (y/x);
+print("Media: "=>media);
