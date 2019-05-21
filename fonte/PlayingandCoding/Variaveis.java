@@ -74,7 +74,14 @@ public abstract class Variaveis extends Primitivos
 		else if( str.substring(0,6).equals("double"))
 		{
 			inicializaLeitura = 6;
-		
+			if (analisadorLexicoDeVariaveis(str,inicializaLeitura))
+			{
+
+				setVariavelValue("0.0");
+				indentificaValor(getVariavelValue(),0);
+				return true;
+			}
+
 		}
 		else if(str.substring(0,4).equals("char"))
 		{
@@ -179,17 +186,16 @@ public abstract class Variaveis extends Primitivos
 	//fim do método indentificaValor
 	
 	//inicio do método verificador
-	public void verificador(String lineText)
+	public void verificador(String lineText) //verifica se tem variavel para armazenar
 	{
 		
-		if( verificacao(lineText))
+		if( verificacao(lineText)) 
 		{
 	 		this.armazenarValor();
 		}
 		
 		else
 		{
-			System.out.println(Strings.variaveisArmazenadas);
 			ErrosNaCompilacao.tipo = lineText;
 			ErrosNaCompilacao.getLineError(1);
 		}
