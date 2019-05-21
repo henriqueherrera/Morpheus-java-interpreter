@@ -80,63 +80,6 @@ public class Comparadores extends Tools
 		return "";
 	}
 
-    	public boolean comparaVetor(String expressao)
-	{
-		String v1 = "", v2 = "", comparacao = ""; // inicializando variaveis utilizadas no método
-		boolean retornarNumero = true;
-
-		for(int i = 0; i < expressao.length(); i++)
-		{
-            // checa se encontrou algum sinal de comparação
-            if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
-            {
-                comparacao = expressao.substring(i,i+2); // pega o sinal a ser usado na comparação
-
-                // coloca em variaveis os dois valores sendo comparados
-                v1 = expressao.substring(0,i);
-                v2 = expressao.substring(i+2,expressao.length());
-
-                if (!(v1.chars().allMatch(Character::isDigit)))
-								{
-									retornarNumero = false;
-									v1 = valorDoVetor(expressao.substring(0,i));
-								}
-                if (!(v2.chars().allMatch(Character::isDigit)))
-								{
-									retornarNumero = false;
-									v2 = valorDoVetor(expressao.substring(i+2,expressao.length()));
-								}
-
-								if (retornarNumero == true) return valorBooleanoDaExpressao(comparacao,Double.parseDouble(v1),Double.parseDouble(v2));
-								else return valorBooleanoDaExpressaoAlfabetica(comparacao,v1,v2);
-								// checa se o valor faz parte de um vetor ou é um primitivo solto
-                // if ( Int.vetoresArmazenados.containsKey(v1)
-                //     || Int.vetoresArmazenados.containsKey(v2)
-                //     || Doubles.vetoresArmazenados.containsKey(v1)
-                //     || Doubles.vetoresArmazenados.containsKey(v2) )
-                // {
-                //     //if (!(v1.chars().allMatch(Character::isDigit)))
-                //     v1 = valorDoVetor(expressao.substring(0,i));
-								//
-                //     //if (!(v2.chars().allMatch(Character::isDigit)))
-                //     v2 = valorDoVetor(expressao.substring(i+2,expressao.length()));
-								//
-                //     // inicia a comparação
-                //     return valorBooleanoDaExpressao(comparacao,Double.parseDouble(v1),Double.parseDouble(v2));
-                // }
-                // else if ( Strings.vetoresArmazenados.containsKey(v1)
-                //     || Strings.vetoresArmazenados.containsKey(v2)
-                //     || Char.vetoresArmazenados.containsKey(v1)
-                //     || Char.vetoresArmazenados.containsKey(v2) )
-                // {
-                //     return valorBooleanoDaExpressaoAlfabetica(comparacao,v1,v2);
-                // }
-            }
-		}
-        // se não encontrar nada, retorna falso
-        return false;
-	}
-
 	//inicio do método comparaChar
 	public boolean comparaChar(String expressao)
 	{

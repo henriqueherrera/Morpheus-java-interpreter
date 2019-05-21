@@ -81,17 +81,6 @@ public class Condicional extends Tools
 				}
 			}
 		}
-        else if (tipo.equals("vetor"))
-		{
-            if(testBooleano.comparaVetor(value))
-			{
-				le = new LePrimitivos();
-				for(int i = 1; i<=numeroDeLinhas; i++)
-				{
-					le.idLinha(txtLines.get(i), i);
-				}
-			}
-		}
 	}
 	//fim do método lacoDeRepeticao
 
