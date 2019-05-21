@@ -24,7 +24,6 @@ public class While extends Tools
 
 		if(tipo.equals("bool"))
 		{
-			System.out.println(value);
 			if(value.contains("[") && value.contains("]"))
 			{
 				while(Boolean.parseBoolean(testBooleano.valorDoVetor(value)))
@@ -75,6 +74,7 @@ public class While extends Tools
                 }
 			}
 		}
+
 		else if (tipo.equals("int"))
 		{
 			while(testBooleano.comparaInt(value))
@@ -86,6 +86,7 @@ public class While extends Tools
                 }
 			}
 		}
+
 		else if (tipo.equals("double"))
 		{
 			while(testBooleano.comparaDouble(value))
