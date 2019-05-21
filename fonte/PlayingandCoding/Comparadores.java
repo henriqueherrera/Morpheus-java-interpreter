@@ -83,33 +83,54 @@ public class Comparadores extends Tools
 	//inicio do método comparaChar
 	public boolean comparaChar(String expressao)
 	{
-		char v1 = '-', v2 = '+'; //so para inicializar
-
+		String var1,var2;
+		char v1 = '°', v2 = 'º';
+		String comparacao = "";
+		
 		for(int i = 0; i< expressao.length(); i++)
 		{
-			if(expressao.charAt(i) == '=' && expressao.charAt(i+1) == '=')
+			if((expressao.charAt(i) == '=' || expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
 			{
-                if( tipoVariaveis.containsKey(expressao.substring(0,i) )
-                    && tipoVariaveis.get(expressao.substring(0,i)).equals("char"))
+				comparacao =  expressao.substring(i,i+2);
+				var1 = expressao.substring(0,i);
+				var2 = expressao.substring(i+2,expressao.length());
+				
+				
+				if(var1.contains("[") && var1.contains("]")) //se a variavel for vetor
 				{
-					v1 = Char.variaveisArmazenadas.get(expressao.substring(0,i));
+					v1 = valorDoVetor(var1).charAt(0);
 				}
-                else
+
+				else if (var1.contains("'")) //se for uma string normal
                 {
-                    v1 = expressao.substring(0,1).charAt(0);
-                }
-                if( tipoVariaveis.containsKey(expressao.substring(i+2,expressao.length()) )
-                    && tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("char"))
+
+                    v1 = var1.replaceAll("'", "").charAt(0);
+				}
+				
+				else //se for uma variavel
+                {
+				    v1 = Char.variaveisArmazenadas.get(var1);
+				}
+				
+
+				if(var2.contains("[") && var2.contains("]")) //se a variavel for vetor
 				{
-					v2 = Char.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
+					v2 = valorDoVetor(var2).charAt(0);
 				}
-                else
+
+				else if (var2.contains("'")) //se for uma string normal
                 {
-                    v2 = expressao.substring(i+2,expressao.length()).charAt(0);
-                }
+                    v2 = var2.replaceAll("'", "").charAt(0);
+				}
+				
+				else //se for uma variavel
+                {
+				    v2 = Char.variaveisArmazenadas.get(var2);
+				}			
 			}
 		}
-		return v1 == v2 ? true:false;
+		
+		return valorBooleanoDaExpressaoAlfabetica(comparacao, ""+v1, ""+v2);
 	}
 	//fim do método comparaChar;
 
@@ -243,7 +264,6 @@ public class Comparadores extends Tools
                 {
 				    v2 = Strings.variaveisArmazenadas.get(var2);
 				}
-
 			}
 		}
 		
