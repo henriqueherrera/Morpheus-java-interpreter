@@ -37,7 +37,7 @@ public class Comparadores extends Tools
 	}
 	//fim do método getVariaveis
 
-    private String valorDoVetor(String value)
+	private String valorDoVetor(String value)
 	{
 		Int inteiro = new Int();
 
@@ -60,7 +60,7 @@ public class Comparadores extends Tools
 			else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("char"))
 			{
 		   		return ""+Char.vetoresArmazenados.get(nomeVariavel).get(index);
-	    	}
+	    		}
 
 			else if(Comparadores.tipoVariaveis.get(nomeVariavel).equals("string"))
 			{
@@ -75,12 +75,12 @@ public class Comparadores extends Tools
 	
 		else
 		{
-		return nomeVariavel;
+			return nomeVariavel;
 		}
 		return "";
 	}
 
-    public boolean comparaVetor(String expressao)
+    	public boolean comparaVetor(String expressao)
 	{
 		String v1 = "", v2 = "", comparacao = ""; // inicializando variaveis utilizadas no método
 		boolean retornarNumero = true;
@@ -180,15 +180,15 @@ public class Comparadores extends Tools
 			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
 			{
 				comparacao = expressao.substring(i,i+2);
-                if( expressao.substring(0,i).chars().allMatch(Character::isDigit) )
-                {
-                    v1 = Integer.parseInt(expressao.substring(0,i));
-                }
+                		if( expressao.substring(0,i).chars().allMatch(Character::isDigit) )
+                		{
+                    			v1 = Integer.parseInt(expressao.substring(0,i));
+                		}
 				else if(tipoVariaveis.get(expressao.substring(0,i)).equals("int"))
 				{
 					v1 = Int.variaveisArmazenadas.get(expressao.substring(0,i));
 				}
-                if( expressao.substring(i+2,expressao.length()).chars().allMatch(Character::isDigit) )
+                		if( expressao.substring(i+2,expressao.length()).chars().allMatch(Character::isDigit) )
 				{
 					v2 = Integer.parseInt(expressao.substring(i+2));
 				}
@@ -206,29 +206,41 @@ public class Comparadores extends Tools
 	public boolean comparaDouble(String expressao)
 	{
 		double v1 = 0, v2 = 0; //so para inicializar
-
-		String comparacao ="";
-
+		int index;
+		String comparacao ="",var1 = "", var2 = "";
 		for(int i = 0; i< expressao.length(); i++)
 		{
 			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
 			{
 				comparacao = expressao.substring(i,i+2);
-				if(tipoVariaveis.get(expressao.substring(0,i)).equals("double"))
+				
+				var1 = expressao.substring(0,i);
+				
+				var2 = expressao.substring(i+2, expressao.length());	
+				
+				if(var1.contains("[") && var1.contains("]"))
 				{
-					v1 = Doubles.variaveisArmazenadas.get(expressao.substring(0,i));
+					
+					index = (int)Double.parseDouble(var1.substring(var1.indexOf("[")+1,var1.indexOf("]")));
+					v1 = Doubles.vetoresArmazenados.get(var1.substring(var1.indexOf("]")+1,var1.length())).get(index);
 				}
-                else if( expressao.substring(0,i).chars().allMatch(Character::isDigit) )
+				
+				else
 				{
-					v1 = Double.parseDouble(expressao.substring(0,i));
+					try{v1 = Double.parseDouble(var1);}
+					catch(Exception e){v1 = Doubles.variaveisArmazenadas.get(var1);}
 				}
-				if(tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("double"))
+				
+				if(var2.contains("[") && var2.contains("]"))
 				{
-					v2 = Doubles.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
+					index = (int)Double.parseDouble(var2.substring(var2.indexOf("[")+1,var2.indexOf("]")));
+					v2 = Doubles.vetoresArmazenados.get(var2.substring(var2.indexOf("]")+1,var2.length())).get(index);
 				}
-                else if( expressao.substring(i+2,expressao.length()).chars().allMatch(Character::isDigit) )
+				
+				else
 				{
-					v2 = Double.parseDouble(expressao.substring(i+2));
+					try{v2 = Double.parseDouble(var2);}
+					catch(Exception e){v2 = Doubles.variaveisArmazenadas.get(var2);}
 				}
 			}
 		}
