@@ -120,7 +120,7 @@ public class Comparadores extends Tools
 		String comparacao ="",var1 = "", var2 = "";
 		for(int i = 0; i< expressao.length(); i++)
 		{
-			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
+			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
 			{
 				comparacao = expressao.substring(i,i+2);
 				
@@ -163,7 +163,7 @@ public class Comparadores extends Tools
 		String comparacao ="",var1 = "", var2 = "";
 		for(int i = 0; i< expressao.length(); i++)
 		{
-			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
+			if((expressao.charAt(i) == '='||expressao.charAt(i) == '>'||expressao.charAt(i) == '<'||expressao.charAt(i) == '!') && (expressao.charAt(i+1) == '=' ||expressao.charAt(i+1) == '<' ||expressao.charAt(i+1) == '>' ))
 			{
 				comparacao = expressao.substring(i,i+2);
 				
@@ -202,33 +202,52 @@ public class Comparadores extends Tools
 	public boolean comparaStr(String expressao) //esse metodo vai ler o nome das variaveis usadas e vai comparar com o conteudo delas e retornar true se forem iguals
 	{
 		String v1 = "",v2 = "";
-
+		String var1, var2, comparacao = "";
 		for(int i = 0; i< expressao.length(); i++)
 		{
-			if(expressao.charAt(i) == '=' && expressao.charAt(i+1) == '=')
+			if((expressao.charAt(i) == '=' || expressao.charAt(i) == '!') && expressao.charAt(i+1) == '=')
 			{
-				if ( tipoVariaveis.containsKey(expressao.substring(0,i))
-                    && tipoVariaveis.get(expressao.substring(0,i)).equals("string"))
-                {
-				    v1 = Strings.variaveisArmazenadas.get(expressao.substring(0,i));
-    		    }
-                else
-                {
-                    v1 = expressao.substring(0,i);
-                }
+				comparacao =  expressao.substring(i,i+2);
+				var1 = expressao.substring(0,i);
+				var2 = expressao.substring(i+2,expressao.length());
+				
+				if(var1.contains("[") && var1.contains("]")) //se a variavel for vetor
+				{
+					v1 = valorDoVetor(var1);
+				}
 
-                if ( tipoVariaveis.containsKey( expressao.substring(i+2,expressao.length() ) )
-                    && tipoVariaveis.get(expressao.substring(i+2,expressao.length())).equals("string") )
+				else if (var1.charAt(0) == '"') //se for uma string normal
                 {
-				    v2 = Strings.variaveisArmazenadas.get(expressao.substring(i+2,expressao.length()));
-                }
-                else
+					char aux =  '"';
+                    v1 = var1.replaceAll(""+aux, ""); //artificio tecnico para ajustar a string
+				}
+				
+				else //se for uma variavel
                 {
-                    v2 = expressao.substring(i+2,expressao.length());
-                }
+				    v1 = Strings.variaveisArmazenadas.get(var1);
+				}
+				
+
+				if(var2.contains("[") && var2.contains("]"))
+				{
+					v2 = valorDoVetor(var2);
+				}
+
+				else if (var2.charAt(0) == '"')
+                {
+					char aux =  '"';
+                    v2 = var2.replaceAll(""+aux, ""); //artificio tecnico para ajustar a string
+				}
+				
+				else
+                {
+				    v2 = Strings.variaveisArmazenadas.get(var2);
+				}
+
 			}
 		}
-		return v1.equals(v2) ? true:false;
+		
+		return valorBooleanoDaExpressaoAlfabetica(comparacao, v1, v2);
 	}
 	//fim do método comparaStr;
 

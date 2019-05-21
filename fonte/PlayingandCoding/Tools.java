@@ -79,6 +79,7 @@ public class Tools
 						cleanLine= cleanLine+""+line.charAt(ii);
 						achoString = false;
 						i = ii+1;
+						
 						break;
 					}
 					else
@@ -91,9 +92,8 @@ public class Tools
             if( line.charAt(i) != ' ')
             {
                 cleanLine= cleanLine+""+line.charAt(i);
-            }
+			}
         }//esse laço tira os espaços da linha
-		
 		return cleanLine;
     }
 	//fim do método tiraEspacos

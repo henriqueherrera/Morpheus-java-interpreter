@@ -7,7 +7,6 @@ public class Condicional extends Tools
 		String tipo = "";
 
 		Comparadores testBooleano = new Comparadores();
-
 		for(int i = 0; i<value.length(); i++)
 		{
 			if(value.charAt(i) == '|')
@@ -22,7 +21,20 @@ public class Condicional extends Tools
 			}
 		}
 		
-		if(tipo.equals("bool"))
+		if(tipo.equals("string"))
+		{
+			
+			if(testBooleano.comparaStr(value))
+            {
+				le = new LePrimitivos();
+				for(int i = 1; i<=numeroDeLinhas;i++)
+				{
+					le.idLinha(txtLines.get(i),i);
+                }
+			}
+		}
+
+		else if(tipo.equals("bool"))
 		{
 
             if(Bool.variaveisArmazenadas.get(value))
@@ -48,17 +60,7 @@ public class Condicional extends Tools
                 }
 		}
 
-		else if(tipo.equals("string"))
-		{
-			if(testBooleano.comparaStr(value))
-            {
-				le = new LePrimitivos();
-				for(int i = 1; i<=numeroDeLinhas;i++)
-				{
-					le.idLinha(txtLines.get(i),i);
-                }
-			}
-		}
+		
 		else if (tipo.equals("int"))
 		{
 			if(testBooleano.comparaInt(value))

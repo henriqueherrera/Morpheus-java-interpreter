@@ -1,10 +1,12 @@
 vetor double|[3]vetor;
 vetor int|[4]ints;
+vetor string|[5]strs;
+[1]strs = "pato";
 [2]ints = 5;
 int x = 5;
 [2]vetor = 5.5;
-print([2]vetor);
-if int|5==[2]ints
+string str = "pato";
+if string|str == [1]strs
 {
 	print("verdadeiro");
 }

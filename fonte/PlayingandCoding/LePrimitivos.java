@@ -134,7 +134,7 @@ public class LePrimitivos extends Tools
 		else if (linha.substring(0,2).equals("if") || this.controladorIf)
 		{
 			ifCondicional = new Condicional();
-			setIfExpressao(this.tiraEspacos(linha.substring(2,linha.length())));
+			setIfExpressao(this.tiraEspacos(linha.substring(2,linha.length())+" "));
 			this.controladorIf = true;
 		}
 				
