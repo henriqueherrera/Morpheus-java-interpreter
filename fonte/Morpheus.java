@@ -1,4 +1,4 @@
-//inicio da classe PlayingAndCoding
+//inicio da classe Morpheus
 public class Morpheus
 {
 	//inicio do método main
@@ -22,4 +22,4 @@ public class Morpheus
 	}
 	//fim do método main
 }
-//fim da classe PlayingAndCoding
+//fim da classe Morpheus
