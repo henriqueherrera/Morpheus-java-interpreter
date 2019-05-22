@@ -1,12 +1,10 @@
-![Image of Logo](https://github.com/Lokens/Vergonhas-Secretas/blob/master/Logo/logo.png)
-
-```          
-```
-
-
+ ![Image of Logo](https://github.com/Lokens/Vergonhas-Secretas/blob/master/Logo/logo.png)
+   
+      
+         
 # **Documentação do Morpheus Language**
-
-
+    
+      
 ### Criadores :
 ```
 Henrique Herrera (https://github.com/henriqueherrera  ||  henriqueherrera9@gmail.com) 
@@ -14,34 +12,31 @@ Matheus Slama (https://github.com/Lokens  ||  matheus_slama@hotmail.com)
 Pablo Lodi (https://github.com/PabloLodi  || lodiricardopablo@gmail.com)
 ```
 
-## **Usando o Morpheus** 
-		                        
+## **Usando o Morpheus**
+     
 1. Você deve possuir o Java Development Kit 8 ou OpenJDK 8 instalado.
 2. Escreva o código a ser interpretado no seu editor favorito e salve com a extensão .mp
 3. Execute o Interpretador no terminal com o comando: 
 ```
-		java -jar Morpheus.jar nomedoarquivo.mp
+				    java -jar Morpheus.jar nomedoarquivo.mp
 ```
         
                  
 
 ## **Introdução a linguagem**
-          
-                 
-
+    
+       
 Criada por alunos de Ciência da computação da Universidade Federal da Fronteira Sul. Morpheus é uma linguagem com sintaxe flexível, podendo o usuário utilizar o espaçamento e a endentação desejada.
 É possível declarar variáveis, atribuir valores a variáveis, usar laços dentro de laços, dar comandos de entrada e saídas para o usuário, usar vetores e criar funções com escopo.
 É necessário utilizar ; (ponto e vírgula) no final de cada linha. No caso de funções, laços e condicionais, o uso no início não é necessário. nesses casos utilizasse {} (chaves).
-
-
-```          
-```
+    
+      
 
 ### **1. Comentários**
        
 Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no início da linha. Desse modo, tudo que tiver escrito depois dela não será executado pelo interpretador.  
-```          
-```
+     
+         
 *Exemplo:*
 ```
 	//linha de teste que não será executada
@@ -52,11 +47,11 @@ Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no iníci
 	tela:
 	 oi
 ```
-```          
-```
+     
+         
 ### **2. Tipos e operadores**
-```          
-```
+    
+        
                          **Tipos de variáveis**
 
 |**Tipo** |    **Descrição**         | Exemplo     |
@@ -67,8 +62,8 @@ Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no iníci
 |string   |Sequência de caracteres   |“Hello World”|
 |char     |Caractere único           |'z'          |
 
-```          
-```
+    
+       
                          **Sinais Aritiméticos**
 
 
@@ -80,8 +75,8 @@ Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no iníci
 |			*			 | Multplicação|
 |			%			 | Resto       |
 
-```          
-```
+    
+       
                          **Sinais de comparações (condições)**
 
 | **Sinal** |      **Ação**    							 |
@@ -93,8 +88,7 @@ Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no iníci
 |     <<		|  Menor												 |
 |			<=		|  Menor ou igual								 |
 
-```          
-```
+       
                          **Sinais Utilizados**
 
 |**Sinal**|**Função**         |
@@ -104,16 +98,14 @@ Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no iníci
 
 
 
-```          
-```
+      
+          
 ### **3.Declarar variáveis**
 
 A declaração de variáveis funciona na ordem “tipo nome = valor;”, ou seja, primeiro deve ser escrito o tipo dela, seu nome (é obrigatório uma variável de nome) e o valor a ser iniciado.
 As variáveis também podem ser declaradas sem nenhuma atribuição de valor.
 ```          
-				
-                                        tipo variável = valor
-          
+					       tipo variável = valor
 ```
 
 Se nenhum valor for atribuído a variável iniciará com
@@ -124,15 +116,14 @@ Se nenhum valor for atribuído a variável iniciará com
 |int = 0         |double = 0.0|string = null|
 |bool = false    |char = ' '  |             |
 
-```          
-```
+     
+        
 *Certos nomes não podem ser usados como nome de variável pois eles são reservados para o sistema. 
 
 
 *Exemplo de declaração de variável:*
 
 ```          
-
 	Int numero = 10;
 	double valor = 10.25;
 
@@ -141,36 +132,32 @@ Se nenhum valor for atribuído a variável iniciará com
 
 	string frase;
 	frase = “hello world”;
-
-          
 ```
 
 ### **4.Usando expressões**
-```          
-```
+    
+       
 No Morpheus realiza operações com números, variáveis e vetores.
 *as operaçoes podem ser feitas com tipos diferente de primitivos, ex.: int e double
 
 *Cada expressão deve ficar entre () (parênteses) 
  
-		
+```		
+					Variável = (((x+2) *0.5) + [3] vetor)
 ```
-                                        Variável = (((x+2) *0.5) + [3] vetor)
-```	
 
-```          
-```
+    
+       
 ### **5.Comandos de entrada**
-```          
-```
+    
+      
 O comando input () pode ser utilizado para adquirir um valor de entrada digitado pelo usuário.
 
 ```
-
-                                       input (variável)
-                                       input (“frase”, variável)
-
+					input (variável)
+					input (“frase”, variável)	
 ```
+
 *Pode-se utilizar frases dentro do input que aparecerá para o usuário.
 
 *Exemplo:*
@@ -183,17 +170,15 @@ O comando input () pode ser utilizado para adquirir um valor de entrada digitado
 	string nome;
 	input (“digite seu nome”, nome);
 ```
-```          
-```
+        
+	      
 ### **6.Comandos de saída**
-```          
-```
+      
+            
 Usar o comando print () gera uma saída permite o usuário visualizar na tela.
 ```
-
-                                       print ()  //*pode utilizar para pular linha
-                                       print (“string”=>variável=>[]vetor)
-
+					print ()  //*pode utilizar para pular linha
+					print (“string”=>variável=>[]vetor)
 ```
 Exemplo:
 ```
@@ -211,14 +196,12 @@ Exemplo:
 	No terminal aparecerá:
 	nome Morpheus Language 
 	idade 1
-
 ```
-
-```          
-```
+      
+            
 ### **7.Usando condicionais** 
-```          
-```
+      
+          
 Ao usar condicionais usamos {} (chaves) que estiver entre chaves será executado. No Morpheus as condicionais podem ser usadas com aninhamento (if dentro de ifs).
 Condição: As condições é o que define se o if será executado, ao usar uma comparação é necessário definir seu tipo. As condições podem ser int, double, string, bool, vetor.
 *Operações matemáticas não podem ser usadas como condição
@@ -226,9 +209,7 @@ Condição: As condições é o que define se o if será executado, ao usar uma 
 if: O código entre as chaves é executado apenas se a condição comparada for **VERDADEIRA**.
 
 ```
-
-                               if tipo da condição | condição {Instruções para condição verdadeira}
-
+				if tipo da condição | condição {Instruções para condição verdadeira}
 ```
 Exemplo: 
 ```
@@ -251,9 +232,7 @@ else:Se a condição do if for falsa o else será acionado, executando o código
 *O else deve ser colocado após com a chave de fechamento do seu respectivo if.
 
 ```
-
-                                        }else {Instruções se os ifs forem falsos}
-
+					}else {Instruções se os ifs forem falsos}
 ```
 ```
 	int a = 10;
@@ -271,13 +250,11 @@ else:Se a condição do if for falsa o else será acionado, executando o código
 	       print (“nenhum dos ifs”); 
 	}
 ```
-
-
-```          
-```
+      
+            
 ### **8.laços de repetição**
-```          
-```
+      
+            
 
 
 No Morpheus o while () é utilizado para laços, rodando ciclos de repetição no código dentro das {} (chaves) enquanto a condição dentro dos parênteses for verdadeira.
@@ -286,7 +263,7 @@ Assim como no if ao utilizar uma variável como condição de parada deve-se col
 
 
 ```
-                                       while tipo | condição {código do loop}
+					while tipo | condição {código do loop}
 ```
 
 *Exemplo:* 
@@ -305,17 +282,15 @@ Assim como no if ao utilizar uma variável como condição de parada deve-se col
 	2
 
 ```
-```          
-```
+      
+          
 ### **9. Vetores**
-```          
-```
+      
+          
 Vetores são atribuídos com [] (colchetes) um vetor poder ter vários valores dentro dele e podem ser acessados pelo índice.
 Para criar um vetor, a seguinte expressão é utilizada:  
 ```
-
-                                       vetor tipo do vetor | [quantidade de posições] variável do vetor.
-
+			       vetor tipo do vetor | [quantidade de posições] variável do vetor.
 ```
 *Exemplo:*
 ```
@@ -338,23 +313,20 @@ Para criar um vetor, a seguinte expressão é utilizada:
 	{
 		print ("\o/ vetor de booleanos");	
 	}
-	
-		
-
 ```
 
 *Pode-se usar, modificar, acrescentar quaisquer valores do tipo do vetor pelos índices.
  
 
-```          
-```
+    
+        
 ### **10.Funçoes** 
-```          
-```
+      
+          
 O Morpheus reconhece como funções o código feito com a seguinte sintaxe:
 ```
-		def variável (escopo) {código return valor;}
-		variável = call variável da função (escopo);
+					def variável (escopo) {código return valor;}
+					variável = call variável da função (escopo);
 ```
 **Escopo:** ter o escopo preenchido não é obrigatório, para utilizá-lo deve-se escrever o tipo e uma variável, pode-se usar quantos valores quiser no escopo, os valores recebidos no escopo da função poderão ser usados na função.
 
@@ -362,7 +334,6 @@ O Morpheus reconhece como funções o código feito com a seguinte sintaxe:
 *A função deve ser escrita antes de sua chamada
 
 ```
-	
 	def soma (int y,int x) 
 	{ 
 		int total; 
@@ -375,6 +346,5 @@ O Morpheus reconhece como funções o código feito com a seguinte sintaxe:
 	
 	b = call soma(a,b); 
 	print(b);
-
 
 ```
