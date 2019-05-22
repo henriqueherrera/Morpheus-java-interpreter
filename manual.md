@@ -1,4 +1,4 @@
- ![Image of Logo](https://github.com/Lokens/Vergonhas-Secretas/blob/master/Logo/logo.png)
+![Image of Logo](https://github.com/Lokens/Vergonhas-Secretas/blob/master/Logo/logo.png)
 
 ```          
 ```
@@ -175,7 +175,7 @@ O comando input () pode ser utilizado para adquirir um valor de entrada digitado
 
 *Exemplo:*
 ```
-	Int numero;	
+	int numero;	
 	input(numero); 
 
 	//com frase
@@ -286,14 +286,14 @@ Assim como no if ao utilizar uma variável como condição de parada deve-se col
 
 
 ```
-                                       while (tipo | condição) {código do loop}
+                                       while tipo | condição {código do loop}
 ```
 
 *Exemplo:* 
 ```
-	Int a = 0;
+	int a = 0;
 
-	while (ínt |a << 3)
+	while int |a << 3
 	{
 		print (a);
 		a=(a+1);
@@ -319,12 +319,27 @@ Para criar um vetor, a seguinte expressão é utilizada:
 ```
 *Exemplo:*
 ```
-	vetor int | [3] números 
+	vetor int | [3] numeros;
 
 	//Atribuir valores: 
-	[0] números =10; 
-	[1] números = 20;
-	[2] números = 30;
+	[0] numeros =10; 
+	[1] numeros = 20;
+	[2] numeros = 30;
+	
+	
+	//vetor de booleano 
+	
+	vetor bool | [2] boleanos;
+	[0] boleanos  = true;
+	[1] boleano = false;
+	
+	
+	if  bool | [0]boleanos
+	{
+		print ("\o/ vetor de booleanos");	
+	}
+	
+		
 
 ```
 
@@ -351,7 +366,8 @@ O Morpheus reconhece como funções o código feito com a seguinte sintaxe:
 	def soma (int y,int x) 
 	{ 
 		int total; 
-		total= (y+x); return total;
+		total= (y+x); 
+		return total;
 	}
 	
 	int a = 5; 
