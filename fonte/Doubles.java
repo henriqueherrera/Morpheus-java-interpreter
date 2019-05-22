@@ -9,6 +9,8 @@ public class Doubles extends Variaveis
 	
     Int conversor = new Int();
 	
+	Tools espaco = new Tools();
+
     Int inteiros;
 
 	@Override
@@ -45,16 +47,13 @@ public class Doubles extends Variaveis
 	public double convertDouble(String str, int pos)
 	{
 		setDoubleId(getVariavelId());
-        int numerosDpsDaVirgula = str.substring(str.indexOf("."),str.length()).length();
-        double x = 1;
-        for (int i = 1; i<numerosDpsDaVirgula; i++)
-        {
-            x = x*10;
+		str = espaco.tiraEspacos(str);
+		if(str.contains(";"))
+		{
+		
+			str = str.replace(";","");
 		}
-		x= 10/x;
-		str = str.replace(".","");
-
-		return conversor.indetificadorDeNumerosInt(str,pos)*x;
+		return Double.parseDouble(str.substring(str.indexOf("=")+1,str.length()));
 	}
 	//fim do método convertDouble
 	@Override

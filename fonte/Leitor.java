@@ -11,7 +11,14 @@ class Leitor extends Tools
 	//Construtor
 	public Leitor(String arq)
 	{
-		this.setArquivo(arq);
+		if(arq.contains(".mp"))
+		{
+			this.setArquivo(arq);
+		}
+		else
+		{
+			System.out.println("Para interpretar um código é preciso colocar na extesão .mp");
+		}
 	}
 
 	public Leitor()
@@ -34,9 +41,9 @@ class Leitor extends Tools
                         
 				if(linha != null)
                 {
-					if((linha.length() != 0 ) && (!linha.contains("//"))) //verifica se tem um ponto e virgula no final
+					if((linha.length() != 0 ) && (!linha.contains("//")) )
 					{
-						linha = linha.trim();	
+						linha = linha.trim();
 						lePrimitivos.idLinha(linha,0); //chama o metodo para ler as variaveis primitivas	
 					}	
 

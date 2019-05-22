@@ -104,7 +104,7 @@ public class Tools
 		int inicioStr = 6;
 
 		int fimStr= 0;
-
+	
 		if( line.charAt(5) == '(')
 		{
 			for(int i = inicioStr; i< line.length(); i++)
