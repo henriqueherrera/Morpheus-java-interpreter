@@ -120,72 +120,75 @@ public class Tools
 		String[] prints = line.substring(inicioStr,fimStr).split("=>");
 
 		Strings strings = new Strings();
+        if(!line.equals("print();"))
+        {
+            for( String str:prints)
+		    {
+			    if(str.charAt(0) == '"')
+			    {
+			    	str = str+" "; //esse " " é para passar na funcao valueString sem excluir o ultimo caractere
+				    strings.valueString(str,0);
+				    System.out.print(strings.getVariavelValue());
+				    strings.setVariavelValue("");
+			    }
+			    else if(str.contains("[") && str.contains("]"))
+			    {
+				    str = this.tiraEspacos(str);
+				    Int inteiro = new Int();
+				    
+                    if( Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("string"))
+			    	{
+					    System.out.print(Strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				    }
 
-		for( String str:prints)
-		{
-			if(str.charAt(0) == '"')
-			{
-				str = str+" "; //esse " " é para passar na funcao valueString sem excluir o ultimo caractere
-				strings.valueString(str,0);
-				System.out.print(strings.getVariavelValue());
-				strings.setVariavelValue("");
-			}
-			else if(str.contains("[") && str.contains("]"))
-			{
-				str = this.tiraEspacos(str);
-				Int inteiro = new Int();
-				if( Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("string"))
-				{
-					System.out.print(Strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				}
+				    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("double"))
+				    {
+					    System.out.print(Doubles.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				    }
 
-				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("double"))
-				{
-					System.out.print(Doubles.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				}
+				    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("bool"))
+				    {
+					    System.out.print(Bool.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				    }
 
-				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("bool"))
-				{
-					System.out.print(Bool.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				}
+				    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("char"))
+				    {
+					    System.out.print(Char.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				    }
 
-				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("char"))
-				{
-					System.out.print(Char.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				}
+				    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("int"))
+				    {
+					    System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
+				    }
+			    }
+		    	
+			    else if(Comparadores.tipoVariaveis.get(str).equals("double"))
+			    {
+				    System.out.printf("%f",Doubles.variaveisArmazenadas.get(str));
+			    }
 
-				else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("int"))
-				{
-					System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				}
-			}
-			
-			else if(Comparadores.tipoVariaveis.get(str).equals("double"))
-			{
-				System.out.printf("%f",Doubles.variaveisArmazenadas.get(str));
-			}
+			    else if(Comparadores.tipoVariaveis.get(str).equals("string"))
+			    {
+				    System.out.print(Strings.variaveisArmazenadas.get(str));
+			    }
 
-			else if(Comparadores.tipoVariaveis.get(str).equals("string"))
-			{
-				System.out.print(Strings.variaveisArmazenadas.get(str));
-			}
+			    else if(Comparadores.tipoVariaveis.get(str).equals("char"))
+			    {
+				    System.out.print(Char.variaveisArmazenadas.get(str));
+			    }
 
-			else if(Comparadores.tipoVariaveis.get(str).equals("char"))
-			{
-				System.out.print(Char.variaveisArmazenadas.get(str));
-			}
-
-			else if(Comparadores.tipoVariaveis.get(str).equals("bool"))
-			{
-				System.out.print(Bool.variaveisArmazenadas.get(str));
-			}
-
-			else if(Comparadores.tipoVariaveis.get(str).equals("int"))
-			{
-				System.out.print(Int.variaveisArmazenadas.get(str));
-			}
-		}
-		System.out.println();
+			    else if(Comparadores.tipoVariaveis.get(str).equals("bool"))
+			    {
+			    	System.out.print(Bool.variaveisArmazenadas.get(str));
+			    }
+    
+			    else if(Comparadores.tipoVariaveis.get(str).equals("int"))
+			    {
+				    System.out.print(Int.variaveisArmazenadas.get(str));
+			    }
+		    }
+        }
+        System.out.println("");
 	}
 	//fim do método print
 
