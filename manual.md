@@ -1,4 +1,4 @@
- ![Image of Logo](https://github.com/Lokens/Vergonhas-Secretas/blob/master/Logo/logo.png)
+ ![Image of Logo](https://raw.githubusercontent.com/Lokens/Vergonhas-Secretas/master/Imagens%20do%20Mopheus/logo.png?token=AHOOZHHCRZSYRJXE434D4K244XIKK)
    
       
          
