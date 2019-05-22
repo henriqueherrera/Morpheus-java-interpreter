@@ -1,5 +1,13 @@
 # **Documentação do Morpheus Language**
 
+
+### Criadores 
+```
+Henrique Herrera (https://github.com/henriqueherrera)
+Matheus Slama (https://github.com/Lokens)
+Pablo Lodi (https://github.com/PabloLodi)
+```
+
 ## **Usando o Morpheus** 
 		                        
 1. Você deve possuir o Java Development Kit xxx instalado
