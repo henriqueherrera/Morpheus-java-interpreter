@@ -84,7 +84,7 @@ public class Comparadores extends Tools
 	public boolean comparaChar(String expressao)
 	{
 		String var1,var2;
-		char v1 = '°', v2 = 'º';
+		char v1 = '?', v2 = '?';
 		String comparacao = "";
 		
 		for(int i = 0; i< expressao.length(); i++)
