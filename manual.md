@@ -1,4 +1,4 @@
-# **Documentação do Morpheus Language**
+# **DocumentaÃ§Ã£o do Morpheus Language**
 
 
 ### Criadores 
@@ -9,112 +9,113 @@ Pablo Lodi (https://github.com/PabloLodi)
 ```
 
 ## **Usando o Morpheus** 
-		                        
-1. Você deve possuir o Java Development Kit xxx instalado
-2. Escreva o código a ser interpretado no seu editor favorito e salve com a extensão .mp
-3. Compile utilizando o javac. 
-4. Execute o Interpretador no terminal com o comando: java Morpheus (nome do seu arquivo).mp
+		       Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 
+1. VocÃª deve possuir o Java Development Kit xxx instalado
+2. Escreva o cÃ³digo a ser interpretado no seu editor favorito e salve com a extensÃ£o .mp
+3. Execute o Interpretador no terminal com o comando: 
 
-        
-                 
+		Java -jar Morpheus.jar nomedoarquivo.mp
 
-## **Introdução a linguagem**
-          
-                 
+Â Â Â Â Â Â Â Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 
 
-Morpheus é um interpretador compilado utilizando a Java Development Kit xxx e é utilizado no terminal com o comando:  		
+## **IntroduÃ§Ã£o a linguagem**
+Â Â Â Â Â Â Â Â Â Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 
+
+Morpheus Ã© um interpretador compilado utilizando a Java Development Kit xxx e Ã© utilizado no terminal com o comando:  		
 
 ```
-                                        java Morpheus nomedoarquivo.mp 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â java Morpheus nomedoarquivo.mp 
 ```
 
-Morpheus é uma linguagem com sintaxe flexível, podendo o usuário utilizar o espaçamento e a endentação desejada.
-É possível declarar variáveis, atribuir valores a variáveis, usar laços dentro de laços, dar comandos de entrada para o usuário, usar vetores e criar funções com escopo.
-É necessário utilizar o ; (ponto e vírgula) no final de cada linha. No caso de funções, laços e condicionais, o uso no início não é necessário. nesses casos utilizasse {} (chaves).
+Morpheus Ã© uma linguagem com sintaxe flexÃ­vel, podendo o usuÃ¡rio utilizar o espaÃ§amento e a endentaÃ§Ã£o desejada.
+Ã‰ possÃ­vel declarar variÃ¡veis, atribuir valores a variÃ¡veis, usar laÃ§os dentro de laÃ§os, dar comandos de entrada para o usuÃ¡rio, usar vetores e criar funÃ§Ãµes com escopo.
+Ã‰ necessÃ¡rio utilizar o ; (ponto e vÃ­rgula) no final de cada linha. No caso de funÃ§Ãµes, laÃ§os e condicionais, o uso no inÃ­cio nÃ£o Ã© necessÃ¡rio. nesses casos utilizasse {} (chaves).
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
 
-### **1. Comentários**
-       
-Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no início da linha. Desse modo, tudo que tiver escrito depois dela não será executado pelo interpretador.  
-```          
+### **1. ComentÃ¡rios**
+Â Â Â Â Â Â Â 
+Para fazer comentÃ¡rios no Morpheus utiliza-se // (duas barras juntas) no inÃ­cio da linha. Desse modo, tudo que tiver escrito depois dela nÃ£o serÃ¡ executado pelo interpretador.  
+```Â Â Â Â Â Â Â Â Â Â 
 ```
 *Exemplo:*
 ```
-	//linha de teste que não será executada
-  
+	//linha de teste que nÃ£o serÃ¡ executada
+ Â 
 	//print ("io")
 	print("oi")
 	
 	tela:
 	 oi
 ```
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
 ### **2. Tipos e operadores**
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-                         **Tipos de variáveis**
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â **Tipos de variÃ¡veis**
 
-|**Tipo** |    **Descrição**         | Exemplo     |
+|**Tipo** |    **DescriÃ§Ã£o**         | Exemplo     |
 |---------|--------------------------|-------------|
 |  int    | Inteiro de 32 bits       |  -1,0,1     |
-| double  |Número com ponto flutuante|-0.59        |
+| double  |NÃºmero com ponto flutuante|-0.59        |
 |bool     |Booleano                  | true, false |
-|string   |Sequência de caracteres   |“Hello World”|
-|char     |Caractere único           |'z'          |
+|string   |SequÃªncia de caracteres   |â€œHello Worldâ€|
+|char     |Caractere Ãºnico           |'z'          |
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-                         **Sinais Aritiméticos**
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â **Sinais AritimÃ©ticos**
 
 
-|**Operador**|**Operação** |
+|**Operador**|**OperaÃ§Ã£o** |
 |------------|-------------|
-|			+      | Adição      |
-|			-			 | Subtração   |
-|			/			 | Divisão     |
-|			*			 | Multplicação|
+|			+      | AdiÃ§Ã£o      |
+|			-			 | SubtraÃ§Ã£o   |
+|			/			 | DivisÃ£o     |
+|			*			 | MultplicaÃ§Ã£o|
 |			%			 | Resto       |
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-                         **Sinais de comparações (condições)**
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â **Sinais de comparaÃ§Ãµes (condiÃ§Ãµes)**
 
-| **Sinal** |      **Ação**    							 |
+| **Sinal** |      **AÃ§Ã£o**    							 |
 |-----------|--------------------------------|
-|			==		|Comparação de valores iguais    |
-|			!=		|Comparação de valores diferentes|
+|			==		|ComparaÃ§Ã£o de valores iguais    |
+|			!=		|ComparaÃ§Ã£o de valores diferentes|
 |			>>		|				Maior										 |
 |			>=		|		Maior ou igual							 |
 |     <<		|  Menor												 |
 |			<=		|  Menor ou igual								 |
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-                         **Sinais Utilizados**
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â **Sinais Utilizados**
 
-|**Sinal**|**Função**         |
+|**Sinal**|**FunÃ§Ã£o**         |
 |---------|-------------------|
-|//				|Comentário         |
-| = 			|Atribuição de Valor|
+|//				|ComentÃ¡rio         |
+| = 			|AtribuiÃ§Ã£o de Valor|
 
 
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-### **3.Declarar variáveis**
+### **3.Declarar variÃ¡veis**
 
-A declaração de variáveis funciona na ordem “tipo nome = valor”, ou seja, primeiro deve ser escrito o tipo dela, seu nome (é obrigatório uma variável de nome) e o valor a ser iniciado.
-As variáveis também podem ser declaradas sem nenhuma atribuição de valor,
-```          
+A declaraÃ§Ã£o de variÃ¡veis funciona na ordem â€œtipo nome = valorâ€, ou seja, primeiro deve ser escrito o tipo dela, seu nome (Ã© obrigatÃ³rio uma variÃ¡vel de nome) e o valor a ser iniciado.
+As variÃ¡veis tambÃ©m podem ser declaradas sem nenhuma atribuiÃ§Ã£o de valor,
+```Â Â Â Â Â Â Â Â Â Â 
 				
-                                        tipo variável = valor
-          
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â tipo variÃ¡vel = valor
+Â Â Â Â Â Â Â Â Â Â 
 ```
 
-Se nenhum valor for atribuído a variável iniciará com
+Se nenhum valor for atribuÃ­do a variÃ¡vel iniciarÃ¡ com
 
 
 |Valores iniciais|	      |             |
@@ -122,54 +123,54 @@ Se nenhum valor for atribuído a variável iniciará com
 |int = 0         |double = 0.0|string = null|
 |bool = false    |char = ' '  |             |
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-*Certos nomes não podem ser usados como nome de variável pois eles são reservados para o sistema. 
+*Certos nomes nÃ£o podem ser usados como nome de variÃ¡vel pois eles sÃ£o reservados para o sistema. 
 
 
-*Exemplo de declaração de variável:*
+*Exemplo de declaraÃ§Ã£o de variÃ¡vel:*
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 
 	Int numero = 10;
 	double valor = 10.25;
 
 	char a;
-	a = ‘a’; 
+	a = â€˜aâ€™; 
 
 	string frase;
-	frase = “hello world”;
+	frase = â€œhello worldâ€;
 
-          
+Â Â Â Â Â Â Â Â Â Â 
 ```
 
-### **4.Usando expressões**
-```          
+### **4.Usando expressÃµes**
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-No Morpheus realiza operações com números, variáveis e vetores.
-*as operaçoes podem ser feitas com tipos diferente de primitivos, ex.: int e double
+No Morpheus realiza operaÃ§Ãµes com nÃºmeros, variÃ¡veis e vetores.
+*as operaÃ§oes podem ser feitas com tipos diferente de primitivos, ex.: int e double
 
-*Cada expressão deve ficar entre () (parênteses) 
+*Cada expressÃ£o deve ficar entre () (parÃªnteses) 
  
 		
 ```
-                                        Variável = (((x+2) *0.5) + [3] vetor)
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â VariÃ¡vel = (((x+2) *0.5) + [3] vetor)
 ```	
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
 ### **5.Comandos de entrada**
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-O comando input () pode ser utilizado para adquirir um valor de entrada digitado pelo usuário.
+O comando input () pode ser utilizado para adquirir um valor de entrada digitado pelo usuÃ¡rio.
 
 ```
 
-                                       input (variável)
-                                       input (“frase”, variável)
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â input (variÃ¡vel)
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â input (â€œfraseâ€, variÃ¡vel)
 
 ```
-*Pode-se utilizar frases dentro do input que aparecerá para o usuário.
+*Pode-se utilizar frases dentro do input que aparecerÃ¡ para o usuÃ¡rio.
 
 *Exemplo:*
 ```
@@ -179,52 +180,52 @@ O comando input () pode ser utilizado para adquirir um valor de entrada digitado
 	//com frase
 
 	string nome;
-	input (“digite seu nome”, nome);
+	input (â€œdigite seu nomeâ€, nome);
 ```
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-### **6.Comandos de saída**
-```          
+### **6.Comandos de saÃ­da**
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-Usar o comando print () gera uma saída permite o usuário visualizar na tela.
+Usar o comando print () gera uma saÃ­da permite o usuÃ¡rio visualizar na tela.
 ```
 
-                                       print ()
-                                       print (“string”=>variável=>[]vetor)
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â print ()
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â print (â€œstringâ€=>variÃ¡vel=>[]vetor)
 
 ```
 Exemplo:
 ```
-	print (“Morpheus”);
+	print (â€œMorpheusâ€);
 
-	No terminal aparecerá:
+	No terminal aparecerÃ¡:
 	Morpheus
 ```
-*Para utilizar variáveis utiliza-se o =>
+*Para utilizar variÃ¡veis utiliza-se o =>
 
 ```
-	print(“nome ”=>a=>”sobrenome”=>b); 
-	print(“idade “=>c);
+	print(â€œnome â€=>a=>â€sobrenomeâ€=>b); 
+	print(â€œidade â€œ=>c);
 
-	No terminal aparecerá:
+	No terminal aparecerÃ¡:
 	nome Morpheus Language 
 	idade 1
 
 ```
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
 ### **7.Usando condicionais** 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-Ao usar condicionais usamos {} (chaves) que estiver entre chaves será executado.
-As condicionais são usadas igual se usa no Java. 
+Ao usar condicionais usamos {} (chaves) que estiver entre chaves serÃ¡ executado.
+As condicionais sÃ£o usadas igual se usa no Java. 
 *As condicionais podem ser usadas com aninhamento (if dentro de ifs)   
-*operações matemáticas não podem ser usadas como condição
-As condicionais São: 
+*operaÃ§Ãµes matemÃ¡ticas nÃ£o podem ser usadas como condiÃ§Ã£o
+As condicionais SÃ£o: 
 ```
 
-                                       If condição {Instruções para condição verdadeira}
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â If condiÃ§Ã£o {InstruÃ§Ãµes para condiÃ§Ã£o verdadeira}
 
 ```
 Exemplo: 
@@ -234,16 +235,16 @@ Exemplo:
 
 	if a == b
 	{
-		print (“A é igual a B”);
+		print (â€œA Ã© igual a Bâ€);
 	}
 
-	Saída no terminal:
-	A é igual a B
+	SaÃ­da no terminal:
+	A Ã© igual a B
 ```
-else if : Essa condição é usada igual ao if, quando há vários comandos if use o else if que só será executado se os outros ifs ou else ifs forem falsos, isso deixa o código mais rápido. 
-```          
-                                        else If condição {Instruções para condição verdadeira}
-          
+else if : Essa condiÃ§Ã£o Ã© usada igual ao if, quando hÃ¡ vÃ¡rios comandos if use o else if que sÃ³ serÃ¡ executado se os outros ifs ou else ifs forem falsos, isso deixa o cÃ³digo mais rÃ¡pido. 
+```Â Â Â Â Â Â Â Â Â Â 
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â else If condiÃ§Ã£o {InstruÃ§Ãµes para condiÃ§Ã£o verdadeira}
+Â Â Â Â Â Â Â Â Â Â 
 ```
 
 *Exemplo:*
@@ -254,24 +255,24 @@ else if : Essa condição é usada igual ao if, quando há vários comandos if use o 
 
 	if a == b
 	{
-		print (“é Igual”);
+		print (â€œÃ© Igualâ€);
 	}
 
 	else if a != b
 	{
-		print (“é diferente”);
+		print (â€œÃ© diferenteâ€);
 	}
 
 
-	Saída no terminal:
-	é diferente 
+	SaÃ­da no terminal:
+	Ã© diferente 
 
 ```
 
-else : Usado se a condição if ou a else if não for verdadeira o else será executado.
+else : Usado se a condiÃ§Ã£o if ou a else if nÃ£o for verdadeira o else serÃ¡ executado.
 ```
 
-                                        else {Instruções se os ifs e else if forem falsos}
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â else {InstruÃ§Ãµes se os ifs e else if forem falsos}
 
 ```
 ```
@@ -280,33 +281,33 @@ else : Usado se a condição if ou a else if não for verdadeira o else será execut
 
 	if a <= b
 	{
-		print (“menor ou igual”);
+		print (â€œmenor ou igualâ€);
 		if a/2 != b  
 	{
-	print (“if dentro de if”)
+	print (â€œif dentro de ifâ€)
 	}
 	}
 	else if b >> a
 	{
-		print (“b é maior que a”);
+		print (â€œb Ã© maior que aâ€);
 	}
 	else {
-	 print (“nenhum dos ifs”) }
+	 print (â€œnenhum dos ifsâ€) }
 ```
 
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-### **8.laços de repetição**
-```          
+### **8.laÃ§os de repetiÃ§Ã£o**
+```Â Â Â Â Â Â Â Â Â Â 
 ```
 
 
-No Morpheus usamos o while (), então enquanto a condição dentro dos parênteses for verdadeira o while ficar fazendo ciclos executando os códigos dentro das {} (chaves). 
-*É importante botar uma condição de parada ou o while ficará executando para sempre ou até usa memoria durar.
+No Morpheus usamos o while (), entÃ£o enquanto a condiÃ§Ã£o dentro dos parÃªnteses for verdadeira o while ficar fazendo ciclos executando os cÃ³digos dentro das {} (chaves). 
+*Ã‰ importante botar uma condiÃ§Ã£o de parada ou o while ficarÃ¡ executando para sempre ou atÃ© usa memoria durar.
 
 ```
-                                       while (condição de parada) {código}
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â while (condiÃ§Ã£o de parada) {cÃ³digo}
 ```
 
 *Exemplo:* 
@@ -319,50 +320,50 @@ No Morpheus usamos o while (), então enquanto a condição dentro dos parênteses f
 		a=(a+1);
 	} 
 	
-	Saída no terminal:
+	SaÃ­da no terminal:
 	0
 	1
 	2
 
 ```
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
 ### **9. Vetores**
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-Vetores são atribuídos com [] (colchetes) um vetor poder ter vários valores dentro dele e podem ser acessados pelo índice.
-Para criar um vetor você escreve: 
+Vetores sÃ£o atribuÃ­dos com [] (colchetes) um vetor poder ter vÃ¡rios valores dentro dele e podem ser acessados pelo Ã­ndice.
+Para criar um vetor vocÃª escreve: 
 ```
 
-                                       vetor tipo do vetor | [quantidade de posições] variável.
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â vetor tipo do vetor | [quantidade de posiÃ§Ãµes] variÃ¡vel.
 
 ```
 *Exemplo:*
 ```
-	vetor int | [3] números 
+	vetor int | [3] nÃºmeros 
 
 	//Atribuir valores: 
-	[0] números =10; 
-	[1] números = 20;
-	[2] números = 30;
+	[0] nÃºmeros =10; 
+	[1] nÃºmeros = 20;
+	[2] nÃºmeros = 30;
 
 ```
 
-*Pode usar, modificar, acrescentar quaisquer valores do tipo do vetor pelos índices.
+*Pode usar, modificar, acrescentar quaisquer valores do tipo do vetor pelos Ã­ndices.
  
 
-```          
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-### **10.Funçoes** 
-```          
+### **10.FunÃ§oes** 
+```Â Â Â Â Â Â Â Â Â Â 
 ```
-No Morpheus usamos funções 
-def variável (escopo) {código return valor; },
-variável = call variável da função (escopo);
+No Morpheus usamos funÃ§Ãµes 
+def variÃ¡vel (escopo) {cÃ³digo return valor; },
+variÃ¡vel = call variÃ¡vel da funÃ§Ã£o (escopo);
 
-Escopo: ter o escopo preenchido não é obrigatório, para utilizá-lo deve-se escrever o tipo e uma variável, pode-se usar quantos valores quiser no escopo, os valores recebidos no escopo da função poderão ser usados na função.
+Escopo: ter o escopo preenchido nÃ£o Ã© obrigatÃ³rio, para utilizÃ¡-lo deve-se escrever o tipo e uma variÃ¡vel, pode-se usar quantos valores quiser no escopo, os valores recebidos no escopo da funÃ§Ã£o poderÃ£o ser usados na funÃ§Ã£o.
 
-Return: é obrigatório utilizar o return na função ele pode ser de qualquer tipo.
+Return: Ã© obrigatÃ³rio utilizar o return na funÃ§Ã£o ele pode ser de qualquer tipo.
 *deve ser escrita antes de sua chamada
 
 ```
