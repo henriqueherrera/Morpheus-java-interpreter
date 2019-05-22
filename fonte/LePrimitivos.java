@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class LePrimitivos extends Tools
 {
 	private OperadoresAritmeticos operacoes  = new OperadoresAritmeticos();
-	
+
 	private Int vetores;
 
 	private Int inteiros;
@@ -23,32 +23,32 @@ public class LePrimitivos extends Tools
 	private Char chars;
 
 	private boolean controladorDeLaco = false;//quando true so passa pelo primeiro while
-	
+
 	private boolean controladorIf = false;
 
 	private boolean controladorDef = false;
 
 	private Doubles doubles;
-	
+
 	private String ifExpressao = "";
 
 	private String expressao = "";
 
 	private Comparadores troca;
-	
+
 	//inicio do método idLinha
 	public void idLinha(String linha,int whilis)
 	{
-		linha.trim(); //tira a indentaçao	
+		linha.trim(); //tira a indentaçao
 		troca = new Comparadores();
-		
+
 		if (controladorIf) //enquanto o controlador do If for true toda linha passará por aqui e será armazenado em um hashmap
 		{
 			linha.trim();
-			
+
 			if(this.tiraEspacos(linha).equals("{"))
 			{
-				ifCondicional.countAbreChave();	
+				ifCondicional.countAbreChave();
 				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
 			}
 
@@ -59,7 +59,7 @@ public class LePrimitivos extends Tools
 				if(this.tiraEspacos(linha).equals("}else") && ifCondicional.igualdadeDeChave())
 				{
 					ifCondicional.linhaDoElse = aux1; //pega a linha do else
-				}	
+				}
 				ifCondicional.txtLines.put(aux1,linha);
 			}
 
@@ -67,7 +67,7 @@ public class LePrimitivos extends Tools
 			{
 				ifCondicional.txtLines.put(ifCondicional.countLines(),linha);
 			}
-			
+
 			if(ifCondicional.igualdadeDeChave() && !(this.tiraEspacos(linha).equals("}else")))
 			{
 				ifCondicional.condicionalIf(ifCondicional.getNumeroDeLinhas(), this.getIfExpressao());
@@ -79,7 +79,7 @@ public class LePrimitivos extends Tools
 			linha.trim();
 			if(this.tiraEspacos(linha).equals("{"))
 			{
-				lacoDeRepeticao.countAbreChave();	
+				lacoDeRepeticao.countAbreChave();
 				lacoDeRepeticao.txtLines.put(lacoDeRepeticao.countLines(),linha);
 			}
 
@@ -95,7 +95,7 @@ public class LePrimitivos extends Tools
 			}
 			if(lacoDeRepeticao.igualdadeDeChave() && !(this.tiraEspacos(linha).equals("}else")))
 			{
-				
+
 				lacoDeRepeticao.laco(lacoDeRepeticao.getNumeroDeLinhas(), this.getExpressao());
 				controladorDeLaco = false;
 			}
@@ -103,10 +103,10 @@ public class LePrimitivos extends Tools
 		else if (controladorDef) // enquanto for true toda linha passará por aqui e será armazenado em um hashmap
 		{
 			linha.trim();
-			
+
 			if(this.tiraEspacos(linha).equals("{"))
 			{
-				def.countAbreChave();	
+				def.countAbreChave();
 				def.txtLines.put(def.countLines(),linha);
 			}
 
@@ -139,11 +139,18 @@ public class LePrimitivos extends Tools
 			setIfExpressao(this.tiraEspacos(linha.substring(2,linha.length())+" "));
 			this.controladorIf = true;
 		}
-				
+
 		else if (linha.substring(0,3).equals("int"))
-		{		
+		{
 			this.inteiros = new Int();
-			inteiros.verificador(linha);
+			if(linha.contains(";"))
+			{
+				inteiros.verificador(linha);
+			}
+			else
+			{
+				ErrosNaCompilacao.getLineError(0);
+			}
 		}
 
 		else if (linha.substring(0,3).equals("def"))
@@ -151,37 +158,54 @@ public class LePrimitivos extends Tools
 			String aux = this.tiraEspacos(linha);
 			def = new Def();
 			def.setEscopo(linha.substring(linha.indexOf("(")+1,linha.indexOf(")")));
-			
+
 			funcoes.put(aux.substring(3,aux.indexOf("(")),def);
 			this.controladorDef = true;
 		}
-		
-		
+
+
         else if (linha.substring(0,4).equals("char"))
 		{
 			this.chars = new Char();
-			chars.verificador(linha);
-		}
-
+			if(linha.contains(";"))
+			{
+			    chars.verificador(linha);
+			}
+			else
+			{
+				ErrosNaCompilacao.getLineError(0);
+		    }
+        }
 		else if (linha.substring(0,4).equals("bool"))
 		{
 			this.bool = new Bool();
-			bool.verificador(linha);
+			if(linha.contains(";"))
+			{
+			    bool.verificador(linha);
+			}
+			else
+			{
+				ErrosNaCompilacao.getLineError(0);
+		    }
 		}
 		else if (linha.substring(0,5).equals("print"))
 		{
 			this.print(this.tiraEspacos(linha));
 		}
-						
+
 		else if (linha.substring(0,5).equals("vetor"))
 		{
+            if (!linha.contains(";"))
+            {
+                ErrosNaCompilacao.getLineError(0);
+            }
 			linha = this.tiraEspacos(linha);
 			if(linha.substring(5,linha.indexOf("|")).equals("string"))
 			{
 				this.string = new Strings();
 				string.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
 			}
-			
+
 			else if(linha.substring(5,linha.indexOf("|")).equals("double"))
 			{
 				this.doubles = new Doubles();
@@ -193,7 +217,7 @@ public class LePrimitivos extends Tools
 				this.chars = new Char();
 				chars.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
 			}
-			
+
 			else if(linha.substring(5,linha.indexOf("|")).equals("bool"))
 			{
 				this.bool = new Bool();
@@ -205,9 +229,9 @@ public class LePrimitivos extends Tools
 				this.vetores = new Int();
 				vetores.armazenaVetor(linha.substring(linha.indexOf("|")+1,linha.length()-1));
 			}
-			
+
 		}
-						
+
 		else if (linha.substring(0,5).equals("input"))
 		{
 			this.input(this.tiraEspacos(linha));
@@ -219,17 +243,31 @@ public class LePrimitivos extends Tools
 			setExpressao(this.tiraEspacos(linha.substring(5, linha.length()))); //expressao do while
 			this.controladorDeLaco = true;
 		}
-		
+
 		else if(linha.substring(0,6).equals("double"))
 		{
 			this.doubles = new Doubles();
-			doubles.verificador(linha);
+			if(linha.contains(";"))
+			{
+			    doubles.verificador(linha);
+			}
+			else
+			{
+				ErrosNaCompilacao.getLineError(0);
+		    }
 		}
 
-		else if (linha.substring(0,6).equals("string")) 
+		else if (linha.substring(0,6).equals("string"))
 		{
 			this.string = new Strings();
-			string.verificador(linha);
+			if(linha.contains(";"))
+			{
+			    string.verificador(linha);
+			}
+			else
+			{
+				ErrosNaCompilacao.getLineError(0);
+		    }
 		}
 
 		else if(linha.contains("call"))
@@ -245,9 +283,14 @@ public class LePrimitivos extends Tools
 		{
 
 			String aux =  this.tiraEspacos(linha);
-           	if(this.tiraEspacos(linha.substring(0,this.tiraEspacos(linha).indexOf('='))).contains("[") && this.tiraEspacos(linha.substring(0,this.tiraEspacos(linha).indexOf('='))).contains("]"))
+             if(!linha.contains(";"))
             {
-                
+                ErrosNaCompilacao.getLineError(0);
+            }
+           	
+            else if(this.tiraEspacos(linha.substring(0,this.tiraEspacos(linha).indexOf('='))).contains("[") && this.tiraEspacos(linha.substring(0,this.tiraEspacos(linha).indexOf('='))).contains("]"))
+            {
+
                 if(Comparadores.tipoVariaveis.get(aux.substring(aux.indexOf(']')+1,aux.indexOf('='))).equals("double"))
                 {
                     this.inteiros =new Int();
@@ -276,13 +319,16 @@ public class LePrimitivos extends Tools
 		else if ((this.tiraEspacos(linha).charAt(0) == '[') && linha.contains("]"))
 		{
 			linha = this.tiraEspacos(linha);
-
-			if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("string"))
+            if(!linha.contains(";"))
+            {
+                ErrosNaCompilacao.getLineError(0);
+            }
+            else if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("string"))
 			{
 				this.string = new Strings();
 				string.inseriValorNoVetor(linha.substring(0, linha.length()-1));
 			}
-			
+
 			else if(Comparadores.tipoVariaveis.get(linha.substring(linha.indexOf("]")+1, linha.indexOf("="))).equals("double"))
 			{
 				this.doubles = new Doubles();
@@ -310,10 +356,19 @@ public class LePrimitivos extends Tools
 
 		else
 		{
-			troca.getVariaveis(linha);
+            
+            if(linha.contains(";"))
+            {
+			    troca.getVariaveis(linha);
+            }
+            else
+            {
+                ErrosNaCompilacao.getLineError(0);
+            }
+            
 		}
 	}
-	
+
 	/* os métodos de expressao é oq vai pegar a expressão
 	booleana que tem depois do if ou do while*/
 
@@ -323,7 +378,7 @@ public class LePrimitivos extends Tools
 		this.expressao = exp;
 	}
 	//fim do método setExpressao
-	
+
 	//inicio do método getExpressao
 	public String getExpressao()
 	{
@@ -335,9 +390,9 @@ public class LePrimitivos extends Tools
 		this.ifExpressao = exp;
 	}
 	//fim do método setIfExpressao
-	
+
 	//inicio do método getIfExpressao
-	public String getIfExpressao() 
+	public String getIfExpressao()
 	{
 		return this.ifExpressao;
 	}
