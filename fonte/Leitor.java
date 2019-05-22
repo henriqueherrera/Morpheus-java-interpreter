@@ -35,24 +35,25 @@ class Leitor extends Tools
 		{
 			BufferedReader buffRead = new BufferedReader(new FileReader (this.getArquivo())); // Le o arquivo do código.
 
-            String linha = ""; // Define a variável que armazena cada linha lida.
-		    // Enquanto tudo estiver rodando corretamente, o laço permanece rodando.
-            while(laco)
-            {
-				linha = buffRead.readLine(); // Guarda a linha atual na variável.
+            		String linha = ""; // Define a variável que armazena cada linha lida.
+		    	// Enquanto tudo estiver rodando corretamente, o laço permanece rodando.
+            		while(laco)
+            		{
+		
+		    		linha = buffRead.readLine(); // Guarda a linha atual na variável.
            
 				if(linha != null) // Se a linha não for nula:
-                {
-                    // Se a linha for diferente de zero e não estiver comentada:
-					if((linha.length() != 0 ) && (!linha.contains("//")) )
+                		{
+                    			// Se a linha for diferente de zero e não estiver comentada:
+					if((linha.length() != 0 ) && (!linha.contains("//")) && (!linha.trim().equals("")))
 					{
 						linha = linha.trim(); // Limpa a identação.
 						lePrimitivos.idLinha(linha,0); // Chama o metodo para ler as variaveis primitivas.
 					}
-                    // Caso contrário, se a linha não possuir nem chaves, nem for comentada e seu tamanho for diferente de zero:
-					else if( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && (!linha.contains("//")) && tiraEspacos(linha).length() != 0 ) 
+                    			// Caso contrário, se a linha não possuir nem chaves, nem for comentada e seu tamanho for diferente de zero:
+					else if( !tiraEspacos(linha).contains("{") && !tiraEspacos(linha).contains("}") && (!linha.contains("//")) && !tiraEspacos(linha).equals("") && tiraEspacos(linha).length() == 0) 
 					{
-                        // Acessa a mensagem de erro de código zero e desativa o laço.
+                        			// Acessa a mensagem de erro de código zero e desativa o laço.
 						ErrosNaCompilacao.getLineError(0);
 						laco = false;
 					}
