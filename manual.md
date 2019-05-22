@@ -1,4 +1,4 @@
- ![Image of Logo](https://github.com/Lokens/Vergonhas-Secretas/blob/master/Logo/logo.png)
+ ![Image of Logo](https://raw.githubusercontent.com/Lokens/Vergonhas-Secretas/master/Imagens%20do%20Mopheus/logo.png?token=AHOOZHHCRZSYRJXE434D4K244XIKK)
    
       
          
@@ -105,7 +105,7 @@ Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no iníci
 A declaração de variáveis funciona na ordem “tipo nome = valor;”, ou seja, primeiro deve ser escrito o tipo dela, seu nome (é obrigatório uma variável de nome) e o valor a ser iniciado.
 As variáveis também podem ser declaradas sem nenhuma atribuição de valor.
 ```          
-					       tipo variável = valor
+					       tipo variavel = valor
 ```
 
 Se nenhum valor for atribuído a variável iniciará com
@@ -143,7 +143,7 @@ No Morpheus realiza operações com números, variáveis e vetores.
 *Cada expressão deve ficar entre () (parênteses) 
  
 ```		
-					Variável = (((x+2) *0.5) + [3] vetor)
+					variavel = (((x+2) *0.5) + [3] vetor)
 ```
 
     
@@ -154,8 +154,8 @@ No Morpheus realiza operações com números, variáveis e vetores.
 O comando input () pode ser utilizado para adquirir um valor de entrada digitado pelo usuário.
 
 ```
-					input (variável)
-					input (“frase”, variável)	
+					input (variavel)
+					input (“frase”, variavel)	
 ```
 
 *Pode-se utilizar frases dentro do input que aparecerá para o usuário.
@@ -178,7 +178,7 @@ O comando input () pode ser utilizado para adquirir um valor de entrada digitado
 Usar o comando print () gera uma saída permite o usuário visualizar na tela.
 ```
 					print ()  //*pode utilizar para pular linha
-					print (“string”=>variável=>[]vetor)
+					print (“string”=>variavel=>[]vetor)
 ```
 Exemplo:
 ```
@@ -325,8 +325,8 @@ Para criar um vetor, a seguinte expressão é utilizada:
           
 O Morpheus reconhece como funções o código feito com a seguinte sintaxe:
 ```
-					def variável (escopo) {código return valor;}
-					variável = call variável da função (escopo);
+					def variavel (escopo) {código return valor;}
+					variavel = call variavel da função (escopo);
 ```
 **Escopo:** ter o escopo preenchido não é obrigatório, para utilizá-lo deve-se escrever o tipo e uma variável, pode-se usar quantos valores quiser no escopo, os valores recebidos no escopo da função poderão ser usados na função.
 
