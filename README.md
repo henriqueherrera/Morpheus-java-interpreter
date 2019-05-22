@@ -59,7 +59,7 @@ Para fazer comentários no Morpheus utiliza-se // (duas barras juntas) no início 
 
 ```          
 ```
-                         **Sinais Aritimeticos**
+                         **Sinais Aritiméticos**
 
 
 |**Operador**|**Operação** |
