@@ -1,8 +1,29 @@
+/*
+
+
+	 "Wake up, Neo...
+	  The Matrix Has You...
+		Follow the White Rabbit...
+		Knock, Knock, Neo..."
+
+
+	 Morpheus - The God of Dreams Language
+
+   File interpreter built in Java as a partial requirement for the approval in Programação I class,
+	 Computer Science course of Universidade Federal da Fronteira Sul - Campus Chapecó.
+
+   Made by: Richard Herrera - henriqueherrera9@gmail.com
+ 				 		Matheus Slama - matheus_slama@hotmail.com
+ 				 		Pablo Lodi - lodiricardopablo@gmail.com
+
+*/
+
+
 //inicio da classe Morpheus
 public class Morpheus
 {
 	//inicio do método main
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
 		// Tenta executar os comandos seguintes
 		try
