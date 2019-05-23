@@ -64,13 +64,11 @@ class Strings extends Variaveis
 					//verifica as aspas finais e para a verificação
 					if(str.charAt(ii) == '"')
 					{
-
 						fimDaString = true;
 						break;
 					}
 					else
 					{
-
 						//seta a string que vai estar relacionada com a variavel
 						setVariavelValue(getVariavelValue()+""+str.charAt(ii));
 					}
@@ -84,7 +82,7 @@ class Strings extends Variaveis
 			}
 
 		}
-		
+
 	}
 	//fim do método valueString
 }
