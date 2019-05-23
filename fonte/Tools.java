@@ -22,28 +22,28 @@ public class Tools
 		return numeroDeLinhas;
 	}
 	//fim do método countLines
-	
+
 	//inicio do método getNumeroDelinhas
 	public int getNumeroDeLinhas()
 	{
 		return numeroDeLinhas;
 	}
 	//fim do método getNumeroDeLinhas
-	
+
 	//inicio do método countAbreChave
 	public void countAbreChave()
 	{
 		this.abreChave++;
 	}
 	//fim do método countAbreChave
-	
+
 	//inicio do método countFechaChave
 	public void countFechaChave()
 	{
 		this.fechaChave++;
 	}
 	//fim do método countFechaChave
-	
+
 	//inicio do método igualdadeDeChave
 	public boolean igualdadeDeChave()
 	{
@@ -60,13 +60,13 @@ public class Tools
 	//fim do método reserChaves
 	//inicio do método tiraEspacos
 	public String tiraEspacos(String line)
-    {
-        String cleanLine= "";
+  {
+    String cleanLine= "";
 
 		boolean achoString = true;
-		
+
 		for(int i = 0; i < line.length(); i++)
-        {
+    {
 			if( line.charAt(i) == '"' && achoString) //aqui é pra ele nao tira os espacos dentro de uma string
 			{
 				cleanLine = cleanLine+""+line.charAt(i);
@@ -79,116 +79,122 @@ public class Tools
 						cleanLine= cleanLine+""+line.charAt(ii);
 						achoString = false;
 						i = ii+1;
-						
+
 						break;
 					}
 					else
 					{
 						cleanLine= cleanLine+""+line.charAt(ii);
 					}
-				}
-			}
 
-            if( line.charAt(i) != ' ')
-            {
-                cleanLine= cleanLine+""+line.charAt(i);
+				}
+
 			}
-        }//esse laço tira os espaços da linha
+      if( line.charAt(i) != ' ')
+      {
+          cleanLine= cleanLine+""+line.charAt(i);
+			}
+		} // Esse laço tira os espaços da linha
 		return cleanLine;
-    }
+
+  }
 	//fim do método tiraEspacos
 
 	//inicio do método print
 	public void print(String line)
 	{
 		int inicioStr = 6;
-
 		int fimStr= 0;
-	
+
 		if( line.charAt(5) == '(')
 		{
+
 			for(int i = inicioStr; i< line.length(); i++)
 			{
+
 				if( line.charAt(i) == ')')
 				{
 					fimStr = i;
 					break;
 				}
+
 			}
+
 		}
 
 		String[] prints = line.substring(inicioStr,fimStr).split("=>");
 
 		Strings strings = new Strings();
-        if(!line.equals("print();"))
-        {
-            for( String str:prints)
+    if(!line.equals("print();"))
+    {
+	    for( String str:prints)
+	    {
+		    if(str.charAt(0) == '"')
 		    {
-			    if(str.charAt(0) == '"')
-			    {
-			    	str = str+" "; //esse " " é para passar na funcao valueString sem excluir o ultimo caractere
-				    strings.valueString(str,0);
-				    System.out.print(strings.getVariavelValue());
-				    strings.setVariavelValue("");
-			    }
-			    else if(str.contains("[") && str.contains("]"))
-			    {
-				    str = this.tiraEspacos(str);
-				    Int inteiro = new Int();
-				    
-                    if( Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("string"))
-			    	{
-					    System.out.print(Strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				    }
+		    	str = str+" "; //esse " " é para passar na funcao valueString sem excluir o ultimo caractere
+			    strings.valueString(str,0);
+			    System.out.print(strings.getVariavelValue());
+			    strings.setVariavelValue("");
+		    }
+		    else if(str.contains("[") && str.contains("]"))
+		    {
+			    str = this.tiraEspacos(str);
+			    Int inteiro = new Int();
 
-				    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("double"))
-				    {
-					    System.out.print(Doubles.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				    }
-
-				    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("bool"))
-				    {
-					    System.out.print(Bool.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				    }
-
-				    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("char"))
-				    {
-					    System.out.print(Char.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				    }
-
-				    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("int"))
-				    {
-					    System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
-				    }
-			    }
-		    	
-			    else if(Comparadores.tipoVariaveis.get(str).equals("double"))
-			    {
-				    System.out.printf("%f",Doubles.variaveisArmazenadas.get(str));
+	                if( Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("string"))
+		    	{
+				    System.out.print(Strings.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 			    }
 
-			    else if(Comparadores.tipoVariaveis.get(str).equals("string"))
+			    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("double"))
 			    {
-				    System.out.print(Strings.variaveisArmazenadas.get(str));
+				    System.out.print(Doubles.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 			    }
 
-			    else if(Comparadores.tipoVariaveis.get(str).equals("char"))
+			    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("bool"))
 			    {
-				    System.out.print(Char.variaveisArmazenadas.get(str));
+				    System.out.print(Bool.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 			    }
 
-			    else if(Comparadores.tipoVariaveis.get(str).equals("bool"))
+			    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("char"))
 			    {
-			    	System.out.print(Bool.variaveisArmazenadas.get(str));
+				    System.out.print(Char.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 			    }
-    
-			    else if(Comparadores.tipoVariaveis.get(str).equals("int"))
+
+			    else if(Comparadores.tipoVariaveis.get(str.substring(str.indexOf("]")+1,str.length())).equals("int"))
 			    {
-				    System.out.print(Int.variaveisArmazenadas.get(str));
+				    System.out.print(Int.vetoresArmazenados.get(str.substring(str.indexOf("]")+1,str.length())).get(inteiro.indetificadorDeNumerosInt(str.substring(str.indexOf("[")+1,str.indexOf("]")),0)));
 			    }
 		    }
-        }
-        System.out.println("");
+
+		    else if(Comparadores.tipoVariaveis.get(str).equals("double"))
+		    {
+			    System.out.printf("%f",Doubles.variaveisArmazenadas.get(str));
+		    }
+
+		    else if(Comparadores.tipoVariaveis.get(str).equals("string"))
+		    {
+			    System.out.print(Strings.variaveisArmazenadas.get(str));
+		    }
+
+		    else if(Comparadores.tipoVariaveis.get(str).equals("char"))
+		    {
+			    System.out.print(Char.variaveisArmazenadas.get(str));
+		    }
+
+		    else if(Comparadores.tipoVariaveis.get(str).equals("bool"))
+		    {
+		    	System.out.print(Bool.variaveisArmazenadas.get(str));
+		    }
+
+		    else if(Comparadores.tipoVariaveis.get(str).equals("int"))
+		    {
+			    System.out.print(Int.variaveisArmazenadas.get(str));
+		    }
+    	}
+		}
+    System.out.println("");
+
 	}
 	//fim do método print
 
@@ -196,12 +202,10 @@ public class Tools
 	public void input(String line)
 	{
 		Scanner scan = new Scanner(System.in);
-
 		Strings str = new Strings();
-
 		String id = "";
-
 		int leValue = 6;
+
 		if( line.charAt(5) == '(' )
 		{
 			if(line.charAt(leValue) == '"')//se tiver um " ele pega a frase que tem dentro da string para mostrar na tela para o usuario
@@ -221,17 +225,18 @@ public class Tools
 				{
 					id = id+""+line.charAt(i);
 				}
+
 			}
 
 			if(str.getVariavelValue().length() > 0)
 			{
 				System.out.print(str.getVariavelValue());
 			}
-			
+
 			if(id.contains("[") && id.contains("]")) //por enquanto ta generico so para int
 			{
 				Int inteiro = new Int();
-				
+
 				if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("string"))
 				{
 					String vl = "";
@@ -239,32 +244,33 @@ public class Tools
 					Strings.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
 				}
 
-				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("double"))	
+				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("double"))
 				{
 					double vl;
 					vl = Double.parseDouble(scan.nextLine());
 					Doubles.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
 				}
-				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("bool"))	
+				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("bool"))
 				{
 					boolean vl;
 					vl = Boolean.valueOf(scan.nextLine());
 					Bool.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
 				}
 
-				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("char"))	
+				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("char"))
 				{
 					char vl;
 					vl = scan.next().charAt(0);
 					Char.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
 				}
 
-				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("int"))	
+				else if(Comparadores.tipoVariaveis.get(id.substring(id.indexOf("]")+1,id.length())).equals("int"))
 				{
 					int vl;
 					vl = scan.nextInt();
 					Int.vetoresArmazenados.get(id.substring(id.indexOf("]")+1,id.length())).put(inteiro.indetificadorDeNumerosInt(id.substring(id.indexOf("[")+1,id.indexOf("]")),0),vl);
 				}
+
 			}
 
 			else if((Comparadores.tipoVariaveis.get(id)).equals("double"))
@@ -301,8 +307,9 @@ public class Tools
 				value = scan.nextInt();
 				Int.variaveisArmazenadas.put(id,value);
 			}
-			
+
 		}
+		
 	}
 	//fim do método input
 }
