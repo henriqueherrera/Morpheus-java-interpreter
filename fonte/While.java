@@ -3,9 +3,8 @@ public class While extends Tools
 {
 	//inicio do método laco
 	public void laco(int numeroDeLinhas, String value)
-    {
+  {
 		String tipo = "";
-
 		Comparadores testBooleano = new Comparadores();
 
 		for(int i = 0; i<value.length(); i++)
@@ -24,80 +23,99 @@ public class While extends Tools
 
 		if(tipo.equals("bool"))
 		{
+
 			if(value.contains("[") && value.contains("]"))
 			{
+
 				while(Boolean.parseBoolean(testBooleano.valorDoVetor(value)))
-            	{
+	      {
 					le = new LePrimitivos();
-					
+
 					for(int i = 1; i<=numeroDeLinhas;i++)
 					{
 						le.idLinha(txtLines.get(i),i);
-                	}
-				}	
+	        }
+
+				}
+
 			}
 			else
 			{
-            	while(Bool.variaveisArmazenadas.get(value))
-            	{
+
+      	while(Bool.variaveisArmazenadas.get(value))
+      	{
 					le = new LePrimitivos();
-				
+
 					for(int i = 1; i<=numeroDeLinhas;i++)
 					{
 						le.idLinha(txtLines.get(i),i);
-               	 	}
+	        }
+
 				}
+
 			}
+
 		}
 		else if(tipo.equals("char"))
 		{
+
 			while(testBooleano.comparaChar(value))
-            {
+	    {
 				le = new LePrimitivos();
-				
+
 				for(int i = 1; i<=numeroDeLinhas;i++)
 				{
 					le.idLinha(txtLines.get(i),i);
-                }
+	      }
+
 			}
+
 		}
 
 		else if(tipo.equals("string"))
 		{
 			while(testBooleano.comparaStr(value))
-            {
+	    {
 				le = new LePrimitivos();
-				
+
 				for(int i = 1; i<=numeroDeLinhas;i++)
 				{
 					le.idLinha(txtLines.get(i),i);
-                }
-			}
-		}
+	      }
 
+			}
+
+		}
 		else if (tipo.equals("int"))
 		{
 			while(testBooleano.comparaInt(value))
-            {
+	    {
 				le = new LePrimitivos();
+
 				for(int i = 1; i<=numeroDeLinhas;i++)
 				{
 					le.idLinha(txtLines.get(i),i);
-                }
-			}
-		}
+	      }
 
+			}
+
+		}
 		else if (tipo.equals("double"))
 		{
+
 			while(testBooleano.comparaDouble(value))
 			{
 				le = new LePrimitivos();
+
 				for(int i = 1; i<=numeroDeLinhas; i++)
 				{
 					le.idLinha(txtLines.get(i), i);
 				}
+
 			}
+
 		}
+		
 	}
 	//fim do método lacoDeRepeticao
 }
