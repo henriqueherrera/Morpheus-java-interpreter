@@ -55,7 +55,7 @@ class Leitor extends Tools
 						ErrosNaCompilacao.getLineError(0);
 						laco = false;
 					}
-					ErrosNaCompilacao.numeroDaLinha+=1; // COMO FUNCIONA ISSO DAQUI?
+					ErrosNaCompilacao.numeroDaLinha+=1; // Ajuste técnico para mostrar o número de linha correto
 				}
         // Caso contrário, termina o laço.
 				else
